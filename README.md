@@ -1,1 +1,1 @@
-# cube-one
+# Cube One
