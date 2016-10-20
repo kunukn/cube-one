@@ -1,0 +1,197 @@
+@charset "UTF-8";
+.cubeone-scene {
+    width: 2.7 * $size;
+    height: 2.7 * $size;
+    max-width: 100%;
+    // perspective: 800px;
+    margin: 0 auto;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(-20deg) rotateY(-20deg) rotateZ(0deg);
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: space-between;
+    align-content: space-between;
+    //background: rgba(white, .5);
+}
+
+.cubeone-component {
+    width: $size;
+    height: $size;
+    //margin: 0 auto;
+    position: relative;
+    transform-style: preserve-3d;
+    &:focus {
+        outline: none;
+        .face {
+            border: 2px solid white;
+        }
+    }
+}
+
+.cubeone-touch {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    //background: rgba(red, .5);
+    backface-visibility: hidden;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    color: #222;
+    color: transparent;
+    cursor: pointer;
+    background: transparent;
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 50px white;
+    }
+    //display: none;
+    // font-size: 0;
+    &--up {
+        transform: rotateX(-90deg) translateY($size/2) rotateY(180deg) rotateZ(180deg);
+        transform-origin: top center;
+    }
+    &[data-type=front] {
+        transform: translateZ($size/2);
+    }
+    &[data-type=right] {
+        transform: rotateY(-270deg) translateX($size/2);
+        transform-origin: top right;
+    }
+    &[data-type=left] {
+        transform: rotateY(270deg) translateX(-$size/2);
+        transform-origin: center left;
+    }
+    &[data-type=back] {
+        transform: translateZ(-$size/2) rotateY(180deg);
+    }
+    &[data-type=down] {
+        transform: rotateX(90deg) translateY(-$size/2) rotateY(180deg) rotateZ(180deg);
+        transform-origin: bottom center;
+    }
+}
+
+.cubeone {
+    transition: transform $rotate-transition-duration;
+    position: relative;
+    width: inherit;
+    height: inherit;
+    //margin: 0 auto;
+    transform-style: preserve-3d;
+    user-select: none;
+    pointer-events: none;
+    //animation: spin 5s infinite linear;
+    .face {
+        transition: opacity $rotate-transition-duration;
+        user-select: none;
+        pointer-events: none;
+        position: absolute;
+        width: inherit;
+        height: inherit;
+        text-transform: uppercase;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid black;
+        font-size: 0;
+        color: transparent;
+        //backface-visibility: hidden;
+        border-radius: 1px;
+        opacity: .9;
+        &.tapped {
+            opacity: .1;
+        }
+        > div {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            // /src/assets/images/lion.svg
+            background: url('//s3-us-west-2.amazonaws.com/s.cdpn.io/157670/lion.svg') no-repeat center center / contain;
+        }
+    }
+    .front {
+        transform: translateZ($size/2);
+    }
+    .up {
+        transform: rotateX(-90deg) translateY($size/2) rotateY(180deg) rotateZ(180deg);
+        transform-origin: top center;
+    }
+    .right {
+        transform: rotateY(-270deg) translateX($size/2);
+        transform-origin: top right;
+    }
+    .back {
+        transform: translateZ(-$size/2) rotateY(180deg);
+    }
+    .down {
+        transform: rotateX(90deg) translateY(-$size/2) rotateY(180deg) rotateZ(180deg);
+        transform-origin: bottom center;
+    }
+    .left {
+        transform: rotateY(270deg) translateX(-$size/2);
+        transform-origin: center left;
+    }
+    .front-color {
+        background: $color-front;
+    }
+    .up-color {
+        background: $color-up;
+    }
+    .right-color {
+        background: $color-right;
+    }
+    .left-color {
+        background: $color-left;
+    }
+    .back-color {
+        background: $color-back;
+    }
+    .down-color {
+        background: $color-down;
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotateY(1turn) rotateX(1turn);
+    }
+}
+
+.app-info {
+    font-size: 1.2rem;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: right;
+    padding: .1em;
+    min-height: 1.5em;
+    border-bottom: 1px solid lightgray;
+    padding: 0 .5rem;
+    .title {
+        font-weight: 700;
+    }
+    .state-info {
+        > label {
+            font-weight: 300;
+            display: inline-block;
+        }
+        > .state {
+            display: inline-block;
+            font-weight: 300;
+            text-transform: uppercase;
+            min-width: 2em;
+        }
+    }
+}
