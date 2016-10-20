@@ -1,7 +1,7 @@
 @charset "UTF-8";
 .cubeone-scene {
-    width: 2.7 * $size;
-    height: 2.7 * $size;
+    width: 2.7 * $cube-size;
+    height: 2.7 * $cube-size;
     max-width: 100%;
     // perspective: 800px;
     margin: 0 auto;
@@ -18,8 +18,8 @@
 }
 
 .cubeone-component {
-    width: $size;
-    height: $size;
+    width: $cube-size;
+    height: $cube-size;
     //margin: 0 auto;
     position: relative;
     transform-style: preserve-3d;
@@ -54,25 +54,25 @@
     //display: none;
     // font-size: 0;
     &--up {
-        transform: rotateX(-90deg) translateY($size/2) rotateY(180deg) rotateZ(180deg);
+        transform: rotateX(-90deg) translateY($cube-size/2) rotateY(180deg) rotateZ(180deg);
         transform-origin: top center;
     }
     &[data-type=front] {
-        transform: translateZ($size/2);
+        transform: translateZ($cube-size/2);
     }
     &[data-type=right] {
-        transform: rotateY(-270deg) translateX($size/2);
+        transform: rotateY(-270deg) translateX($cube-size/2);
         transform-origin: top right;
     }
     &[data-type=left] {
-        transform: rotateY(270deg) translateX(-$size/2);
+        transform: rotateY(270deg) translateX($cube-size/2);
         transform-origin: center left;
     }
     &[data-type=back] {
-        transform: translateZ(-$size/2) rotateY(180deg);
+        transform: translateZ($cube-size/2) rotateY(180deg);
     }
     &[data-type=down] {
-        transform: rotateX(90deg) translateY(-$size/2) rotateY(180deg) rotateZ(180deg);
+        transform: rotateX(90deg) translateY($cube-size/2) rotateY(180deg) rotateZ(180deg);
         transform-origin: bottom center;
     }
 }
@@ -113,30 +113,29 @@
             height: 100%;
             left: 0;
             top: 0;
-            // /src/assets/images/lion.svg
-            background: url('//s3-us-west-2.amazonaws.com/s.cdpn.io/157670/lion.svg') no-repeat center center / contain;
+            background: url(#{$cube-background-image-url}) no-repeat center center / contain;
         }
     }
     .front {
-        transform: translateZ($size/2);
+        transform: translateZ($cube-size/2);
     }
     .up {
-        transform: rotateX(-90deg) translateY($size/2) rotateY(180deg) rotateZ(180deg);
+        transform: rotateX(-90deg) translateY($cube-size/2) rotateY(180deg) rotateZ(180deg);
         transform-origin: top center;
     }
     .right {
-        transform: rotateY(-270deg) translateX($size/2);
+        transform: rotateY(-270deg) translateX($cube-size/2);
         transform-origin: top right;
     }
     .back {
-        transform: translateZ(-$size/2) rotateY(180deg);
+        transform: translateZ(-$cube-size/2) rotateY(180deg);
     }
     .down {
-        transform: rotateX(90deg) translateY(-$size/2) rotateY(180deg) rotateZ(180deg);
+        transform: rotateX(90deg) translateY(-$cube-size/2) rotateY(180deg) rotateZ(180deg);
         transform-origin: bottom center;
     }
     .left {
-        transform: rotateY(270deg) translateX(-$size/2);
+        transform: rotateY(270deg) translateX(-$cube-size/2);
         transform-origin: center left;
     }
     .front-color {
