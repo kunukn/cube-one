@@ -423,6 +423,7 @@ class CubeOne {
                 this._y();
                 break;
             case KEY.UP:
+                event.preventDefault();            
             case KEY.w:
                 this.x();
                 break;
@@ -431,6 +432,7 @@ class CubeOne {
                 this.y();
                 break;
             case KEY.DOWN:
+                event.preventDefault();
             case KEY.s:
                 this._x();
                 break;
