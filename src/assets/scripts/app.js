@@ -23,6 +23,8 @@ function statechangeCallback(eventName, payload) {
 function initCallback(eventName, payload) {}
 
 const bodyWrapperEl = qs('.body-wrapper');
+const cubeOneSceneEl = qs('.cubeone-scene');
+
 
 function checkForComplete() {
     let keys = Object.keys(states),
@@ -154,6 +156,21 @@ cubeOne.solve = () => {
 };
 
 window.cubeOne = cubeOne;
+
+const btnCubeOne = byId('btn-cube-one');
+btnCubeOne.addEventListener('click', (ev) => {
+    if (cubeOneSceneEl.classList.contains('left-side')) {
+        cubeOneSceneEl.classList.remove('left-side');
+        cubeOneSceneEl.classList.add('down-side');
+    } else if (cubeOneSceneEl.classList.contains('down-side')) {
+        cubeOneSceneEl.classList.remove('down-side');
+        cubeOneSceneEl.classList.add('left-down-side');
+    } else if (cubeOneSceneEl.classList.contains('left-down-side')) {
+        cubeOneSceneEl.classList.remove('left-down-side');
+    } else {
+        cubeOneSceneEl.classList.add('left-side');
+    }
+});
 
 //----------
 log('cubeOne is available in console');

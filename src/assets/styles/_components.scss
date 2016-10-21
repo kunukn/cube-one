@@ -1,5 +1,6 @@
 @charset "UTF-8";
 .cubeone-scene {
+    transition: transform 400ms;
     width: 2 * $cube-size;
     height: 2 * $cube-size;
     max-width: 100%;
@@ -14,7 +15,15 @@
     justify-content: space-between;
     align-items: space-between;
     align-content: space-between;
-    //background: rgba(white, .5);
+    &.left-side {
+        transform: rotateX(-20deg) rotateY(20deg) rotateZ(0deg);
+    }
+    &.down-side {
+        transform: rotateX(20deg) rotateY(-20deg) rotateZ(0deg);
+    }
+    &.left-down-side {
+        transform: rotateX(20deg) rotateY(20deg) rotateZ(0deg);
+    }
 }
 
 [data-type=cubeone] {
@@ -163,6 +172,15 @@
     padding: 0 .5rem;
     .title {
         font-weight: 700;
+        > button {
+            background: transparent;
+            //border: 1px solid;
+            //box-shadow: 2px 2px 4px gray;
+            outline: none;
+            color: white;
+            font-size: inherit;
+            margin: .5rem 0;
+        }
     }
     .state-info {
         >label {
