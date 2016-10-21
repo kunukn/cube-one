@@ -3,7 +3,7 @@ import deepFreeze from 'deep-freeze';
 
 const dictCubeTransform = [];
 
-Object.keys(STATES).forEach(i => dictCubeTransform[i] = []);
+Object.keys(STATES).forEach((state, index) => dictCubeTransform[state] = []);
 
 dictCubeTransform['lf']['u'] = { angle: 90, dir: 'Z' };
 dictCubeTransform['rf']['u'] = { angle: -90, dir: 'Z' };

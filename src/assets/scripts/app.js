@@ -11,36 +11,49 @@ import CubeOne from './cube-one';
 
 //log('App running');
 
-const cube1 = new CubeOne({
+window.cubeOne = window.cubeOne || [];
+
+let cube = new CubeOne({
     cubeComponent: byId('cubeone-component-1'),
     infoComponent: qs('.js-state-info-1'),
 });
-cube1.init();
+//cube.addCallbackForEvent('init', (eventName, payload) => {log(eventName), log(payload)});
+cube.init();
+cube.setToRandomState();
+cube.addCallbackForEvent('statechange', (eventName, payload) => {log(eventName), log(payload)});
+window.cubeOne.push(cube);
 
-// const cube2 = new CubeOne({
-//     cubeComponent: byId('cubeone-component-2'),
-//     infoComponent: qs('.js-state-info-2'),
-// });
-// cube2.init();
+//----------
+cube = new CubeOne({
+    cubeComponent: byId('cubeone-component-2'),
+    infoComponent: qs('.js-state-info-2'),
+});
+cube.init();
+cube.setToRandomState();
+cube.addCallbackForEvent('statechange', (eventName, payload) => {log(eventName), log(payload)});
+window.cubeOne.push(cube);
 
-// const cube3 = new CubeOne({
-//     cubeComponent: byId('cubeone-component-3'),
-//     infoComponent: qs('.js-state-info-3'),
-// });
-// cube3.init();
+//----------
+cube = new CubeOne({
+    cubeComponent: byId('cubeone-component-3'),
+    infoComponent: qs('.js-state-info-3'),
+});
+cube.init();
+cube.setToRandomState();
+cube.addCallbackForEvent('statechange', (eventName, payload) => {log(eventName), log(payload)});
+window.cubeOne.push(cube);
 
-// const cube4 = new CubeOne({
-//     cubeComponent: byId('cubeone-component-4'),
-//     infoComponent: qs('.js-state-info-4'),
-// });
-// cube4.init();
+//----------
+cube = new CubeOne({
+    cubeComponent: byId('cubeone-component-4'),
+    infoComponent: qs('.js-state-info-4'),
+});
+cube.init();
+cube.setToRandomState();
+cube.addCallbackForEvent('statechange', (eventName, payload) => {log(eventName), log(payload)});
+window.cubeOne.push(cube);
 
-window.cubeOne = window.cubeOne || [];
-window.cubeOne.push(cube1);
-// window.cubeOne.push(cube2);
-// window.cubeOne.push(cube3);
-// window.cubeOne.push(cube4);
-
+//----------
 log('cubeOne is available in console');
 
 

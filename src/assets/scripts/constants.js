@@ -29,6 +29,10 @@ const STATES = {
 deepFreeze(STATES);
 
 
+const STATES_ARRAY = [];
+Object.keys(STATES).forEach((state, index) => STATES_ARRAY.push(state));
+deepFreeze(STATES_ARRAY);
+
 const opposite = [];
 opposite['u'] = 'd';
 opposite['d'] = 'u';
@@ -69,4 +73,4 @@ left['ld'] = 'b';
 left['lf'] = 'd';
 
 
-export { STATES, opposite, left };
+export { STATES, STATES_ARRAY, opposite, left };

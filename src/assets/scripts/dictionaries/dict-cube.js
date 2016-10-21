@@ -4,7 +4,7 @@ import deepFreeze from 'deep-freeze';
 
 const dictCube = [];
 
-Object.keys(STATES).forEach(i => dictCube[i] = []);
+Object.keys(STATES).forEach((state, index) => dictCube[state] = []);
 
 let index, u, f, next, state = nextState.first;
 

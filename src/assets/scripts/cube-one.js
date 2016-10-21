@@ -21,7 +21,7 @@ import {
 import dictCube from './dictionaries/dict-cube';
 import dictCubeTransform from './dictionaries/dict-cube-transform';
 
-import { STATES } from './constants';
+import { STATES, STATES_ARRAY } from './constants';
 
 function rAF(callback) {
     window.requestAnimationFrame(callback);
@@ -47,6 +47,14 @@ const KEY = {
 };
 
 
+const EVENT_NAMES = {
+    init: 'init',
+    statechange: 'statechange',
+    beforerotate: 'beforerotate',
+    afterrotate: 'afterrotate',
+};
+
+
 
 class CubeOne {
     constructor(config) {
@@ -59,20 +67,52 @@ class CubeOne {
         this.cubeComponentEl = config.cubeComponent;
         this.stateInfoEl = config.infoComponent;
 
-
-
         this._appState = {
             code: nextState.first,
             swipeEnabled: true,
         };
+
+        this._initCallbacks();
     }
+
+
+    _initCallbacks() {
+        this.callbacks = {};
+        Object.keys(EVENT_NAMES).forEach((eventName, index) => this.callbacks[eventName] = []);
+    }
+
+    addCallbackForEvent(eventName, cb) {
+        let collection = this.callbacks[(eventName = eventName.toLowerCase())];
+        if (collection && typeof cb === 'function') {
+            collection.push(cb);
+        }
+    };
+
+    _triggerEvent(eventName, payload) {
+        let collection = this.callbacks[eventName] || [],
+            i, max;
+        for (i = 0, max = collection.length; i < max; i++) {
+            collection[i].call(this, eventName, payload);
+        }
+    }
+
 
     getState() {
         return cloneObject(this._appState);
     }
 
     setState(state) {
+        const previousStateCode = this._appState.code,
+            currentStateCode = state.code;
+
         this._appState = state;
+
+        if (previousStateCode !== currentStateCode) {
+            this._triggerEvent('statechange', {
+                cube: this.cubeComponentEl, 
+                previousStateCode, 
+                currentStateCode });
+        }
         this.updateAppInfo();
     }
 
@@ -366,6 +406,8 @@ class CubeOne {
         this.updateUiFaces();
         this.updateAppInfo();
         cubeEl.addEventListener('transitionend', this.transitionEnd.bind(this));
+
+        this._triggerEvent('init', { cube: this.cubeComponentEl });
     }
 
 
@@ -431,6 +473,13 @@ class CubeOne {
 
         let state = this.getState();
         state.code = stateCode;
+        this.setState(state);
+        this.updateUiFaces();
+    }
+
+    setToRandomState() {
+        let state = this.getState();
+        state.code = STATES_ARRAY[(STATES_ARRAY.length * Math.random()) | 0];
         this.setState(state);
         this.updateUiFaces();
     }
