@@ -25,6 +25,16 @@ body {
     transition: 200ms;
     background-blend-mode: multiply;
     &.with-background-image {
-        background: rgba(#009E60, .2) url($cube-background-image-url) 0% 0% no-repeat;
+        background: rgba(white, .5) url($cube-background-image-url) 0% 0% no-repeat;
+    }
+    animation: page-fade-in 2000ms;
+}
+
+@keyframes page-fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }

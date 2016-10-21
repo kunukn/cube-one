@@ -56,6 +56,8 @@ const cubeOne = {
     cubes: []
 };
 
+
+
 const cube1 = new CubeOne({
     cubeComponent: byId('cubeone-component-1'),
     infoComponent: qs('.js-state-info-1'),
@@ -74,108 +76,106 @@ const cube4 = new CubeOne({
 });
 
 
-cube1.addCallbackForEvent('init', initCallback);
-cube1.addCallbackForEvent('statechange', statechangeCallback);
-cube1.init();
-cube1.setToRandomState();
-cubeOne.cubes.push(cube1);
+//setTimeout(() => {
 
-cube1.addCallbackForEvent('beforerotate', (eventName, payload) => {
-    if (payload.action === 'x')
-        cube3.x({ skipTriggerEvent: true });
-    else if (payload.action === '-x')
-        cube3._x({ skipTriggerEvent: true });
-    else if (payload.action === 'y')
-        cube2.y({ skipTriggerEvent: true });
-    else if (payload.action === '-y')
-        cube2._y({ skipTriggerEvent: true });
-});
+    cube1.addCallbackForEvent('init', initCallback);
+    cube1.addCallbackForEvent('statechange', statechangeCallback);
+    cube1.init();
+    cube1.setToRandomState();
+    cubeOne.cubes.push(cube1);
 
-//----------
+    cube1.addCallbackForEvent('beforerotate', (eventName, payload) => {
+        if (payload.action === 'x')
+            cube3.x({ skipTriggerEvent: true });
+        else if (payload.action === '-x')
+            cube3._x({ skipTriggerEvent: true });
+        else if (payload.action === 'y')
+            cube2.y({ skipTriggerEvent: true });
+        else if (payload.action === '-y')
+            cube2._y({ skipTriggerEvent: true });
+    });
 
-cube2.addCallbackForEvent('init', initCallback);
-cube2.addCallbackForEvent('statechange', statechangeCallback);
-cube2.init();
-cube2.setToRandomState();
-cubeOne.cubes.push(cube2);
+    //----------
 
-cube2.addCallbackForEvent('beforerotate', (eventName, payload) => {
-    if (payload.action === 'x')
-        cube4.x({ skipTriggerEvent: true });
-    else if (payload.action === '-x')
-        cube4._x({ skipTriggerEvent: true });
-    else if (payload.action === 'y')
-        cube1.y({ skipTriggerEvent: true });
-    else if (payload.action === '-y')
-        cube1._y({ skipTriggerEvent: true });
-});
+    cube2.addCallbackForEvent('init', initCallback);
+    cube2.addCallbackForEvent('statechange', statechangeCallback);
+    cube2.init();
+    cube2.setToRandomState();
+    cubeOne.cubes.push(cube2);
 
-
-//----------
-
-cube3.addCallbackForEvent('init', initCallback);
-cube3.addCallbackForEvent('statechange', statechangeCallback);
-cube3.init();
-cube3.setToRandomState();
-cubeOne.cubes.push(cube3);
-
-cube3.addCallbackForEvent('beforerotate', (eventName, payload) => {
-    if (payload.action === 'x')
-        cube1.x({ skipTriggerEvent: true });
-    else if (payload.action === '-x')
-        cube1._x({ skipTriggerEvent: true });
-    else if (payload.action === 'y')
-        cube4.y({ skipTriggerEvent: true });
-    else if (payload.action === '-y')
-        cube4._y({ skipTriggerEvent: true });
-});
-
-//----------
-
-cube4.addCallbackForEvent('init', initCallback);
-cube4.addCallbackForEvent('statechange', statechangeCallback);
-cube4.init();
-cube4.setToRandomState();
-cubeOne.cubes.push(cube4);
-
-cube4.addCallbackForEvent('beforerotate', (eventName, payload) => {
-    if (payload.action === 'x')
-        cube2.x({ skipTriggerEvent: true });
-    else if (payload.action === '-x')
-        cube2._x({ skipTriggerEvent: true });
-    else if (payload.action === 'y')
-        cube3.y({ skipTriggerEvent: true });
-    else if (payload.action === '-y')
-        cube3._y({ skipTriggerEvent: true });
-});
-
-//----------
-
-cubeOne.solve = () => {
-    cubeOne.cubes.forEach(cube => cube.gotoState('uf'));
-};
-
-window.cubeOne = cubeOne;
-
-const btnCubeOne = byId('btn-cube-one');
-btnCubeOne.addEventListener('click', (ev) => {
-    if (cubeOneSceneEl.classList.contains('left-side')) {
-        cubeOneSceneEl.classList.remove('left-side');
-        cubeOneSceneEl.classList.add('down-side');
-    } else if (cubeOneSceneEl.classList.contains('down-side')) {
-        cubeOneSceneEl.classList.remove('down-side');
-        cubeOneSceneEl.classList.add('left-down-side');
-    } else if (cubeOneSceneEl.classList.contains('left-down-side')) {
-        cubeOneSceneEl.classList.remove('left-down-side');
-    } else {
-        cubeOneSceneEl.classList.add('left-side');
-    }
-});
-
-//----------
-log('cubeOne is available in console');
+    cube2.addCallbackForEvent('beforerotate', (eventName, payload) => {
+        if (payload.action === 'x')
+            cube4.x({ skipTriggerEvent: true });
+        else if (payload.action === '-x')
+            cube4._x({ skipTriggerEvent: true });
+        else if (payload.action === 'y')
+            cube1.y({ skipTriggerEvent: true });
+        else if (payload.action === '-y')
+            cube1._y({ skipTriggerEvent: true });
+    });
 
 
-export class App {
-    constructor() {}
-}
+    //----------
+
+    cube3.addCallbackForEvent('init', initCallback);
+    cube3.addCallbackForEvent('statechange', statechangeCallback);
+    cube3.init();
+    cube3.setToRandomState();
+    cubeOne.cubes.push(cube3);
+
+    cube3.addCallbackForEvent('beforerotate', (eventName, payload) => {
+        if (payload.action === 'x')
+            cube1.x({ skipTriggerEvent: true });
+        else if (payload.action === '-x')
+            cube1._x({ skipTriggerEvent: true });
+        else if (payload.action === 'y')
+            cube4.y({ skipTriggerEvent: true });
+        else if (payload.action === '-y')
+            cube4._y({ skipTriggerEvent: true });
+    });
+
+    //----------
+
+    cube4.addCallbackForEvent('init', initCallback);
+    cube4.addCallbackForEvent('statechange', statechangeCallback);
+    cube4.init();
+    cube4.setToRandomState();
+    cubeOne.cubes.push(cube4);
+
+    cube4.addCallbackForEvent('beforerotate', (eventName, payload) => {
+        if (payload.action === 'x')
+            cube2.x({ skipTriggerEvent: true });
+        else if (payload.action === '-x')
+            cube2._x({ skipTriggerEvent: true });
+        else if (payload.action === 'y')
+            cube3.y({ skipTriggerEvent: true });
+        else if (payload.action === '-y')
+            cube3._y({ skipTriggerEvent: true });
+    });
+
+    //----------
+
+    cubeOne.solve = () => {
+        cubeOne.cubes.forEach(cube => cube.gotoState('uf'));
+    };
+
+    window.cubeOne = cubeOne;
+
+    const btnCubeOne = byId('btn-cube-one');
+    btnCubeOne.addEventListener('click', (ev) => {
+        if (cubeOneSceneEl.classList.contains('left-side')) {
+            cubeOneSceneEl.classList.remove('left-side');
+            cubeOneSceneEl.classList.add('down-side');
+        } else if (cubeOneSceneEl.classList.contains('down-side')) {
+            cubeOneSceneEl.classList.remove('down-side');
+            cubeOneSceneEl.classList.add('left-down-side');
+        } else if (cubeOneSceneEl.classList.contains('left-down-side')) {
+            cubeOneSceneEl.classList.remove('left-down-side');
+        } else {
+            cubeOneSceneEl.classList.add('left-side');
+        }
+    });
+
+    //----------
+    log('cubeOne is available in console');
+//}, 3000);

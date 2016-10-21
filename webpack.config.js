@@ -94,9 +94,9 @@ module.exports = {
     resolve: {
         extensions: ['', '.js']
     },
-      externals: {
-            "hammerjs/hammer": "Hammer"
-        },
+    externals: {
+        "hammerjs/hammer": "Hammer"
+    },
 };
 
 
