@@ -22,8 +22,8 @@ body {
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
-    transition: 200ms;    
+    transition: 200ms;
     &.with-background-image {
-        background: #252525 url($cube-background-image-url) 50% 0% no-repeat;
+        background: rgba(#009E60, .9) url($cube-background-image-url) 50% 0% no-repeat;
     }
 }
