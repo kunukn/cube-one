@@ -53,28 +53,28 @@
     }
     //display: none;
     // font-size: 0;
-    &--up {
-        transform: rotateX(-90deg) translateY($cube-size/2) rotateY(180deg) rotateZ(180deg);
-        transform-origin: top center;
-    }
     &[data-type=front] {
         transform: translateZ($cube-size/2);
+    }
+    &[data-type=up] {
+        transform: rotateX(-90deg) translateY($cube-size/2) rotateY(180deg) rotateZ(180deg);
+        transform-origin: top center;
     }
     &[data-type=right] {
         transform: rotateY(-270deg) translateX($cube-size/2);
         transform-origin: top right;
     }
-    &[data-type=left] {
-        transform: rotateY(270deg) translateX($cube-size/2);
-        transform-origin: center left;
-    }
     &[data-type=back] {
-        transform: translateZ($cube-size/2) rotateY(180deg);
+        transform: translateZ(-$cube-size/2) rotateY(180deg);
     }
     &[data-type=down] {
-        transform: rotateX(90deg) translateY($cube-size/2) rotateY(180deg) rotateZ(180deg);
+        transform: rotateX(90deg) translateY(-$cube-size/2) rotateY(180deg) rotateZ(180deg);
         transform-origin: bottom center;
     }
+    &[data-type=left] {
+        transform: rotateY(270deg) translateX(-$cube-size/2);
+        transform-origin: center left;
+    }        
 }
 
 .cubeone-cube {
@@ -138,7 +138,7 @@
     .cubeone-left {
         transform: rotateY(270deg) translateX(-$cube-size/2);
         transform-origin: center left;
-    }  
+    }
 }
 
 @keyframes spin {
