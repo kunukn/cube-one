@@ -77,7 +77,7 @@
     }
 }
 
-.cubeone {
+.cubeone-cube {
     transition: transform $rotate-transition-duration;
     position: relative;
     width: inherit;
@@ -86,6 +86,7 @@
     transform-style: preserve-3d;
     user-select: none;
     pointer-events: none;
+    transform-origin: 50% 50%;
     //animation: spin 5s infinite linear;
     .cubeone-face {
         transition: opacity $rotate-transition-duration;
@@ -137,25 +138,7 @@
     .cubeone-left {
         transform: rotateY(270deg) translateX(-$cube-size/2);
         transform-origin: center left;
-    }
-    .front-color {
-        background: $color-front;
-    }
-    .up-color {
-        background: $color-up;
-    }
-    .right-color {
-        background: $color-right;
-    }
-    .left-color {
-        background: $color-left;
-    }
-    .back-color {
-        background: $color-back;
-    }
-    .down-color {
-        background: $color-down;
-    }
+    }  
 }
 
 @keyframes spin {

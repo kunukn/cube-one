@@ -1,7 +1,7 @@
 ;
 'use strict';
 
-import { log } from './logger';
+import { debug, log, error } from './logger';
 
 import { qs, qsa, byId } from './query';
 
@@ -46,14 +46,21 @@ const KEY = {
     w: 87,
 };
 
-const hammerOptions = {
-    preventDefault: true
-};
+
 
 class CubeOne {
     constructor(config) {
+
+        if (!config || !config.cubeComponent) {
+            error(`CubeOne element was not provided: ${config.cubeComponent}`);
+            return;
+        }
+
         this.cubeComponentEl = config.cubeComponent;
         this.stateInfoEl = config.infoComponent;
+
+
+
         this._appState = {
             code: nextState.first,
             swipeEnabled: true,
@@ -115,32 +122,77 @@ class CubeOne {
         this.backEl = qs('.cubeone-back > div', cubeEl);
         this.downEl = qs('.cubeone-down > div', cubeEl);
 
-        const hammerFront = new Hammer(
-            touchFrontEl,
-            hammerOptions);
-        const hammerUp = new Hammer(
-            touchUpEl,
-            hammerOptions);
-        const hammerRight = new Hammer(
-            touchRightEl,
-            hammerOptions);
-        const hammerLeft = new Hammer(
-            touchLeftEl,
-            hammerOptions);
-        const hammerDown = new Hammer(
-            touchDownEl,
-            hammerOptions);
+        const hammerOptions = {
+            preventDefault: true
+        };
 
-        hammerFront.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
-        hammerUp.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
-        hammerRight.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
-        hammerLeft.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
-        hammerDown.get('swipe').set({ direction: Hammer.DIRECTION_ALL });
+        const swipeFront = new Hammer.Swipe();
+        swipeFront.set({ direction: Hammer.DIRECTION_ALL });
+        const swipeUp = new Hammer.Swipe();
+        swipeUp.set({ direction: Hammer.DIRECTION_ALL });
+        const swipeRight = new Hammer.Swipe();
+        swipeRight.set({ direction: Hammer.DIRECTION_ALL });
+        const swipeLeft = new Hammer.Swipe();
+        swipeLeft.set({ direction: Hammer.DIRECTION_ALL });
+        const swipeDown = new Hammer.Swipe();
+        swipeDown.set({ direction: Hammer.DIRECTION_ALL });
+        const swipeBack = new Hammer.Swipe();
+        swipeBack.set({ direction: Hammer.DIRECTION_ALL });
+
+        const hammerFront = new Hammer.Manager(touchFrontEl, {});
+        hammerFront.add(swipeFront);
+
+        const hammerUp = new Hammer.Manager(touchUpEl, {});
+        hammerUp.add(swipeUp);
+
+        const hammerRight = new Hammer.Manager(touchRightEl, {});
+        hammerRight.add(swipeRight);
+
+        const hammerLeft = new Hammer.Manager(touchLeftEl, {});
+        hammerLeft.add(swipeLeft);
+
+        const hammerDown = new Hammer.Manager(touchDownEl, {});
+        hammerDown.add(swipeDown);
+
+        const hammerBack = new Hammer.Manager(touchDownEl, {});
+        hammerBack.add(swipeBack);
 
 
-        hammerFront.on('tap swipeup swipedown swiperight swipeleft', (ev) => {
+        hammerFront.add(new Hammer.Tap({ event: 'doubletap', taps: 2 }));
+        hammerFront.add(new Hammer.Tap({ event: 'singletap' }));
+        hammerFront.get('doubletap').recognizeWith('singletap');
+        hammerFront.get('singletap').requireFailure('doubletap');
+
+        hammerUp.add(new Hammer.Tap({ event: 'doubletap', taps: 2 }));
+        hammerUp.add(new Hammer.Tap({ event: 'singletap' }));
+        hammerUp.get('doubletap').recognizeWith('singletap');
+        hammerUp.get('singletap').requireFailure('doubletap');
+
+        hammerRight.add(new Hammer.Tap({ event: 'doubletap', taps: 2 }));
+        hammerRight.add(new Hammer.Tap({ event: 'singletap' }));
+        hammerRight.get('doubletap').recognizeWith('singletap');
+        hammerRight.get('singletap').requireFailure('doubletap');
+
+        hammerLeft.add(new Hammer.Tap({ event: 'doubletap', taps: 2 }));
+        hammerLeft.add(new Hammer.Tap({ event: 'singletap' }));
+        hammerLeft.get('doubletap').recognizeWith('singletap');
+        hammerLeft.get('singletap').requireFailure('doubletap');
+
+        hammerDown.add(new Hammer.Tap({ event: 'doubletap', taps: 2 }));
+        hammerDown.add(new Hammer.Tap({ event: 'singletap' }));
+        hammerDown.get('doubletap').recognizeWith('singletap');
+        hammerDown.get('singletap').requireFailure('doubletap');
+
+        hammerBack.add(new Hammer.Tap({ event: 'doubletap', taps: 2 }));
+        hammerBack.add(new Hammer.Tap({ event: 'singletap' }));
+        hammerBack.get('doubletap').recognizeWith('singletap');
+        hammerBack.get('singletap').requireFailure('doubletap');
+
+        hammerFront.on('singletap doubletap swipeup swipedown swiperight swipeleft', (ev) => {
+
             const type = ev.type;
             let element = ev.target;
+            debug(`${type} ${element.dataset.type}`);
 
             // Find swipe element if event is invoke on child element
             if (element.dataset.type !== 'cubeone') {
@@ -150,8 +202,10 @@ class CubeOne {
             }
 
             switch (type) {
-                case 'tap':
-                    this.tap(element, ev.target.dataset.type);
+                case 'singletap':
+                    break;
+                case 'doubletap':
+                    this.tapped(element, ev.target.dataset.type);
                     break;
                 case 'swipeup':
                     this.x();
@@ -169,9 +223,10 @@ class CubeOne {
         });
 
 
-        hammerUp.on('tap swipeup swipedown swiperight swipeleft', (ev) => {
+        hammerUp.on('singletap doubletap swipeup swipedown swiperight swipeleft', (ev) => {
             const type = ev.type;
             let element = ev.target;
+            debug(`${type} ${element.dataset.type}`);
 
             // Find swipe element if event is invoke on child element
             if (element.dataset.type !== 'cubeone') {
@@ -181,8 +236,10 @@ class CubeOne {
             }
 
             switch (type) {
-                case 'tap':
-                    this.tap(element, ev.target.dataset.type);
+                case 'singletap':
+                    break;
+                case 'doubletap':
+                    this.tapped(element, ev.target.dataset.type);
                     break;
                 case 'swipeup':
                     this.x();
@@ -200,9 +257,10 @@ class CubeOne {
         });
 
 
-        hammerRight.on('tap swipeup swipedown swiperight swipeleft', (ev) => {
+        hammerRight.on('singletap doubletap swipeup swipedown swiperight swipeleft', (ev) => {
             const type = ev.type;
             let element = ev.target;
+            debug(`${type} ${element.dataset.type}`);
 
             // Find swipe element if event is invoke on child element
             if (element.dataset.type !== 'cubeone') {
@@ -211,8 +269,10 @@ class CubeOne {
                     element = element.parentElement;
             }
             switch (type) {
-                case 'tap':
-                    this.tap(element, ev.target.dataset.type);
+                case 'singletap':
+                    break;
+                case 'doubletap':
+                    this.tapped(element, ev.target.dataset.type);
                     break;
                 case 'swipeup':
                     this._z();
@@ -230,9 +290,10 @@ class CubeOne {
         });
 
 
-        hammerLeft.on('tap swipeup swipedown swiperight swipeleft', (ev) => {
+        hammerLeft.on('singletap doubletap swipeup swipedown swiperight swipeleft', (ev) => {
             const type = ev.type;
             let element = ev.target;
+            debug(`${type} ${element.dataset.type}`);
 
             // Find swipe element if event is invoke on child element
             if (element.dataset.type !== 'cubeone') {
@@ -241,8 +302,10 @@ class CubeOne {
                     element = element.parentElement;
             }
             switch (type) {
-                case 'tap':
-                    this.tap(element, ev.target.dataset.type);
+                case 'singletap':
+                    break;
+                case 'doubletap':
+                    this.tapped(element, ev.target.dataset.type);
                     break;
                 case 'swipeup':
                     this.z();
@@ -259,9 +322,10 @@ class CubeOne {
             }
         });
 
-        hammerDown.on('tap swipeup swipedown swiperight swipeleft', (ev) => {
+        hammerDown.on('singletap doubletap swipeup swipedown swiperight swipeleft', (ev) => {
             const type = ev.type;
             let element = ev.target;
+            debug(`${type} ${element.dataset.type}`);
 
             // Find swipe element if event is invoke on child element
             if (element.dataset.type !== 'cubeone') {
@@ -270,23 +334,33 @@ class CubeOne {
                     element = element.parentElement;
             }
             switch (type) {
-                case 'tap':
-                    tap(element, ev.target.dataset.type);
+                case 'singletap':
+                    break;
+                case 'doubletap':
+                    this.tapped(element, ev.target.dataset.type);
                     break;
                 case 'swipeup':
-                    x();
+                    this.x();
                     break;
                 case 'swiperight':
-                    _z();
+                    this._z();
                     break;
                 case 'swipedown':
-                    _x();
+                    this._x();
                     break;
                 case 'swipeleft':
-                    z();
+                    this.z();
                     break;
             }
         });
+
+
+        hammerBack.on('singletap doubletap swipeup swipedown swiperight swipeleft', (ev) => {
+            const type = ev.type;
+            let element = ev.target;
+            log(`${type} ${element.dataset.type}`);
+        });
+
 
         this.cubeComponentEl.addEventListener('keydown', this.handleKeyEvent.bind(this), false);
         this.updateUiFaces();
@@ -333,7 +407,7 @@ class CubeOne {
         this.downEl.style.transform = t ? `rotate${t.dir}(${t.angle}deg)` : '';
     }
 
-    tap(element, target) {        
+    tapped(element, target) {
         qs(`.cubeone-${target}.cubeone-face`, element).classList.toggle('tapped');
     }
 
