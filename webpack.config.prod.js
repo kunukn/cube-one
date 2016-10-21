@@ -12,7 +12,7 @@ module.exports = {
     context: path.resolve('./'),
     devtool: '',
     entry: {
-        vendors: ['hammerjs/hammer'],
+        //  vendors: ['hammerjs/hammer'],
         app: ['./src/assets/scripts/app']
     },
     output: {
@@ -89,7 +89,10 @@ module.exports = {
     resolve: {
         extensions: ['', '.js']
     },
-    externals: {}
+
+    externals: {
+        "hammerjs/hammer": "Hammer"
+    },
 };
 
 

@@ -12,7 +12,7 @@ module.exports = {
     devtool: 'eval',
     context: path.resolve('./'),
     entry: {
-        vendors: ['hammerjs/hammer'],
+        //vendors: ['hammerjs/hammer'],
         app: ['./src/assets/scripts'],
         //app: ['webpack-dev-server/client?http://localhost:8080/', './src/assets/scripts/app'],
     },
@@ -94,7 +94,9 @@ module.exports = {
     resolve: {
         extensions: ['', '.js']
     },
-    externals: {}
+      externals: {
+            "hammerjs/hammer": "Hammer"
+        },
 };
 
 
