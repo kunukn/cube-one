@@ -23,8 +23,6 @@ function initCallback(eventName, payload) {}
 const bodyWrapperEl = qs('.body-wrapper');
 
 function checkForComplete() {
-
-
     let keys = Object.keys(states);
     let isComplete = false;
 
@@ -57,6 +55,9 @@ cube.addCallbackForEvent('statechange', statechangeCallback);
 cube.init();
 cube.setToRandomState();
 cubeOne.cubes.push(cube);
+//cube.addCallbackForEvent('beforerotate', (eventName, payload) => { log(eventName) });
+//cube.addCallbackForEvent('afterrotate', (eventName, payload) => { log(eventName) });
+//cube.addCallbackForEvent('statechange', (eventName, payload) => { log(eventName) });
 
 //----------
 cube = new CubeOne({
@@ -94,7 +95,7 @@ cubeOne.cubes.push(cube);
 //----------
 
 cubeOne.solve = () => {
-    cubeOne.cubes.forEach( cube => cube.gotoState('uf'));
+    cubeOne.cubes.forEach(cube => cube.gotoState('uf'));
 };
 
 window.cubeOne = cubeOne;

@@ -81,10 +81,10 @@ class CubeOne {
         Object.keys(EVENT_NAMES).forEach((eventName, index) => this.callbacks[eventName] = []);
     }
 
-    addCallbackForEvent(eventName, cb) {
+    addCallbackForEvent(eventName, callback) {
         let collection = this.callbacks[(eventName = eventName.toLowerCase())];
-        if (collection && typeof cb === 'function') {
-            collection.push(cb);
+        if (collection && typeof callback === 'function') {
+            collection.push(callback);
         }
     };
 
@@ -135,6 +135,9 @@ class CubeOne {
                 const state = this.getState();
                 state.swipeEnabled = true;
                 this.setState(state);
+                this._triggerEvent('afterrotate', {
+                    cube: this.cubeComponentEl,
+                });
             });
         });
     }
@@ -486,27 +489,48 @@ class CubeOne {
     }
 
     x() {
+        this._triggerEvent('beforerotate', {
+            cube: this.cubeComponentEl,
+        });
         this.actionInvoke('x', this.uix);
     }
 
     _x() {
+
+        this._triggerEvent('beforerotate', {
+            cube: this.cubeComponentEl,
+        });
         this.actionInvoke('-x', this.ui_x);
     }
 
     y() {
+
+        this._triggerEvent('beforerotate', {
+            cube: this.cubeComponentEl,
+        });
         this.actionInvoke('y', this.uiy);
     }
 
     _y() {
+
+        this._triggerEvent('beforerotate', {
+            cube: this.cubeComponentEl,
+        });
         this.actionInvoke('-y', this.ui_y);
     }
 
-
     z() {
+        this._triggerEvent('beforerotate', {
+            cube: this.cubeComponentEl,
+        });
         this.actionInvoke('z', this.uiz);
     }
 
     _z() {
+
+        this._triggerEvent('beforerotate', {
+            cube: this.cubeComponentEl,
+        });
         this.actionInvoke('-z', this.ui_z);
     }
 
