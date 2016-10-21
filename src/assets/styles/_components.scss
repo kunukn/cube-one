@@ -17,7 +17,7 @@
     //background: rgba(white, .5);
 }
 
-.cubeone-component {
+[data-type=cubeone] {
     width: $cube-size;
     height: $cube-size;
     //margin: 0 auto;
@@ -25,7 +25,7 @@
     transform-style: preserve-3d;
     &:focus {
         outline: none;
-        .face {
+        .cubeone-face {
             border: 2px solid white;
         }
     }
@@ -87,7 +87,7 @@
     user-select: none;
     pointer-events: none;
     //animation: spin 5s infinite linear;
-    .face {
+    .cubeone-face {
         transition: opacity $rotate-transition-duration;
         user-select: none;
         pointer-events: none;
@@ -107,7 +107,7 @@
         &.tapped {
             opacity: .1;
         }
-        > div {
+        >div {
             position: absolute;
             width: 100%;
             height: 100%;
@@ -116,25 +116,25 @@
             background: url(#{$cube-background-image-url}) no-repeat center center / contain;
         }
     }
-    .front {
+    .cubeone-front {
         transform: translateZ($cube-size/2);
     }
-    .up {
+    .cubeone-up {
         transform: rotateX(-90deg) translateY($cube-size/2) rotateY(180deg) rotateZ(180deg);
         transform-origin: top center;
     }
-    .right {
+    .cubeone-right {
         transform: rotateY(-270deg) translateX($cube-size/2);
         transform-origin: top right;
     }
-    .back {
+    .cubeone-back {
         transform: translateZ(-$cube-size/2) rotateY(180deg);
     }
-    .down {
+    .cubeone-down {
         transform: rotateX(90deg) translateY(-$cube-size/2) rotateY(180deg) rotateZ(180deg);
         transform-origin: bottom center;
     }
-    .left {
+    .cubeone-left {
         transform: rotateY(270deg) translateX(-$cube-size/2);
         transform-origin: center left;
     }
@@ -182,11 +182,11 @@
         font-weight: 700;
     }
     .state-info {
-        > label {
+        >label {
             font-weight: 300;
             display: inline-block;
         }
-        > .state {
+        >.state {
             display: inline-block;
             font-weight: 300;
             text-transform: uppercase;

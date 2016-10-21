@@ -98,22 +98,22 @@ class CubeOne {
 
         const cubeComponentEl = this.cubeComponentEl;
 
-        const touchUpEl = qs('.js-touch-up', cubeComponentEl),
-            touchFrontEl = qs('.js-touch-front', cubeComponentEl),
-            touchRightEl = qs('.js-touch-right', cubeComponentEl),
-            touchLeftEl = qs('.js-touch-left', cubeComponentEl),
-            touchBackEl = qs('.js-touch-back', cubeComponentEl),
-            touchDownEl = qs('.js-touch-down', cubeComponentEl);
+        const touchUpEl = qs('[data-type="up"].cubeone-js-touch', cubeComponentEl),
+            touchFrontEl = qs('[data-type="front"].cubeone-js-touch', cubeComponentEl),
+            touchRightEl = qs('[data-type="right"].cubeone-js-touch', cubeComponentEl),
+            touchLeftEl = qs('[data-type="left"].cubeone-js-touch', cubeComponentEl),
+            touchBackEl = qs('[data-type="back"].cubeone-js-touch', cubeComponentEl),
+            touchDownEl = qs('[data-type="down"].cubeone-js-touch', cubeComponentEl);
 
-        const cubeEl = qs('.js-cube', cubeComponentEl);
+        const cubeEl = qs('.cubeone-js-cube', cubeComponentEl);
         this.cubeEl = cubeEl;
 
-        this.frontEl = qs('.front > div', cubeEl);
-        this.upEl = qs('.up > div', cubeEl);
-        this.rightEl = qs('.right > div', cubeEl);
-        this.leftEl = qs('.left > div', cubeEl);
-        this.backEl = qs('.back > div', cubeEl);
-        this.downEl = qs('.down > div', cubeEl);
+        this.frontEl = qs('.cubeone-front > div', cubeEl);
+        this.upEl = qs('.cubeone-up > div', cubeEl);
+        this.rightEl = qs('.cubeone-right > div', cubeEl);
+        this.leftEl = qs('.cubeone-left > div', cubeEl);
+        this.backEl = qs('.cubeone-back > div', cubeEl);
+        this.downEl = qs('.cubeone-down > div', cubeEl);
 
         const hammerFront = new Hammer(
             touchFrontEl,
@@ -143,9 +143,9 @@ class CubeOne {
             let element = ev.target;
 
             // Find swipe element if event is invoke on child element
-            if (element.dataset.type !== 'swipe-component') {
+            if (element.dataset.type !== 'cubeone') {
                 element = element.parentElement;
-                if (element.dataset.type !== 'swipe-component')
+                if (element.dataset.type !== 'cubeone')
                     element = element.parentElement;
             }
 
@@ -174,9 +174,9 @@ class CubeOne {
             let element = ev.target;
 
             // Find swipe element if event is invoke on child element
-            if (element.dataset.type !== 'swipe-component') {
+            if (element.dataset.type !== 'cubeone') {
                 element = element.parentElement;
-                if (element.dataset.type !== 'swipe-component')
+                if (element.dataset.type !== 'cubeone')
                     element = element.parentElement;
             }
 
@@ -205,9 +205,9 @@ class CubeOne {
             let element = ev.target;
 
             // Find swipe element if event is invoke on child element
-            if (element.dataset.type !== 'swipe-component') {
+            if (element.dataset.type !== 'cubeone') {
                 element = element.parentElement;
-                if (element.dataset.type !== 'swipe-component')
+                if (element.dataset.type !== 'cubeone')
                     element = element.parentElement;
             }
             switch (type) {
@@ -235,9 +235,9 @@ class CubeOne {
             let element = ev.target;
 
             // Find swipe element if event is invoke on child element
-            if (element.dataset.type !== 'swipe-component') {
+            if (element.dataset.type !== 'cubeone') {
                 element = element.parentElement;
-                if (element.dataset.type !== 'swipe-component')
+                if (element.dataset.type !== 'cubeone')
                     element = element.parentElement;
             }
             switch (type) {
@@ -264,9 +264,9 @@ class CubeOne {
             let element = ev.target;
 
             // Find swipe element if event is invoke on child element
-            if (element.dataset.type !== 'swipe-component') {
+            if (element.dataset.type !== 'cubeone') {
                 element = element.parentElement;
-                if (element.dataset.type !== 'swipe-component')
+                if (element.dataset.type !== 'cubeone')
                     element = element.parentElement;
             }
             switch (type) {
@@ -333,8 +333,8 @@ class CubeOne {
         this.downEl.style.transform = t ? `rotate${t.dir}(${t.angle}deg)` : '';
     }
 
-    tap(element, target) {
-        qs(`.${target}.face`, element).classList.toggle('tapped');
+    tap(element, target) {        
+        qs(`.cubeone-${target}.cubeone-face`, element).classList.toggle('tapped');
     }
 
     actionInvoke(action, ui) {
@@ -423,7 +423,7 @@ class CubeOne {
                 this._y();
                 break;
             case KEY.UP:
-                event.preventDefault();            
+                event.preventDefault();
             case KEY.w:
                 this.x();
                 break;
