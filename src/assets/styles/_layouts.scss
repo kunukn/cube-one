@@ -10,10 +10,9 @@ body {
 
 body {
     font-family: Helvetica, sans-serif;
-    background: #fafafa;
-    background: #111;
     color: white;
     margin: 0;
+    background-color: #111;
 }
 
 .body-wrapper {
@@ -23,4 +22,8 @@ body {
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
+    transition: 200ms;    
+    &.with-background-image {
+        background: #252525 url($cube-background-image-url) 50% 0% no-repeat;
+    }
 }
