@@ -29,10 +29,10 @@ function checkForComplete() {
     let isComplete = false;
 
     if (keys.length >= 4) {
-        isComplete = true;        
+        isComplete = true;
         keys.forEach((key, index, array) => {
             if (states[key] !== 'uf') {
-                isComplete = false;                
+                isComplete = false;
             }
         });
     }
@@ -44,8 +44,9 @@ function checkForComplete() {
     }
 }
 
-
-window.cubeOne = window.cubeOne || [];
+let cubeOne = {
+    cubes: []
+};
 
 let cube = new CubeOne({
     cubeComponent: byId('cubeone-component-1'),
@@ -55,7 +56,7 @@ cube.addCallbackForEvent('init', initCallback);
 cube.addCallbackForEvent('statechange', statechangeCallback);
 cube.init();
 cube.setToRandomState();
-window.cubeOne.push(cube);
+cubeOne.cubes.push(cube);
 
 //----------
 cube = new CubeOne({
@@ -66,7 +67,7 @@ cube.addCallbackForEvent('init', initCallback);
 cube.addCallbackForEvent('statechange', statechangeCallback);
 cube.init();
 cube.setToRandomState();
-window.cubeOne.push(cube);
+cubeOne.cubes.push(cube);
 
 //----------
 cube = new CubeOne({
@@ -77,7 +78,7 @@ cube.addCallbackForEvent('init', initCallback);
 cube.addCallbackForEvent('statechange', statechangeCallback);
 cube.init();
 cube.setToRandomState();
-window.cubeOne.push(cube);
+cubeOne.cubes.push(cube);
 
 //----------
 cube = new CubeOne({
@@ -88,9 +89,15 @@ cube.addCallbackForEvent('init', initCallback);
 cube.addCallbackForEvent('statechange', statechangeCallback);
 cube.init();
 cube.setToRandomState();
-window.cubeOne.push(cube);
+cubeOne.cubes.push(cube);
 
+//----------
 
+cubeOne.solve = () => {
+    cubeOne.cubes.forEach( cube => cube.gotoState('uf'));
+};
+
+window.cubeOne = cubeOne;
 
 
 

@@ -109,9 +109,10 @@ class CubeOne {
 
         if (previousStateCode !== currentStateCode) {
             this._triggerEvent('statechange', {
-                cube: this.cubeComponentEl, 
-                previousStateCode, 
-                currentStateCode });
+                cube: this.cubeComponentEl,
+                previousStateCode,
+                currentStateCode
+            });
         }
         this.updateAppInfo();
     }
