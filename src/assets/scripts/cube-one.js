@@ -489,55 +489,63 @@ class CubeOne {
         this.updateUiFaces();
     }
 
-    x() {
-        this._triggerEvent('beforerotate', {
-            cube: this.cubeComponentEl,
-            action: 'x',
-        });
+    x(config) {
+        if (!(config && config.skipTriggerEvent)) {
+            this._triggerEvent('beforerotate', {
+                cube: this.cubeComponentEl,
+                action: 'x',
+            });
+        }
         this.actionInvoke('x', this.uix);
     }
 
-    _x() {
-
-        this._triggerEvent('beforerotate', {
-            cube: this.cubeComponentEl,
-            action: '-x',
-        });
+    _x(config) {
+        if (!(config && config.skipTriggerEvent)) {
+            this._triggerEvent('beforerotate', {
+                cube: this.cubeComponentEl,
+                action: '-x',
+            });
+        }
         this.actionInvoke('-x', this.ui_x);
     }
 
-    y() {
-
-        this._triggerEvent('beforerotate', {
-            cube: this.cubeComponentEl,
-            action: 'y',
-        });
+    y(config) {
+        if (!(config && config.skipTriggerEvent)) {
+            this._triggerEvent('beforerotate', {
+                cube: this.cubeComponentEl,
+                action: 'y',
+            });
+        }
         this.actionInvoke('y', this.uiy);
     }
 
-    _y() {
-
-        this._triggerEvent('beforerotate', {
-            cube: this.cubeComponentEl,
-            action: '-y',
-        });
+    _y(config) {
+        if (!(config && config.skipTriggerEvent)) {
+            this._triggerEvent('beforerotate', {
+                cube: this.cubeComponentEl,
+                action: '-y',
+            });
+        }
         this.actionInvoke('-y', this.ui_y);
     }
 
-    z() {
-        this._triggerEvent('beforerotate', {
-            cube: this.cubeComponentEl,
-            action: 'z',
-        });
+    z(config) {
+        if (!(config && config.skipTriggerEvent)) {
+            this._triggerEvent('beforerotate', {
+                cube: this.cubeComponentEl,
+                action: 'z',
+            });
+        }
         this.actionInvoke('z', this.uiz);
     }
 
-    _z() {
-
-        this._triggerEvent('beforerotate', {
-            cube: this.cubeComponentEl,
-            action: '-z',
-        });
+    _z(config) {
+        if (!(config && config.skipTriggerEvent)) {
+            this._triggerEvent('beforerotate', {
+                cube: this.cubeComponentEl,
+                action: '-z',
+            });
+        }
         this.actionInvoke('-z', this.ui_z);
     }
 

@@ -23,6 +23,7 @@ body {
     justify-content: center;
     align-items: center;
     transition: 200ms;
+    background-blend-mode: multiply;
     &.with-background-image {
         background: rgba(#009E60, .2) url($cube-background-image-url) 0% 0% no-repeat;
     }
