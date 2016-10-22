@@ -1,4 +1,3 @@
-;
 'use strict';
 
 import { debug, log, error } from './logger';
@@ -135,7 +134,6 @@ class CubeOne {
         });
     }
 
-
     init() {
 
         this._handleKeyEvent.bind(this);
@@ -158,10 +156,6 @@ class CubeOne {
         this.leftEl = qs('.cubeone-left > div', cubeEl);
         this.backEl = qs('.cubeone-back > div', cubeEl);
         this.downEl = qs('.cubeone-down > div', cubeEl);
-
-        const hammerOptions = {
-            preventDefault: true
-        };
 
         const swipeFront = new Hammer.Swipe();
         swipeFront.set({ direction: Hammer.DIRECTION_ALL });
@@ -229,7 +223,7 @@ class CubeOne {
 
             const type = ev.type;
             let element = ev.target;
-            debug(`${type} ${element.dataset.type}`);
+            //debug(`${type} ${element.dataset.type}`);
 
             // Find swipe element if event is invoke on child element
             if (element.dataset.type !== 'cubeone') {
@@ -251,10 +245,10 @@ class CubeOne {
                     this.y();
                     break;
                 case 'swipedown':
-                    this._x();
+                    this.X();
                     break;
                 case 'swipeleft':
-                    this._y();
+                    this.Y();
                     break;
             }
         });
@@ -263,7 +257,7 @@ class CubeOne {
         hammerUp.on('singletap doubletap swipeup swipedown swiperight swipeleft', (ev) => {
             const type = ev.type;
             let element = ev.target;
-            debug(`${type} ${element.dataset.type}`);
+            //debug(`${type} ${element.dataset.type}`);
 
             // Find swipe element if event is invoke on child element
             if (element.dataset.type !== 'cubeone') {
@@ -285,10 +279,10 @@ class CubeOne {
                     this.z();
                     break;
                 case 'swipedown':
-                    this._x();
+                    this.X();
                     break;
                 case 'swipeleft':
-                    this._z();
+                    this.Z();
                     break;
             }
         });
@@ -297,7 +291,7 @@ class CubeOne {
         hammerRight.on('singletap doubletap swipeup swipedown swiperight swipeleft', (ev) => {
             const type = ev.type;
             let element = ev.target;
-            debug(`${type} ${element.dataset.type}`);
+            //debug(`${type} ${element.dataset.type}`);
 
             // Find swipe element if event is invoke on child element
             if (element.dataset.type !== 'cubeone') {
@@ -312,7 +306,7 @@ class CubeOne {
                     this.tapped(element, ev.target.dataset.type);
                     break;
                 case 'swipeup':
-                    this._z();
+                    this.Z();
                     break;
                 case 'swiperight':
                     this.y();
@@ -321,7 +315,7 @@ class CubeOne {
                     this.z();
                     break;
                 case 'swipeleft':
-                    this._y();
+                    this.Y();
                     break;
             }
         });
@@ -351,10 +345,10 @@ class CubeOne {
                     this.y();
                     break;
                 case 'swipedown':
-                    this._z();
+                    this.Z();
                     break;
                 case 'swipeleft':
-                    this._y();
+                    this.Y();
                     break;
             }
         });
@@ -362,7 +356,7 @@ class CubeOne {
         hammerDown.on('singletap doubletap swipeup swipedown swiperight swipeleft', (ev) => {
             const type = ev.type;
             let element = ev.target;
-            debug(`${type} ${element.dataset.type}`);
+            //debug(`${type} ${element.dataset.type}`);
 
             // Find swipe element if event is invoke on child element
             if (element.dataset.type !== 'cubeone') {
@@ -380,10 +374,10 @@ class CubeOne {
                     this.x();
                     break;
                 case 'swiperight':
-                    this._z();
+                    this.Z();
                     break;
                 case 'swipedown':
-                    this._x();
+                    this.X();
                     break;
                 case 'swipeleft':
                     this.z();
@@ -487,17 +481,17 @@ class CubeOne {
                 action: 'x',
             });
         }
-        this._actionInvoke('x', this.uix);
+        this._actionInvoke('x', this._uix);
     }
 
-    _x(config) {
+    X(config) {
         if (!(config && config.skipTriggerEvent)) {
             this._triggerEvent('beforerotate', {
                 cube: this.cubeComponentEl,
                 action: '-x',
             });
         }
-        this._actionInvoke('-x', this.ui_x);
+        this._actionInvoke('-x', this._uiX);
     }
 
     y(config) {
@@ -507,17 +501,17 @@ class CubeOne {
                 action: 'y',
             });
         }
-        this._actionInvoke('y', this.uiy);
+        this._actionInvoke('y', this._uiy);
     }
 
-    _y(config) {
+    Y(config) {
         if (!(config && config.skipTriggerEvent)) {
             this._triggerEvent('beforerotate', {
                 cube: this.cubeComponentEl,
                 action: '-y',
             });
         }
-        this._actionInvoke('-y', this.ui_y);
+        this._actionInvoke('-y', this._uiY);
     }
 
     z(config) {
@@ -527,40 +521,40 @@ class CubeOne {
                 action: 'z',
             });
         }
-        this._actionInvoke('z', this.uiz);
+        this._actionInvoke('z', this._uiz);
     }
 
-    _z(config) {
+    Z(config) {
         if (!(config && config.skipTriggerEvent)) {
             this._triggerEvent('beforerotate', {
                 cube: this.cubeComponentEl,
                 action: '-z',
             });
         }
-        this._actionInvoke('-z', this.ui_z);
+        this._actionInvoke('-z', this._uiZ);
     }
 
-    uix() {
+    _uix() {
         this.cubeEl.style.transform = `rotateX(90deg)`;
     }
 
-    uiy() {
+    _uiy() {
         this.cubeEl.style.transform = `rotateY(90deg)`;
     }
 
-    ui_x() {
+    _uiX() {
         this.cubeEl.style.transform = `rotateX(-90deg)`;
     }
 
-    ui_y() {
+    _uiY() {
         this.cubeEl.style.transform = `rotateY(-90deg)`;
     }
 
-    uiz() {
+    _uiz() {
         this.cubeEl.style.transform = `rotateZ(90deg)`;
     }
 
-    ui_z() {
+    _uiZ() {
         this.cubeEl.style.transform = `rotateZ(-90deg)`;
     }
 
@@ -574,7 +568,7 @@ class CubeOne {
         switch (event.keyCode) {
             case KEY.LEFT:
             case KEY.a:
-                this._y();
+                this.Y();
                 break;
             case KEY.UP:
                 event.preventDefault();
@@ -588,10 +582,10 @@ class CubeOne {
             case KEY.DOWN:
                 event.preventDefault();
             case KEY.s:
-                this._x();
+                this.X();
                 break;
             case KEY.q:
-                this._z();
+                this.Z();
                 break;
             case KEY.e:
                 this.z();

@@ -1,4 +1,3 @@
-;
 'use strict';
 
 import '../styles/app.scss';
@@ -26,8 +25,8 @@ function statechangeCallback(eventName, payload) {
     checkForComplete();
 
     let info = infos[payload.cube.id];
-    if(info)
-    info.innerHTML = `<label>State: </label><span class="state"> ${payload.currentStateCode}</span>`;
+    if (info)
+        info.innerHTML = `<label>State: </label><span class="state"> ${payload.currentStateCode}</span>`;
 }
 
 function initCallback(eventName, payload) {}
@@ -93,11 +92,11 @@ cube1.addCallbackForEvent('beforerotate', (eventName, payload) => {
     if (payload.action === 'x')
         cube3.x({ skipTriggerEvent: true });
     else if (payload.action === '-x')
-        cube3._x({ skipTriggerEvent: true });
+        cube3.X({ skipTriggerEvent: true });
     else if (payload.action === 'y')
         cube2.y({ skipTriggerEvent: true });
     else if (payload.action === '-y')
-        cube2._y({ skipTriggerEvent: true });
+        cube2.Y({ skipTriggerEvent: true });
 });
 
 //----------
@@ -112,11 +111,11 @@ cube2.addCallbackForEvent('beforerotate', (eventName, payload) => {
     if (payload.action === 'x')
         cube4.x({ skipTriggerEvent: true });
     else if (payload.action === '-x')
-        cube4._x({ skipTriggerEvent: true });
+        cube4.X({ skipTriggerEvent: true });
     else if (payload.action === 'y')
         cube1.y({ skipTriggerEvent: true });
     else if (payload.action === '-y')
-        cube1._y({ skipTriggerEvent: true });
+        cube1.Y({ skipTriggerEvent: true });
 });
 
 
@@ -132,11 +131,11 @@ cube3.addCallbackForEvent('beforerotate', (eventName, payload) => {
     if (payload.action === 'x')
         cube1.x({ skipTriggerEvent: true });
     else if (payload.action === '-x')
-        cube1._x({ skipTriggerEvent: true });
+        cube1.X({ skipTriggerEvent: true });
     else if (payload.action === 'y')
         cube4.y({ skipTriggerEvent: true });
     else if (payload.action === '-y')
-        cube4._y({ skipTriggerEvent: true });
+        cube4.Y({ skipTriggerEvent: true });
 });
 
 //----------
@@ -151,11 +150,11 @@ cube4.addCallbackForEvent('beforerotate', (eventName, payload) => {
     if (payload.action === 'x')
         cube2.x({ skipTriggerEvent: true });
     else if (payload.action === '-x')
-        cube2._x({ skipTriggerEvent: true });
+        cube2.X({ skipTriggerEvent: true });
     else if (payload.action === 'y')
         cube3.y({ skipTriggerEvent: true });
     else if (payload.action === '-y')
-        cube3._y({ skipTriggerEvent: true });
+        cube3.Y({ skipTriggerEvent: true });
 });
 
 //----------
