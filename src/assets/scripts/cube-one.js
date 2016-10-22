@@ -65,11 +65,10 @@ class CubeOne {
         }
 
         this.cubeComponentEl = config.cubeComponent;
-        this.stateInfoEl = config.infoComponent;
 
         this._appState = {
             code: nextState.first,
-            swipeEnabled: true,
+            rotateEnabled: true,
         };
 
         this._initCallbacks();
@@ -101,7 +100,7 @@ class CubeOne {
         return cloneObject(this._appState);
     }
 
-    setState(state) {
+    _setState(state) {
         const previousStateCode = this._appState.code,
             currentStateCode = state.code;
 
@@ -114,27 +113,20 @@ class CubeOne {
                 currentStateCode
             });
         }
-        this.updateAppInfo();
     }
 
-    updateAppInfo() {
-        if (this.stateInfoEl)
-            this.stateInfoEl.innerHTML = `<label>State: </label><span class="state"> ${this.getState().code}</span>`;
-    }
-
-
-    transitionEnd(ev) {
+    _transitionEnd(ev) {
         const cubeEl = this.cubeEl;
         cubeEl.style.transition = `0s`;
         nextFrame(_ => {
-            this.updateUiFaces();
+            this._updateUiFaces();
             cubeEl.style.transform = '';
             rAF(_ => {
                 cubeEl.style.transition = '';
 
                 const state = this.getState();
-                state.swipeEnabled = true;
-                this.setState(state);
+                state.rotateEnabled = true;
+                this._setState(state);
                 this._triggerEvent('afterrotate', {
                     cube: this.cubeComponentEl,
                     stateCode: state.code,
@@ -146,7 +138,7 @@ class CubeOne {
 
     init() {
 
-        this.handleKeyEvent.bind(this);
+        this._handleKeyEvent.bind(this);
 
         const cubeComponentEl = this.cubeComponentEl;
 
@@ -407,16 +399,15 @@ class CubeOne {
         });
 
 
-        this.cubeComponentEl.addEventListener('keydown', this.handleKeyEvent.bind(this), false);
-        this.updateUiFaces();
-        this.updateAppInfo();
-        cubeEl.addEventListener('transitionend', this.transitionEnd.bind(this));
+        this.cubeComponentEl.addEventListener('keydown', this._handleKeyEvent.bind(this), false);
+        this._updateUiFaces();
+        cubeEl.addEventListener('transitionend', this._transitionEnd.bind(this));
 
         this._triggerEvent('init', { cube: this.cubeComponentEl });
     }
 
 
-    updateUiFaces() {
+    _updateUiFaces() {
 
         let u, f, r, l, b, d;
         const state = this.getState();
@@ -458,16 +449,16 @@ class CubeOne {
         qs(`.cubeone-${target}.cubeone-face`, element).classList.toggle('tapped');
     }
 
-    actionInvoke(action, ui) {
+    _actionInvoke(action, ui) {
         let state = this.getState(),
             stateCode = state.code;
 
-        if (!state.swipeEnabled)
+        if (!state.rotateEnabled)
             return;
 
         state.code = dictCube[stateCode][action]; // reducer
-        state.swipeEnabled = false;
-        this.setState(state);
+        state.rotateEnabled = false;
+        this._setState(state);
         ui = ui.bind(this);
         ui();
     }
@@ -478,15 +469,15 @@ class CubeOne {
 
         let state = this.getState();
         state.code = stateCode;
-        this.setState(state);
-        this.updateUiFaces();
+        this._setState(state);
+        this._updateUiFaces();
     }
 
     setToRandomState() {
         let state = this.getState();
         state.code = STATES_ARRAY[(STATES_ARRAY.length * Math.random()) | 0];
-        this.setState(state);
-        this.updateUiFaces();
+        this._setState(state);
+        this._updateUiFaces();
     }
 
     x(config) {
@@ -496,7 +487,7 @@ class CubeOne {
                 action: 'x',
             });
         }
-        this.actionInvoke('x', this.uix);
+        this._actionInvoke('x', this.uix);
     }
 
     _x(config) {
@@ -506,7 +497,7 @@ class CubeOne {
                 action: '-x',
             });
         }
-        this.actionInvoke('-x', this.ui_x);
+        this._actionInvoke('-x', this.ui_x);
     }
 
     y(config) {
@@ -516,7 +507,7 @@ class CubeOne {
                 action: 'y',
             });
         }
-        this.actionInvoke('y', this.uiy);
+        this._actionInvoke('y', this.uiy);
     }
 
     _y(config) {
@@ -526,7 +517,7 @@ class CubeOne {
                 action: '-y',
             });
         }
-        this.actionInvoke('-y', this.ui_y);
+        this._actionInvoke('-y', this.ui_y);
     }
 
     z(config) {
@@ -536,7 +527,7 @@ class CubeOne {
                 action: 'z',
             });
         }
-        this.actionInvoke('z', this.uiz);
+        this._actionInvoke('z', this.uiz);
     }
 
     _z(config) {
@@ -546,7 +537,7 @@ class CubeOne {
                 action: '-z',
             });
         }
-        this.actionInvoke('-z', this.ui_z);
+        this._actionInvoke('-z', this.ui_z);
     }
 
     uix() {
@@ -579,7 +570,7 @@ class CubeOne {
     }
 
 
-    handleKeyEvent(event) {
+    _handleKeyEvent(event) {
         switch (event.keyCode) {
             case KEY.LEFT:
             case KEY.a:
