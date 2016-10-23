@@ -420,6 +420,13 @@ class CubeOne {
         this.backEl.style.backgroundColor = dictColors[b];
         this.downEl.style.backgroundColor = dictColors[d];
 
+        this.upEl.style.backgroundImage = dictColors[`${u}-img`];
+        this.frontEl.style.backgroundImage = dictColors[`${f}-img`];
+        this.rightEl.style.backgroundImage = dictColors[`${r}-img`];
+        this.leftEl.style.backgroundImage = dictColors[`${l}-img`];
+        this.backEl.style.backgroundImage = dictColors[`${b}-img`];
+        this.downEl.style.backgroundImage = dictColors[`${d}-img`];
+
         let t = dictCubeTransform[state.code]['u'];
         this.upEl.style.transform = t ? `rotate${t.dir}(${t.angle}deg)` : '';
 

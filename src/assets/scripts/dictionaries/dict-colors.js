@@ -20,12 +20,14 @@ dictColors['l-dark'] = `rgba(255, 88, 0, ${alpha})`; // #FF5800
 dictColors['b-dark'] = `rgba(0, 81, 186, ${alpha})`; // #0051BA
 dictColors['d-dark'] = `rgba(255, 213, 0, ${alpha})`; // #FFD500
 
-dictColors['u-img'] = `url('lion.svg')`;
-dictColors['f-img'] = `url('lion.svg')`;
-dictColors['r-img'] = `url('lion.svg')`;
-dictColors['l-img'] = `url('fox.svg')`;
-dictColors['b-img'] = `url('fox.svg')`;
-dictColors['d-img'] = `url('fox.svg')`;
+const imgBaseUrl = '/src/assets/images/';
+
+dictColors['u-img'] = `url('${imgBaseUrl}lion.svg')`;
+dictColors['f-img'] = `url('${imgBaseUrl}lion.svg')`;
+dictColors['r-img'] = `url('${imgBaseUrl}lion.svg')`;
+dictColors['l-img'] = `url('${imgBaseUrl}fox.svg')`;
+dictColors['b-img'] = `url('${imgBaseUrl}fox.svg')`;
+dictColors['d-img'] = `url('${imgBaseUrl}fox.svg')`;
 
 
 
