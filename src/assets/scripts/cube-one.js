@@ -191,7 +191,7 @@ class CubeOne {
         const hammerDown = new Hammer.Manager(touchDownEl, {});
         hammerDown.add(swipeDown);
 
-        const hammerBack = new Hammer.Manager(touchDownEl, {});
+        const hammerBack = new Hammer.Manager(touchBackEl, {});
         hammerBack.add(swipeBack);
 
 
@@ -395,7 +395,33 @@ class CubeOne {
         hammerBack.on('singletap doubletap swipeup swipedown swiperight swipeleft', (ev) => {
             const type = ev.type;
             let element = ev.target;
-            log(`${type} ${element.dataset.type}`);
+            debug(`${type} ${element.dataset.type}`);
+
+            // Find swipe element if event is invoke on child element
+            if (element.dataset.type !== 'cubeone') {
+                element = element.parentElement;
+                if (element.dataset.type !== 'cubeone')
+                    element = element.parentElement;
+            }
+            switch (type) {
+                case 'singletap':
+                    break;
+                case 'doubletap':
+                    this.tapped(element, ev.target.dataset.type);
+                    break;
+                case 'swipeup':
+                    this.X();
+                    break;
+                case 'swiperight':
+                    this.y();
+                    break;
+                case 'swipedown':
+                    this.x();
+                    break;
+                case 'swipeleft':
+                    this.Y();
+                    break;
+            }
         });
 
 
@@ -467,17 +493,17 @@ class CubeOne {
         const skipAnimation = config && config.skipAnimation;
 
         state.code = dictCube[stateCode][action]; // reducer
-        
+
         if (!skipAnimation) {
             state.rotateEnabled = false; // lock current anim
-        } 
+        }
 
         this._setState(state);
 
         if (!skipAnimation) {
             ui = ui.bind(this);
             ui();
-        } 
+        }
         if (skipAnimation) {
             this._updateUiFaces();
         }

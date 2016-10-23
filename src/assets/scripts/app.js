@@ -170,9 +170,15 @@ btnCubeOne.addEventListener('click', (ev) => {
         cubeOneSceneEl.classList.add('down-side');
     } else if (cubeOneSceneEl.classList.contains('down-side')) {
         cubeOneSceneEl.classList.remove('down-side');
-        cubeOneSceneEl.classList.add('left-down-side');
-    } else if (cubeOneSceneEl.classList.contains('left-down-side')) {
-        cubeOneSceneEl.classList.remove('left-down-side');
+        cubeOneSceneEl.classList.add('back-side');
+    } else if (cubeOneSceneEl.classList.contains('back-side')) {
+        cubeOneSceneEl.classList.remove('back-side');
+        cubeOneSceneEl.classList.add('back-left-side');
+    } else if (cubeOneSceneEl.classList.contains('back-left-side')) {
+        cubeOneSceneEl.classList.remove('back-left-side');
+        cubeOneSceneEl.classList.add('back-down-side');
+    } else if (cubeOneSceneEl.classList.contains('back-down-side')) {
+        cubeOneSceneEl.classList.remove('back-down-side');
     } else {
         cubeOneSceneEl.classList.add('left-side');
     }

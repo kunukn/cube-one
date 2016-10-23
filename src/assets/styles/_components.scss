@@ -18,11 +18,23 @@
     &.left-side {
         transform: rotateX(-20deg) rotateY(20deg) rotateZ(0deg);
     }
+    &.back-side {
+        transform: rotateX(-20deg) rotateY(180deg - 20deg) rotateZ(0deg);
+    }
+    &.back-left-side {
+        transform: rotateX(-20deg) rotateY(180deg + 20deg) rotateZ(0deg);
+    }
     &.down-side {
         transform: rotateX(20deg) rotateY(-20deg) rotateZ(0deg);
     }
+    &.back-down-side {
+        transform: rotateX(20deg) rotateY(-20deg + 180deg) rotateZ(0deg);
+    }
     &.left-down-side {
         transform: rotateX(20deg) rotateY(20deg) rotateZ(0deg);
+    }
+    &.back-left-down-side {
+        transform: rotateX(20deg) rotateY(180deg + 20deg) rotateZ(0deg);
     }
 }
 
