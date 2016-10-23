@@ -95,7 +95,7 @@
     transform-style: preserve-3d;
     user-select: none;
     pointer-events: none;
-    transform-origin: 50% 50%;
+    //transform-origin: 50% 50%;
     //animation: spin 5s infinite linear;
     .cubeone-face {
         transition: opacity $rotate-transition-duration;
@@ -124,7 +124,7 @@
             left: 0;
             top: 0;
             background: url(#{$cube-background-image-url}) no-repeat center center / contain;
-            background-color: rgba(white, .5);
+            background-color: rgba(white, 1);
             background-blend-mode: multiply;
         }
     }

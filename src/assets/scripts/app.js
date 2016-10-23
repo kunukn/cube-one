@@ -80,8 +80,6 @@ const cube4 = new CubeOne({
     cubeComponent: byId('cubeone-component-4'),
 });
 
-
-
 cube1.addCallbackForEvent('init', initCallback);
 cube1.addCallbackForEvent('statechange', statechangeCallback);
 cube1.init();
