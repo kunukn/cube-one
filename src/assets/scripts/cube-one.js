@@ -22,7 +22,7 @@ import {
 import dictCube from './dictionaries/dict-cube';
 import dictCubeTransform from './dictionaries/dict-cube-transform';
 
-import { STATES, STATES_ARRAY } from './constants';
+import { STATES, STATES_ARRAY, KEY, EVENT_NAMES } from './constants';
 
 function rAF(callback) {
     window.requestAnimationFrame(callback);
@@ -33,29 +33,6 @@ function nextFrame(callback) {
         rAF(callback);
     });
 }
-
-const KEY = {
-    LEFT: 37,
-    UP: 38,
-    RIGHT: 39,
-    DOWN: 40,
-    a: 65,
-    d: 68,
-    e: 69,
-    q: 81,
-    s: 83,
-    w: 87,
-};
-
-
-const EVENT_NAMES = {
-    init: 'init',
-    statechange: 'statechange',
-    beforerotate: 'beforerotate',
-    afterrotate: 'afterrotate',
-};
-
-
 
 class CubeOne {
     constructor(config) {

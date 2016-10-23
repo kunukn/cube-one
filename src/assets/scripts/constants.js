@@ -33,6 +33,32 @@ const STATES_ARRAY = [];
 Object.keys(STATES).forEach((state, index) => STATES_ARRAY.push(state));
 deepFreeze(STATES_ARRAY);
 
+
+const KEY = {
+    LEFT: 37,
+    UP: 38,
+    RIGHT: 39,
+    DOWN: 40,
+    a: 65,
+    d: 68,
+    e: 69,
+    q: 81,
+    s: 83,
+    w: 87,
+};
+deepFreeze(KEY);
+
+
+const EVENT_NAMES = {
+    init: 'init',
+    statechange: 'statechange',
+    beforerotate: 'beforerotate',
+    afterrotate: 'afterrotate',
+};
+deepFreeze(EVENT_NAMES);
+
+
+
 const opposite = [];
 opposite['u'] = 'd';
 opposite['d'] = 'u';
@@ -73,4 +99,4 @@ left['ld'] = 'b';
 left['lf'] = 'd';
 
 
-export { STATES, STATES_ARRAY, opposite, left };
+export { STATES, STATES_ARRAY, opposite, left, KEY, EVENT_NAMES };
