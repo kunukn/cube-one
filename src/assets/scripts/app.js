@@ -69,6 +69,26 @@ const cubeOne = {
 
 const cube1 = new CubeOne({
     cubeComponent: byId('cubeone-component-1'),
+    // faceSkins: {
+    //     u: {
+    //         bgColor: 'red'
+    //     },
+    //     f: {
+    //         bgColor: 'pink'
+    //     },
+    //     r: {
+    //         bgColor: 'yellow'
+    //     },
+    //     l: {
+    //         bgColor: 'green'
+    //     },
+    //     b: {
+    //         bgColor: 'dodgerblue'
+    //     },
+    //     d: {
+    //         bgColor: 'teal'
+    //     },
+    // },
 });
 const cube2 = new CubeOne({
     cubeComponent: byId('cubeone-component-2'),

@@ -409,7 +409,6 @@ class CubeOne {
         this._triggerEvent('init', { cube: this.cubeComponentEl });
     }
 
-
     _updateUiFaces() {
 
         let u, f, r, l, b, d;
@@ -422,20 +421,35 @@ class CubeOne {
         b = getBack(state.code);
         d = getDown(state.code);
 
-        this.upEl.style.backgroundColor = dictCubeSkins[u];
-        this.frontEl.style.backgroundColor = dictCubeSkins[f];
-        this.rightEl.style.backgroundColor = dictCubeSkins[r];
-        this.leftEl.style.backgroundColor = dictCubeSkins[l];
-        this.backEl.style.backgroundColor = dictCubeSkins[b];
-        this.downEl.style.backgroundColor = dictCubeSkins[d];
+        const faceSkins = this._config.faceSkins;
+        if (faceSkins) {
+            let skin = '';
 
-        let bgImg = '';
-        this.upEl.style.backgroundImage = bgImg = dictCubeSkins[`${u}-img`] ? bgImg : '';
-        this.frontEl.style.backgroundImage = bgImg = dictCubeSkins[`${f}-img`] ? bgImg : '';
-        this.rightEl.style.backgroundImage = bgImg = dictCubeSkins[`${r}-img`] ? bgImg : '';
-        this.leftEl.style.backgroundImage = bgImg = dictCubeSkins[`${l}-img`] ? bgImg : '';
-        this.backEl.style.backgroundImage = bgImg = dictCubeSkins[`${b}-img`] ? bgImg : '';
-        this.downEl.style.backgroundImage = bgImg = dictCubeSkins[`${d}-img`] ? bgImg : '';
+            log(faceSkins[u]);
+
+            this.upEl.style.backgroundColor = (skin = faceSkins[u].bgColor) ? skin : '';
+            this.frontEl.style.backgroundColor = (skin = faceSkins[f].bgColor) ? skin : '';
+            this.rightEl.style.backgroundColor = (skin = faceSkins[r].bgColor) ? skin : '';
+            this.leftEl.style.backgroundColor = (skin = faceSkins[l].bgColor) ? skin : '';
+            this.backEl.style.backgroundColor = (skin = faceSkins[b].bgColor) ? skin : '';
+            this.downEl.style.backgroundColor = (skin = faceSkins[d].bgColor) ? skin : '';
+
+            this.upEl.style.backgroundImage = (skin = faceSkins[u].bgImg) ? skin : '';
+            this.frontEl.style.backgroundImage = (skin = faceSkins[f].bgImg) ? skin : '';
+            this.rightEl.style.backgroundImage = (skin = faceSkins[r].bgImg) ? skin : '';
+            this.leftEl.style.backgroundImage = (skin = faceSkins[l].bgImg) ? skin : '';
+            this.backEl.style.backgroundImage = (skin = faceSkins[b].bgImg) ? skin : '';
+            this.downEl.style.backgroundImage = (skin = faceSkins[d].bgImg) ? skin : '';
+
+
+        } else {
+            this.upEl.style.backgroundColor = dictCubeSkins[u];
+            this.frontEl.style.backgroundColor = dictCubeSkins[f];
+            this.rightEl.style.backgroundColor = dictCubeSkins[r];
+            this.leftEl.style.backgroundColor = dictCubeSkins[l];
+            this.backEl.style.backgroundColor = dictCubeSkins[b];
+            this.downEl.style.backgroundColor = dictCubeSkins[d];
+        }
 
         let t = dictCubeTransform[state.code]['u'];
         this.upEl.style.transform = t ? `rotate${t.dir}(${t.angle}deg)` : '';
