@@ -420,12 +420,13 @@ class CubeOne {
         this.backEl.style.backgroundColor = dictCubeSkins[b];
         this.downEl.style.backgroundColor = dictCubeSkins[d];
 
-        this.upEl.style.backgroundImage = dictCubeSkins[`${u}-img`];
-        this.frontEl.style.backgroundImage = dictCubeSkins[`${f}-img`];
-        this.rightEl.style.backgroundImage = dictCubeSkins[`${r}-img`];
-        this.leftEl.style.backgroundImage = dictCubeSkins[`${l}-img`];
-        this.backEl.style.backgroundImage = dictCubeSkins[`${b}-img`];
-        this.downEl.style.backgroundImage = dictCubeSkins[`${d}-img`];
+        let bgImg = '';
+        this.upEl.style.backgroundImage = bgImg=dictCubeSkins[`${u}-img`] ? bgImg  : '';
+        this.frontEl.style.backgroundImage = bgImg=dictCubeSkins[`${f}-img`] ? bgImg  : '';
+        this.rightEl.style.backgroundImage = bgImg=dictCubeSkins[`${r}-img`] ? bgImg  : '';
+        this.leftEl.style.backgroundImage = bgImg=dictCubeSkins[`${l}-img`] ?  bgImg  : '';
+        this.backEl.style.backgroundImage = bgImg=dictCubeSkins[`${b}-img`] ? bgImg  : '';
+        this.downEl.style.backgroundImage = bgImg=dictCubeSkins[`${d}-img`] ? bgImg  : '';
 
         let t = dictCubeTransform[state.code]['u'];
         this.upEl.style.transform = t ? `rotate${t.dir}(${t.angle}deg)` : '';

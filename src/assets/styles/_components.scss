@@ -125,6 +125,7 @@
             top: 0;
             background: url(#{$cube-background-image-url}) no-repeat center center / contain;
             background-color: rgba(white, .5);
+            background-blend-mode: multiply;
         }
     }
     .cubeone-front {

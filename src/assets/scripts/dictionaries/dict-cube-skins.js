@@ -22,12 +22,12 @@ dictCubeSkins['d-dark'] = `rgba(255, 213, 0, ${alpha})`; // #FFD500
 
 const imgBaseUrl = '/src/assets/images/';
 
-dictCubeSkins['u-img'] = `url('${imgBaseUrl}lion.svg')`;
-dictCubeSkins['f-img'] = `url('${imgBaseUrl}lion.svg')`;
-dictCubeSkins['r-img'] = `url('${imgBaseUrl}lion.svg')`;
-dictCubeSkins['l-img'] = `url('${imgBaseUrl}fox.svg')`;
-dictCubeSkins['b-img'] = `url('${imgBaseUrl}fox.svg')`;
-dictCubeSkins['d-img'] = `url('${imgBaseUrl}fox.svg')`;
+// dictCubeSkins['u-img'] = `url('${imgBaseUrl}lion.svg')`;
+// dictCubeSkins['f-img'] = `url('${imgBaseUrl}lion.svg')`;
+// dictCubeSkins['r-img'] = `url('${imgBaseUrl}lion.svg')`;
+// dictCubeSkins['l-img'] = `url('${imgBaseUrl}fox.svg')`;
+// dictCubeSkins['b-img'] = `url('${imgBaseUrl}fox.svg')`;
+// dictCubeSkins['d-img'] = `url('${imgBaseUrl}fox.svg')`;
 
 
 
