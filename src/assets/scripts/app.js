@@ -8,7 +8,7 @@ import { qs, qsa, byId } from './query';
 
 import CubeOne from './cube-one';
 
-import dictColors from './dictionaries/dict-colors';
+import dictCubeSkins from './dictionaries/dict-cube-skins';
 
 //log('App running');
 
@@ -54,7 +54,7 @@ function checkForComplete() {
     if (isComplete) {
         bodyWrapperEl.classList.add('with-background-image');
         let front = stateCode[1];
-        bodyWrapperEl.style.backgroundColor = dictColors[`${front}-dark`];
+        bodyWrapperEl.style.backgroundColor = dictCubeSkins[`${front}-dark`];
     } else {
         bodyWrapperEl.classList.remove('with-background-image');
         bodyWrapperEl.style.backgroundColor = '';

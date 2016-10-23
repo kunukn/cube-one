@@ -4,7 +4,7 @@ import { debug, log, error } from './logger';
 
 import { qs, qsa, byId } from './query';
 
-import dictColors from './dictionaries/dict-colors';
+import dictCubeSkins from './dictionaries/dict-cube-skins';
 
 import {
     cloneObject,
@@ -413,19 +413,19 @@ class CubeOne {
         b = getBack(state.code);
         d = getDown(state.code);
 
-        this.upEl.style.backgroundColor = dictColors[u];
-        this.frontEl.style.backgroundColor = dictColors[f];
-        this.rightEl.style.backgroundColor = dictColors[r];
-        this.leftEl.style.backgroundColor = dictColors[l];
-        this.backEl.style.backgroundColor = dictColors[b];
-        this.downEl.style.backgroundColor = dictColors[d];
+        this.upEl.style.backgroundColor = dictCubeSkins[u];
+        this.frontEl.style.backgroundColor = dictCubeSkins[f];
+        this.rightEl.style.backgroundColor = dictCubeSkins[r];
+        this.leftEl.style.backgroundColor = dictCubeSkins[l];
+        this.backEl.style.backgroundColor = dictCubeSkins[b];
+        this.downEl.style.backgroundColor = dictCubeSkins[d];
 
-        this.upEl.style.backgroundImage = dictColors[`${u}-img`];
-        this.frontEl.style.backgroundImage = dictColors[`${f}-img`];
-        this.rightEl.style.backgroundImage = dictColors[`${r}-img`];
-        this.leftEl.style.backgroundImage = dictColors[`${l}-img`];
-        this.backEl.style.backgroundImage = dictColors[`${b}-img`];
-        this.downEl.style.backgroundImage = dictColors[`${d}-img`];
+        this.upEl.style.backgroundImage = dictCubeSkins[`${u}-img`];
+        this.frontEl.style.backgroundImage = dictCubeSkins[`${f}-img`];
+        this.rightEl.style.backgroundImage = dictCubeSkins[`${r}-img`];
+        this.leftEl.style.backgroundImage = dictCubeSkins[`${l}-img`];
+        this.backEl.style.backgroundImage = dictCubeSkins[`${b}-img`];
+        this.downEl.style.backgroundImage = dictCubeSkins[`${d}-img`];
 
         let t = dictCubeTransform[state.code]['u'];
         this.upEl.style.transform = t ? `rotate${t.dir}(${t.angle}deg)` : '';
