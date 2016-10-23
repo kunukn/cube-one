@@ -47,7 +47,8 @@
     &:focus {
         outline: none;
         .cubeone-face {
-            border: 2px solid white;
+            //border: 2px solid white;
+            box-shadow: 2px 2px 1rem $color-focus;
         }
     }
 }
@@ -68,10 +69,6 @@
     color: transparent;
     cursor: pointer;
     background: transparent;
-    &:focus {
-        outline: none;
-        box-shadow: 0 0 50px white;
-    }
     //display: none;
     // font-size: 0;
     &[data-type=front] {
@@ -174,8 +171,9 @@
     font-size: 1.2rem;
     position: fixed;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    align-items: space-between;
+    flex-direction: column;
     top: 0;
     left: 0;
     width: 100%;
@@ -184,17 +182,64 @@
     min-height: 1.5em;
     border-bottom: 1px solid lightgray;
     padding: 0 .5rem;
+    color: rgba(white, 1);
+    button {
+        background: transparent;
+        border: 1px solid;
+        box-shadow: 2px 2px 4px gray;
+        outline: none;
+        color: white;
+        font-size: inherit;
+        margin: .5rem 0;
+        &:focus {
+            box-shadow: 2px 2px 1rem $color-focus;
+        }
+    }
+    .row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-grow: 1;
+        width: 100%;
+        transition: 200ms;
+        &:nth-of-type(2) {
+            //justify-content: flex-start;
+            font-size: .8rem;
+            color: rgba(white, .6);
+            &:hover {
+                color: rgba(white, .7);
+            }
+        }
+    }
+    .mouse {
+        text-align: center;
+    }
+    .touch {
+        text-align: center;
+    }
+    .keyboard {
+        text-align: center;
+        .groups {
+            display: flex;
+        }
+        .group {
+            display: flex;
+            flex-direction: column;
+            > div {
+                display: flex;
+                flex-direction: row;
+            }
+            span,
+            i {
+                font-size: inherit;
+                display: inline-block;
+                position: relative;
+                min-width: 1.4rem;
+            }
+        }
+    }
     .title {
         font-weight: 700;
-        > button {
-            background: transparent;
-            //border: 1px solid;
-            //box-shadow: 2px 2px 4px gray;
-            outline: none;
-            color: white;
-            font-size: inherit;
-            margin: .5rem 0;
-        }
     }
     .state-info {
         >label {
