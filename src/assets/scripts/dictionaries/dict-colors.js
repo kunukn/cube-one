@@ -20,6 +20,15 @@ dictColors['l-dark'] = `rgba(255, 88, 0, ${alpha})`; // #FF5800
 dictColors['b-dark'] = `rgba(0, 81, 186, ${alpha})`; // #0051BA
 dictColors['d-dark'] = `rgba(255, 213, 0, ${alpha})`; // #FFD500
 
+dictColors['u-img'] = `url('lion.svg')`;
+dictColors['f-img'] = `url('lion.svg')`;
+dictColors['r-img'] = `url('lion.svg')`;
+dictColors['l-img'] = `url('fox.svg')`;
+dictColors['b-img'] = `url('fox.svg')`;
+dictColors['d-img'] = `url('fox.svg')`;
+
+
+
 deepFreeze(dictColors);
 
 export default dictColors;
