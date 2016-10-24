@@ -51,7 +51,14 @@ class CubeOne {
             rotateEnabled: true,
         };
 
+        this._updateEventBindings();
+
         this._initCallbacks();
+    }
+
+    _updateEventBindings() {
+        this._handleKeyEvent = this._handleKeyEvent.bind(this);
+        this._transitionEnd = this._transitionEnd.bind(this);
     }
 
 
@@ -115,6 +122,11 @@ class CubeOne {
                 });
             });
         });
+    }
+
+    destroy() {
+        this.cubeComponentEl.removeEventListener('keydown', this._handleKeyEvent, false);
+        this.cubeEl.removeEventListener('transitionend', this._transitionEnd);
     }
 
     init() {
@@ -402,9 +414,10 @@ class CubeOne {
         });
 
 
-        this.cubeComponentEl.addEventListener('keydown', this._handleKeyEvent.bind(this), false);
         this._updateUiFaces();
-        cubeEl.addEventListener('transitionend', this._transitionEnd.bind(this));
+        
+        this.cubeComponentEl.addEventListener('keydown', this._handleKeyEvent, false);
+        cubeEl.addEventListener('transitionend', this._transitionEnd);
 
         this._triggerEvent('init', { cube: this.cubeComponentEl });
     }

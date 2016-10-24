@@ -89,7 +89,7 @@ module.exports = {
         }, {
             test: /\.(jpg|png|svg)$/,
             include: [getPath('src/assets/images')],
-            loader: 'url-loader?limit=20000',
+            loader: 'url-loader?limit=10000',
         }]
     },
     resolve: {

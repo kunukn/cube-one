@@ -84,7 +84,7 @@ module.exports = {
             test: /\.(jpg|png|svg)$/,
             exclude: /node_modules/,
             //include: getPath('src/assets/images'),
-            loader: 'url-loader?limit=20000',
+            loader: 'url-loader?limit=10000',
         }]
     },
     resolve: {
