@@ -82,8 +82,9 @@ module.exports = {
             loader: 'file-loader?name=favicon.ico&context=/',
         }, {
             test: /\.(jpg|png|svg)$/,
-            include: getPath('src/assets/images'),
-            loader: 'url-loader?limit=10000',
+            exclude: /node_modules/,
+            //include: getPath('src/assets/images'),
+            loader: 'url-loader?limit=20000',
         }]
     },
     resolve: {

@@ -18,6 +18,7 @@ module.exports = {
     },
     output: {
         path: path.resolve('dist'),
+        publicPath: 'http://localhost:3333/',
         publicPath: '',
         filename: '[name].bundle.js',
         chunkFilename: '[id].chunk.js'
@@ -88,7 +89,7 @@ module.exports = {
         }, {
             test: /\.(jpg|png|svg)$/,
             include: [getPath('src/assets/images')],
-            loader: 'url-loader?limit=10000',
+            loader: 'url-loader?limit=20000',
         }]
     },
     resolve: {
