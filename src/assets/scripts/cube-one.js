@@ -438,8 +438,6 @@ class CubeOne {
         if (faceSkins) {
             let skin = '';
 
-            log(faceSkins[u]);
-
             this.upEl.style.backgroundColor = (skin = faceSkins[u].bgColor) ? skin : dictCubeSkins[u];
             this.frontEl.style.backgroundColor = (skin = faceSkins[f].bgColor) ? skin : dictCubeSkins[f];
             this.rightEl.style.backgroundColor = (skin = faceSkins[r].bgColor) ? skin : dictCubeSkins[r];
