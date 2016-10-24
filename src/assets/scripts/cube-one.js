@@ -436,16 +436,14 @@ class CubeOne {
 
         const faceSkins = this._config.faceSkins;
         if (faceSkins) {
-            let skin = '';
+            let skin = '';            
 
-            log(faceSkins[u]);
-
-            this.upEl.style.backgroundColor = (skin = faceSkins[u].bgColor) ? skin : '';
-            this.frontEl.style.backgroundColor = (skin = faceSkins[f].bgColor) ? skin : '';
-            this.rightEl.style.backgroundColor = (skin = faceSkins[r].bgColor) ? skin : '';
-            this.leftEl.style.backgroundColor = (skin = faceSkins[l].bgColor) ? skin : '';
-            this.backEl.style.backgroundColor = (skin = faceSkins[b].bgColor) ? skin : '';
-            this.downEl.style.backgroundColor = (skin = faceSkins[d].bgColor) ? skin : '';
+            this.upEl.style.backgroundColor = (skin = faceSkins[u].bgColor) ? skin : dictCubeSkins[u];
+            this.frontEl.style.backgroundColor = (skin = faceSkins[f].bgColor) ? skin : dictCubeSkins[f];
+            this.rightEl.style.backgroundColor = (skin = faceSkins[r].bgColor) ? skin : dictCubeSkins[r];
+            this.leftEl.style.backgroundColor = (skin = faceSkins[l].bgColor) ? skin : dictCubeSkins[l];
+            this.backEl.style.backgroundColor = (skin = faceSkins[b].bgColor) ? skin : dictCubeSkins[b];
+            this.downEl.style.backgroundColor = (skin = faceSkins[d].bgColor) ? skin : dictCubeSkins[d];
 
             this.upEl.style.backgroundImage = (skin = faceSkins[u].bgImg) ? skin : '';
             this.frontEl.style.backgroundImage = (skin = faceSkins[f].bgImg) ? skin : '';

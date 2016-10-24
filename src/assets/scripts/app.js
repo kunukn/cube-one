@@ -55,7 +55,7 @@ function checkForComplete() {
         bodyWrapperEl.classList.add('with-background-image');
         let front = stateCode[1];
         bodyWrapperEl.style.backgroundColor = dictCubeSkins[`${front}-dark`];
-    } else {
+    } else if (bodyWrapperEl.classList.contains('with-background-image')) {
         bodyWrapperEl.classList.remove('with-background-image');
         bodyWrapperEl.style.backgroundColor = '';
     }
