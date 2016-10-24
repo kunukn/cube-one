@@ -246,6 +246,8 @@
     }
     .title {
         font-weight: 700;
+        display: flex;
+        flex-flow: row wrap;
     }
     .state-info {
         >label {

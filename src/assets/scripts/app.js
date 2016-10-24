@@ -181,10 +181,15 @@ cubeOne.solve = () => {
     cubeOne.cubes.forEach(cube => cube.gotoState('uf'));
 };
 
+cubeOne.random = () => {
+    cubeOne.cubes.forEach(cube => cube.setToRandomState());
+};
+
+
 window.cubeOne = cubeOne;
 
-const btnCubeOne = byId('btn-cube-one');
-btnCubeOne.addEventListener('click', (ev) => {
+const btnCubeOneRotate = byId('btn-cube-one-rotate');
+btnCubeOneRotate.addEventListener('click', (ev) => {
     if (cubeOneSceneEl.classList.contains('left-side')) {
         cubeOneSceneEl.classList.remove('left-side');
         cubeOneSceneEl.classList.add('down-side');
@@ -203,6 +208,18 @@ btnCubeOne.addEventListener('click', (ev) => {
         cubeOneSceneEl.classList.add('left-side');
     }
 });
+
+
+// const btnCubeOneSolve = byId('btn-cube-one-solve');
+// btnCubeOneSolve.addEventListener('click', (ev) => {
+//     cubeOne.solve();
+// });
+
+// const btnCubeOneRandom = byId('btn-cube-one-random');
+// btnCubeOneRandom.addEventListener('click', (ev) => {
+//     cubeOne.random();
+// });
+
 
 //----------
 log('cubeOne is available in console');
