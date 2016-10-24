@@ -41,19 +41,20 @@ class CubeOne {
             error(`CubeOne element was not provided: ${config.cubeComponent}`);
             return;
         }
+        this._appState = {};
         this._config = config;
         deepFreeze(this._config);
 
         this.cubeComponentEl = config.cubeComponent;
 
-        this._appState = {
-            code: nextState.first,
-            rotateEnabled: true,
-        };
-
         this._updateEventBindings();
 
         this._initCallbacks();
+
+        this._setState ({
+            code: nextState.first,
+            rotateEnabled: true,
+        });
     }
 
     _updateEventBindings() {
@@ -92,7 +93,7 @@ class CubeOne {
         const previousStateCode = this._appState.code,
             currentStateCode = state.code;
 
-        this._appState = state;
+        this._appState = cloneObject(state);
 
         if (previousStateCode !== currentStateCode) {
             this._triggerEvent('statechange', {

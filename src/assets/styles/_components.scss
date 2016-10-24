@@ -90,7 +90,7 @@
     //color: #222;
     color: transparent;
     background: transparent;
-    cursor: pointer;        
+    cursor: pointer;
     //display: none;
     font-size: 0;
     &[data-type=front] {
@@ -205,7 +205,7 @@
     padding: 0 .5rem;
     color: rgba(white, 1);
     font-size: .8rem;
-    @media(min-width: 600px) {
+    @include device(medium) {
         font-size: 1.2rem;
     }
     button {
@@ -215,7 +215,8 @@
         outline: none;
         color: $color-focus;
         font-size: inherit;
-        margin: .5em 0;
+        margin: .5em 1em .5em 0;
+        @include device(medium) {}
         &:focus {
             box-shadow: 2px 2px 1em $color-focus;
         }
@@ -226,11 +227,11 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        flex-grow: 1;
+        //flex-grow: 1;
         width: 100%;
         transition: 200ms;
         &:nth-of-type(2) {
-            //justify-content: flex-start;
+            align-items: flex-start;
             font-size: .8em;
             color: rgba(white, .6);
             &:hover {
@@ -265,17 +266,20 @@
             }
         }
     }
-    .title {
+    .button-group {
         font-weight: 700;
         display: flex;
         flex-flow: row wrap;
+        //flex-grow: 1;
+        flex: 1;
+    }
+    .state-infos {
+        flex: 1;
+          display: flex;
+        flex-flow: row wrap;
     }
     .state-info {
-        >label {
-            font-weight: 300;
-            display: inline-block;
-            font-size: .8em;
-        }
+        
         >.state {
             display: inline-block;
             font-weight: 400;
