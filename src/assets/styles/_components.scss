@@ -205,7 +205,7 @@
     }
     .row {
         margin: 0 auto;
-        max-width: 1280px;
+        max-width: 40rem;
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
@@ -252,9 +252,6 @@
         font-weight: 700;
         display: flex;
         flex-flow: row wrap;
-        .btn-rotate {
-            //margin-right: 2em;
-        }
     }
     .state-group {
         display: flex;
