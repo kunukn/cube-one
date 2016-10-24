@@ -54,6 +54,27 @@
     }
 }
 
+.cubeone-group {
+    width: 2 * $cube-size;
+    height: 2 * $cube-size;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: space-between;
+    align-content: space-between;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-style: preserve-3d;
+    &--front {
+        transform: translateZ($cube-size/2);
+    }
+    &--back {
+        transform: translateZ(-$cube-size/2);
+    }
+}
+
 .cubeone-touch {
     position: absolute;
     top: 0;
