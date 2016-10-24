@@ -44,7 +44,7 @@
     //margin: 0 auto;
     position: relative;
     transform-style: preserve-3d;
-    font-size: 1rem;
+    //font-size: 1rem;
     &:focus {
         outline: none;
         .cubeone-face {
@@ -87,12 +87,12 @@
     display: flex;
     justify-content: center;
     align-items: start;
-    color: #222;
+    //color: #222;
     color: transparent;
-    cursor: pointer;
     background: transparent;
+    cursor: pointer;        
     //display: none;
-    // font-size: 0;
+    font-size: 0;
     &[data-type=front] {
         transform: translateZ($cube-size/2);
     }
@@ -267,6 +267,8 @@
     }
     .title {
         font-weight: 700;
+        display: flex;
+        flex-flow: row wrap;
     }
     .state-info {
         >label {

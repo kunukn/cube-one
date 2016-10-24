@@ -548,8 +548,8 @@ cubeOne.random = () => {
 
 window.cubeOne = cubeOne;
 
-const btnCubeOne = byId('btn-cube-one');
-btnCubeOne.addEventListener('click', (ev) => {
+const btnCubeOneRotate = byId('btn-cube-one-rotate');
+btnCubeOneRotate.addEventListener('click', (ev) => {
     if (cubeOneSceneEl.classList.contains('left-side')) {
         cubeOneSceneEl.classList.remove('left-side');
         cubeOneSceneEl.classList.add('down-side');
@@ -567,6 +567,16 @@ btnCubeOne.addEventListener('click', (ev) => {
     } else {
         cubeOneSceneEl.classList.add('left-side');
     }
+});
+
+const btnCubeOneSolve = byId('btn-cube-one-solve');
+btnCubeOneSolve.addEventListener('click', (ev) => {
+    cubeOne.solve();
+});
+
+const btnCubeOneRandom = byId('btn-cube-one-random');
+btnCubeOneRandom.addEventListener('click', (ev) => {
+    cubeOne.random();
 });
 
 //----------
