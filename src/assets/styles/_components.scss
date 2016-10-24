@@ -44,11 +44,12 @@
     //margin: 0 auto;
     position: relative;
     transform-style: preserve-3d;
+    font-size: 1rem;
     &:focus {
         outline: none;
         .cubeone-face {
-            //border: 2px solid white;
-            box-shadow: 2px 2px 1rem $color-focus;
+            border: 2px solid $color-focus;
+            //box-shadow: 2px 2px 2em $color-focus;
         }
     }
 }
@@ -168,7 +169,6 @@
 }
 
 .app-info {
-    font-size: 1.2rem;
     position: fixed;
     display: flex;
     justify-content: center;
@@ -183,21 +183,25 @@
     border-bottom: 1px solid lightgray;
     padding: 0 .5rem;
     color: rgba(white, 1);
+    font-size: .8rem;
+    @media(min-width: 600px) {
+        font-size: 1.2rem;
+    }
     button {
         background: transparent;
         border: 1px solid;
         box-shadow: 2px 2px 4px gray;
         outline: none;
-        color: white;
+        color: $color-focus;
         font-size: inherit;
-        margin: .5rem 0;
+        margin: .5em 0;
         &:focus {
-            box-shadow: 2px 2px 1rem $color-focus;
+            box-shadow: 2px 2px 1em $color-focus;
         }
     }
     .row {
         margin: 0 auto;
-        max-width: 1366px;
+        max-width: 1280px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -206,7 +210,7 @@
         transition: 200ms;
         &:nth-of-type(2) {
             //justify-content: flex-start;
-            font-size: .8rem;
+            font-size: .8em;
             color: rgba(white, .6);
             &:hover {
                 color: rgba(white, .7);
@@ -236,7 +240,7 @@
                 font-size: inherit;
                 display: inline-block;
                 position: relative;
-                min-width: 1.4rem;
+                min-width: 1.4em;
             }
         }
     }
@@ -247,7 +251,7 @@
         >label {
             font-weight: 300;
             display: inline-block;
-            font-size: 1rem;
+            font-size: .8em;
         }
         >.state {
             display: inline-block;
