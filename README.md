@@ -15,4 +15,6 @@ Can yo solve the puzzle? all the front cubes must have the same the same face an
 npm install
 
 npm start
+
+start a browser and go to http://localhost:3333/
 ```
