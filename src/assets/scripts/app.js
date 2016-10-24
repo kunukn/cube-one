@@ -26,7 +26,7 @@ function statechangeCallback(eventName, payload) {
 
     let info = infos[payload.cube.id];
     if (info)
-        info.innerHTML = `<label>State: </label><span class="state"> ${payload.currentStateCode}</span>`;
+        info.innerHTML = `<label></label><span class="state"> ${payload.currentStateCode}</span>`;
 }
 
 function initCallback(eventName, payload) {}
@@ -210,15 +210,15 @@ btnCubeOneRotate.addEventListener('click', (ev) => {
 });
 
 
-// const btnCubeOneSolve = byId('btn-cube-one-solve');
-// btnCubeOneSolve.addEventListener('click', (ev) => {
-//     cubeOne.solve();
-// });
+const btnCubeOneSolve = byId('btn-cube-one-solve');
+btnCubeOneSolve.addEventListener('click', (ev) => {
+    cubeOne.solve();
+});
 
-// const btnCubeOneRandom = byId('btn-cube-one-random');
-// btnCubeOneRandom.addEventListener('click', (ev) => {
-//     cubeOne.random();
-// });
+const btnCubeOneRandom = byId('btn-cube-one-random');
+btnCubeOneRandom.addEventListener('click', (ev) => {
+    cubeOne.random();
+});
 
 
 //----------

@@ -184,7 +184,7 @@
     padding: 0 .5rem;
     color: rgba(white, 1);
     font-size: .8rem;
-    @media(min-width: 600px) {
+    @include device(medium) {
         font-size: 1.2rem;
     }
     button {
@@ -194,7 +194,11 @@
         outline: none;
         color: $color-focus;
         font-size: inherit;
-        margin: .5em 0;
+        margin: .5em 1em .5em 0;
+        padding: .5em 1em;
+        @include device(medium) {
+            padding: .2em .5em;
+        }
         &:focus {
             box-shadow: 2px 2px 1em $color-focus;
         }
@@ -244,10 +248,30 @@
             }
         }
     }
-    .title {
+    .button-group {
         font-weight: 700;
         display: flex;
         flex-flow: row wrap;
+        .btn-rotate {
+            //margin-right: 2em;
+        }
+    }
+    .state-group {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        > h3 {
+            margin: 0;
+            padding: 0;
+            font-size: .8em;
+            font-weight: 300;
+        }
+    }
+    .state-infos {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
     .state-info {
         >label {
@@ -255,7 +279,7 @@
             display: inline-block;
             font-size: .8em;
         }
-        >.state {
+        > .state {
             display: inline-block;
             font-weight: 400;
             text-transform: uppercase;
