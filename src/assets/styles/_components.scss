@@ -215,8 +215,12 @@
         outline: none;
         color: $color-focus;
         font-size: inherit;
-        margin: .5em 1em .5em 0;
-        @include device(medium) {}
+        margin: .5em 2em .5em 0;
+        padding: .8em 1.6em;
+        @include device(medium) {
+            padding: .5em .8em;
+            margin-right: 1em;
+        }
         &:focus {
             box-shadow: 2px 2px 1em $color-focus;
         }
@@ -271,15 +275,14 @@
         display: flex;
         flex-flow: row wrap;
         //flex-grow: 1;
-        flex: 1;
+        flex: 1 1 auto;
     }
     .state-infos {
-        flex: 1;
-          display: flex;
+        flex: 1 1 auto;
+        display: flex;
         flex-flow: row wrap;
     }
     .state-info {
-        
         >.state {
             display: inline-block;
             font-weight: 400;
