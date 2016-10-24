@@ -51,7 +51,7 @@ class CubeOne {
 
         this._initCallbacks();
 
-        this._setState ({
+        this._setState({
             code: nextState.first,
             rotateEnabled: true,
         });
