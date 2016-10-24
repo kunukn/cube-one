@@ -415,7 +415,7 @@ class CubeOne {
 
 
         this._updateUiFaces();
-        
+
         this.cubeComponentEl.addEventListener('keydown', this._handleKeyEvent, false);
         cubeEl.addEventListener('transitionend', this._transitionEnd);
 

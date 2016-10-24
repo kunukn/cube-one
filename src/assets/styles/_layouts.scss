@@ -26,7 +26,7 @@ body {
     background-blend-mode: multiply;
     &.with-background-image {
         background: rgba(white, .5) url($cube-background-image-url) 0% 0% no-repeat;
-        //background-size: 200px 200px;
+        background-size: contain;
     }
     animation: page-fade-in 2000ms;
 }
