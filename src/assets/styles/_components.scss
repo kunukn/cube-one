@@ -208,7 +208,7 @@
         max-width: 1280px;
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
         flex-grow: 1;
         width: 100%;
         transition: 200ms;
@@ -274,11 +274,6 @@
         align-items: center;
     }
     .state-info {
-        >label {
-            font-weight: 300;
-            display: inline-block;
-            font-size: .8em;
-        }
         > .state {
             display: inline-block;
             font-weight: 400;
