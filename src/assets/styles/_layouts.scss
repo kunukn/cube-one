@@ -22,10 +22,11 @@ body {
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
-    transition: 200ms;
+    //transition: 1000ms;
     background-blend-mode: multiply;
     &.with-background-image {
         background: rgba(white, .5) url($cube-background-image-url) 0% 0% no-repeat;
+        //background-size: 200px 200px;
     }
     animation: page-fade-in 2000ms;
 }
