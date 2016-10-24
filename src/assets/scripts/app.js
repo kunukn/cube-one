@@ -40,8 +40,31 @@ const bodyWrapperEl = qs('.body-wrapper');
 const cubeOneSceneEl = qs('.cubeone-scene');
 
 
-function checkForComplete() {
 
+function checkForComplete() {
+    let keys = Object.keys(states),
+        isComplete = false,
+        stateCode;
+
+    if (keys.length >= 8) {
+        isComplete = true;
+        keys.forEach((key, index, array) => {
+            if (index === 0) {
+                stateCode = states[key];
+            } else if (states[key] !== stateCode) {
+                isComplete = false;
+            }
+        });
+    }
+
+    if (isComplete) {
+        bodyWrapperEl.classList.add('with-background-image');
+        let front = stateCode[1];
+        bodyWrapperEl.style.backgroundColor = dictCubeSkins[`${front}-dark`];
+    } else if (bodyWrapperEl.classList.contains('with-background-image')) {
+        bodyWrapperEl.classList.remove('with-background-image');
+        bodyWrapperEl.style.backgroundColor = '';
+    }
 }
 
 const cubeOne = {
@@ -52,195 +75,195 @@ const cubeOne = {
 
 const cube1 = new CubeOne({
     cubeComponent: byId('cubeone-component-1'),
-    faceSkins: {
-        u: {
-            bgColor: ''
-        },
-        f: {
-            bgColor: ''
-        },
-        r: {
-            bgColor: 'black'
-        },
-        l: {
-            bgColor: ''
-        },
-        b: {
-            bgColor: 'black'
-        },
-        d: {
-            bgColor: 'black'
-        },
-    },
+    // faceSkins: {
+    //     u: {
+    //         bgColor: ''
+    //     },
+    //     f: {
+    //         bgColor: ''
+    //     },
+    //     r: {
+    //         bgColor: 'black'
+    //     },
+    //     l: {
+    //         bgColor: ''
+    //     },
+    //     b: {
+    //         bgColor: 'black'
+    //     },
+    //     d: {
+    //         bgColor: 'black'
+    //     },
+    // },
 });
 const cube2 = new CubeOne({
     cubeComponent: byId('cubeone-component-2'),
-    faceSkins: {
-        u: {
-            bgColor: ''
-        },
-        f: {
-            bgColor: ''
-        },
-        r: {
-            bgColor: ''
-        },
-        l: {
-            bgColor: 'black'
-        },
-        b: {
-            bgColor: 'black'
-        },
-        d: {
-            bgColor: 'black'
-        },
-    },
+    // faceSkins: {
+    //     u: {
+    //         bgColor: ''
+    //     },
+    //     f: {
+    //         bgColor: ''
+    //     },
+    //     r: {
+    //         bgColor: ''
+    //     },
+    //     l: {
+    //         bgColor: 'black'
+    //     },
+    //     b: {
+    //         bgColor: 'black'
+    //     },
+    //     d: {
+    //         bgColor: 'black'
+    //     },
+    // },
 });
 const cube3 = new CubeOne({
     cubeComponent: byId('cubeone-component-3'),
-    faceSkins: {
-        u: {
-            bgColor: ''
-        },
-        f: {
-            bgColor: ''
-        },
-        r: {
-            bgColor: 'black'
-        },
-        l: {
-            bgColor: ''
-        },
-        b: {
-            bgColor: 'black'
-        },
-        d: {
-            bgColor: 'black'
-        },
-    },
+    // faceSkins: {
+    //     u: {
+    //         bgColor: ''
+    //     },
+    //     f: {
+    //         bgColor: ''
+    //     },
+    //     r: {
+    //         bgColor: 'black'
+    //     },
+    //     l: {
+    //         bgColor: ''
+    //     },
+    //     b: {
+    //         bgColor: 'black'
+    //     },
+    //     d: {
+    //         bgColor: 'black'
+    //     },
+    // },
 });
 const cube4 = new CubeOne({
     cubeComponent: byId('cubeone-component-4'),
-    faceSkins: {
-        u: {
-            bgColor: ''
-        },
-        f: {
-            bgColor: ''
-        },
-        r: {
-            bgColor: ''
-        },
-        l: {
-            bgColor: 'black'
-        },
-        b: {
-            bgColor: 'black'
-        },
-        d: {
-            bgColor: 'black'
-        },
-    },
+    // faceSkins: {
+    //     u: {
+    //         bgColor: ''
+    //     },
+    //     f: {
+    //         bgColor: ''
+    //     },
+    //     r: {
+    //         bgColor: ''
+    //     },
+    //     l: {
+    //         bgColor: 'black'
+    //     },
+    //     b: {
+    //         bgColor: 'black'
+    //     },
+    //     d: {
+    //         bgColor: 'black'
+    //     },
+    // },
 });
 const cube5 = new CubeOne({
     cubeComponent: byId('cubeone-component-5'),
-    faceSkins: {
-        u: {
-            bgColor: ''
-        },
-        f: {
-            bgColor: 'black'
-        },
-        r: {
-            bgColor: 'black'
-        },
-        l: {
-            bgColor: ''
-        },
-        b: {
-            bgColor: ''
-        },
-        d: {
-            bgColor: 'black'
-        },
-    },
+    // faceSkins: {
+    //     u: {
+    //         bgColor: ''
+    //     },
+    //     f: {
+    //         bgColor: 'black'
+    //     },
+    //     r: {
+    //         bgColor: 'black'
+    //     },
+    //     l: {
+    //         bgColor: ''
+    //     },
+    //     b: {
+    //         bgColor: ''
+    //     },
+    //     d: {
+    //         bgColor: 'black'
+    //     },
+    // },
 
 });
 const cube6 = new CubeOne({
     cubeComponent: byId('cubeone-component-6'),
-    faceSkins: {
-        u: {
-            bgColor: ''
-        },
-        f: {
-            bgColor: 'black'
-        },
-        r: {
-            bgColor: ''
-        },
-        l: {
-            bgColor: 'black'
-        },
-        b: {
-            bgColor: ''
-        },
-        d: {
-            bgColor: 'black'
-        },
-    },
+    // faceSkins: {
+    //     u: {
+    //         bgColor: ''
+    //     },
+    //     f: {
+    //         bgColor: 'black'
+    //     },
+    //     r: {
+    //         bgColor: ''
+    //     },
+    //     l: {
+    //         bgColor: 'black'
+    //     },
+    //     b: {
+    //         bgColor: ''
+    //     },
+    //     d: {
+    //         bgColor: 'black'
+    //     },
+    // },
 });
 const cube7 = new CubeOne({
     cubeComponent: byId('cubeone-component-7'),
-    faceSkins: {
-        u: {
-            bgColor: ''
-        },
-        f: {
-            bgColor: 'black'
-        },
-        r: {
-            bgColor: 'black'
-        },
-        l: {
-            bgColor: ''
-        },
-        b: {
-            bgColor: ''
-        },
-        d: {
-            bgColor: 'black'
-        },
-    },
+    // faceSkins: {
+    //     u: {
+    //         bgColor: ''
+    //     },
+    //     f: {
+    //         bgColor: 'black'
+    //     },
+    //     r: {
+    //         bgColor: 'black'
+    //     },
+    //     l: {
+    //         bgColor: ''
+    //     },
+    //     b: {
+    //         bgColor: ''
+    //     },
+    //     d: {
+    //         bgColor: 'black'
+    //     },
+    // },
 });
 const cube8 = new CubeOne({
     cubeComponent: byId('cubeone-component-8'),
-    faceSkins: {
-        u: {
-            bgColor: ''
-        },
-        f: {
-            bgColor: 'black'
-        },
-        r: {
-            bgColor: ''
-        },
-        l: {
-            bgColor: 'black'
-        },
-        b: {
-            bgColor: ''
-        },
-        d: {
-            bgColor: 'black'
-        },
-    },
+    // faceSkins: {
+    //     u: {
+    //         bgColor: ''
+    //     },
+    //     f: {
+    //         bgColor: 'black'
+    //     },
+    //     r: {
+    //         bgColor: ''
+    //     },
+    //     l: {
+    //         bgColor: 'black'
+    //     },
+    //     b: {
+    //         bgColor: ''
+    //     },
+    //     d: {
+    //         bgColor: 'black'
+    //     },
+    // },
 });
 
 
 cube1.addCallbackForEvent('statechange', statechangeCallback);
 cube1.init();
 cube1.setToRandomState();
-cube1.gotoState('uf');
+// cube1.gotoState('uf');
 cube1.addCallbackForEvent('beforerotate', (eventName, payload) => {
     if (payload.action === 'x') {
         cube3.x({ skipTriggerEvent: true });
@@ -275,7 +298,7 @@ cubeOne.cubes.push(cube1);
 cube2.addCallbackForEvent('statechange', statechangeCallback);
 cube2.init();
 cube2.setToRandomState();
-cube2.gotoState('uf');
+// cube2.gotoState('uf');
 cube2.addCallbackForEvent('beforerotate', (eventName, payload) => {
     if (payload.action === 'x') {
         cube4.x({ skipTriggerEvent: true });
@@ -310,7 +333,7 @@ cubeOne.cubes.push(cube2);
 cube3.addCallbackForEvent('statechange', statechangeCallback);
 cube3.init();
 cube3.setToRandomState();
-cube3.gotoState('uf');
+// cube3.gotoState('uf');
 cube3.addCallbackForEvent('beforerotate', (eventName, payload) => {
     if (payload.action === 'x') {
         cube1.x({ skipTriggerEvent: true });
@@ -345,7 +368,7 @@ cubeOne.cubes.push(cube3);
 cube4.addCallbackForEvent('statechange', statechangeCallback);
 cube4.init();
 cube4.setToRandomState();
-cube4.gotoState('uf');
+// cube4.gotoState('uf');
 cube4.addCallbackForEvent('beforerotate', (eventName, payload) => {
     if (payload.action === 'x') {
         cube2.x({ skipTriggerEvent: true });
@@ -356,21 +379,21 @@ cube4.addCallbackForEvent('beforerotate', (eventName, payload) => {
         cube6.X({ skipTriggerEvent: true });
         cube8.X({ skipTriggerEvent: true });
     } else if (payload.action === 'y') {
-        cube4.y({ skipTriggerEvent: true });
+        cube3.y({ skipTriggerEvent: true });
         cube7.y({ skipTriggerEvent: true });
         cube8.y({ skipTriggerEvent: true });
     } else if (payload.action === '-y') {
-        cube4.Y({ skipTriggerEvent: true });
+        cube3.Y({ skipTriggerEvent: true });
         cube7.Y({ skipTriggerEvent: true });
         cube8.Y({ skipTriggerEvent: true });
     } else if (payload.action === 'z') {
         cube1.z({ skipTriggerEvent: true });
         cube2.z({ skipTriggerEvent: true });
-        cube4.z({ skipTriggerEvent: true });
+        cube3.z({ skipTriggerEvent: true });
     } else if (payload.action === '-z') {
         cube1.Z({ skipTriggerEvent: true });
         cube2.Z({ skipTriggerEvent: true });
-        cube4.Z({ skipTriggerEvent: true });
+        cube3.Z({ skipTriggerEvent: true });
     }
 });
 cubeOne.cubes.push(cube4);
@@ -379,7 +402,7 @@ cubeOne.cubes.push(cube4);
 cube5.addCallbackForEvent('statechange', statechangeCallback);
 cube5.init();
 cube5.setToRandomState();
-cube5.gotoState('uf');
+// cube5.gotoState('uf');
 cube5.addCallbackForEvent('beforerotate', (eventName, payload) => {
     if (payload.action === 'x') {
         cube1.x({ skipTriggerEvent: true });
@@ -413,7 +436,7 @@ cubeOne.cubes.push(cube5);
 cube6.addCallbackForEvent('statechange', statechangeCallback);
 cube6.init();
 cube6.setToRandomState();
-cube6.gotoState('uf');
+// cube6.gotoState('uf');
 cube6.addCallbackForEvent('beforerotate', (eventName, payload) => {
     if (payload.action === 'x') {
         cube2.x({ skipTriggerEvent: true });
@@ -432,12 +455,12 @@ cube6.addCallbackForEvent('beforerotate', (eventName, payload) => {
         cube2.Y({ skipTriggerEvent: true });
         cube5.Y({ skipTriggerEvent: true });
     } else if (payload.action === 'z') {
-        cube2.z({ skipTriggerEvent: true });
-        cube4.z({ skipTriggerEvent: true });
+        cube5.z({ skipTriggerEvent: true });
+        cube7.z({ skipTriggerEvent: true });
         cube8.z({ skipTriggerEvent: true });
     } else if (payload.action === '-z') {
-        cube2.Z({ skipTriggerEvent: true });
-        cube4.Z({ skipTriggerEvent: true });
+        cube5.Z({ skipTriggerEvent: true });
+        cube7.Z({ skipTriggerEvent: true });
         cube8.Z({ skipTriggerEvent: true });
     }
 });
@@ -447,7 +470,7 @@ cubeOne.cubes.push(cube6);
 cube7.addCallbackForEvent('statechange', statechangeCallback);
 cube7.init();
 cube7.setToRandomState();
-cube7.gotoState('uf');
+// cube7.gotoState('uf');
 cube7.addCallbackForEvent('beforerotate', (eventName, payload) => {
     if (payload.action === 'x') {
         cube1.x({ skipTriggerEvent: true });
@@ -483,7 +506,7 @@ cubeOne.cubes.push(cube7);
 cube8.addCallbackForEvent('statechange', statechangeCallback);
 cube8.init();
 cube8.setToRandomState();
-cube8.gotoState('uf');
+// cube8.gotoState('uf');
 cube8.addCallbackForEvent('beforerotate', (eventName, payload) => {
     if (payload.action === 'x') {
         cube2.x({ skipTriggerEvent: true });
@@ -517,6 +540,10 @@ cubeOne.cubes.push(cube8);
 
 cubeOne.solve = () => {
     cubeOne.cubes.forEach(cube => cube.gotoState('uf'));
+};
+
+cubeOne.random = () => {
+    cubeOne.cubes.forEach(cube => cube.setToRandomState());
 };
 
 window.cubeOne = cubeOne;
