@@ -12,9 +12,9 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: space-between;
-    align-content: space-between;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
     &.left-side {
         transform: rotateX(-20deg) rotateY(20deg) rotateZ(0deg);
     }
