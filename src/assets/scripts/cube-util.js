@@ -33,7 +33,7 @@ function NextState() {
 
     const S = STATES_ARRAY;
     this.first = STATES_ARRAY[0];
-    this.last = STATES_ARRAY[STATES_ARRAY.length-1];
+    this.last = STATES_ARRAY[STATES_ARRAY.length - 1];
 
     this.stateCount = S.length;
 
