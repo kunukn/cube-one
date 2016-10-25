@@ -75,48 +75,6 @@
     }
 }
 
-.cubeone-touch {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: inherit;
-    height: inherit;
-    //background: rgba(red, .5);
-    backface-visibility: hidden;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: start;
-    //color: #222;
-    color: transparent;
-    background: transparent;
-    cursor: pointer;
-    //display: none;
-    font-size: 0;
-    &[data-type=front] {
-        transform: translateZ($cube-size/2);
-    }
-    &[data-type=up] {
-        transform: rotateX(-90deg) translateY($cube-size/2) rotateY(180deg) rotateZ(180deg);
-        transform-origin: top center;
-    }
-    &[data-type=right] {
-        transform: rotateY(-270deg) translateX($cube-size/2);
-        transform-origin: top right;
-    }
-    &[data-type=back] {
-        transform: translateZ(-$cube-size/2) rotateY(180deg);
-    }
-    &[data-type=down] {
-        transform: rotateX(90deg) translateY(-$cube-size/2) rotateY(180deg) rotateZ(180deg);
-        transform-origin: bottom center;
-    }
-    &[data-type=left] {
-        transform: rotateY(270deg) translateX(-$cube-size/2);
-        transform-origin: center left;
-    }
-}
-
 .cubeone-cube {
     transition: transform $rotate-transition-duration;
     position: relative;
@@ -182,6 +140,50 @@
         transform-origin: center left;
     }
 }
+
+
+.cubeone-touch {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    //background: rgba(red, .5);
+    backface-visibility: hidden;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    //color: #222;
+    color: transparent;
+    background: transparent;
+    cursor: pointer;
+    //display: none;
+    font-size: 0;
+    &[data-type=front] {
+        transform: translateZ($cube-size/2);
+    }
+    &[data-type=up] {
+        transform: rotateX(-90deg) translateY($cube-size/2) rotateY(180deg) rotateZ(180deg);
+        transform-origin: top center;
+    }
+    &[data-type=right] {
+        transform: rotateY(-270deg) translateX($cube-size/2);
+        transform-origin: top right;
+    }
+    &[data-type=back] {
+        transform: translateZ(-$cube-size/2) rotateY(180deg);
+    }
+    &[data-type=down] {
+        transform: rotateX(90deg) translateY(-$cube-size/2) rotateY(180deg) rotateZ(180deg);
+        transform-origin: bottom center;
+    }
+    &[data-type=left] {
+        transform: rotateY(270deg) translateX(-$cube-size/2);
+        transform-origin: center left;
+    }
+}
+
 
 @keyframes spin {
     to {
