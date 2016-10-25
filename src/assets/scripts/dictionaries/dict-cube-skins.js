@@ -2,7 +2,7 @@ import deepFreeze from 'deep-freeze';
 
 const dictCubeSkins = [];
 
-let alpha = 1;
+let alpha = .9;
 
 dictCubeSkins['u'] = `rgba(255, 255, 255, ${alpha})`; // #fff
 dictCubeSkins['f'] = `rgba(0, 158, 96, ${alpha})`; // #009E60
