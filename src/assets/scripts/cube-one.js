@@ -136,22 +136,35 @@ class CubeOne {
 
         const cubeComponentEl = this.cubeComponentEl;
 
-        const touchUpEl = qs('[data-type="up"].cubeone-js-touch', cubeComponentEl),
-            touchFrontEl = qs('[data-type="front"].cubeone-js-touch', cubeComponentEl),
-            touchRightEl = qs('[data-type="right"].cubeone-js-touch', cubeComponentEl),
-            touchLeftEl = qs('[data-type="left"].cubeone-js-touch', cubeComponentEl),
-            touchBackEl = qs('[data-type="back"].cubeone-js-touch', cubeComponentEl),
-            touchDownEl = qs('[data-type="down"].cubeone-js-touch', cubeComponentEl);
+        const touchUpEl = qs('[data-type="cubeone-touch"] > [data-type=up]', cubeComponentEl),
+            touchFrontEl = qs('[data-type="cubeone-touch"] > [data-type=front]', cubeComponentEl),
+            touchRightEl = qs('[data-type="cubeone-touch"] >  [data-type=right]', cubeComponentEl),
+            touchLeftEl = qs('[data-type="cubeone-touch"] >  [data-type=left]', cubeComponentEl),
+            touchBackEl = qs('[data-type="cubeone-touch"] >  [data-type=back]', cubeComponentEl),
+            touchDownEl = qs('[data-type="cubeone-touch"] >  [data-type=down]', cubeComponentEl);
 
-        const cubeEl = qs('.cubeone-js-cube', cubeComponentEl);
+        const touches = [touchUpEl,touchFrontEl,touchRightEl, touchLeftEl, touchBackEl, touchDownEl];
+        touches.forEach( touch =>{
+            if(!touch){
+                error(`html is invalid: `);
+                error(touches);
+            }
+        });
+
+
+        const cubeEl = qs('[data-type="cubeone-display"]', cubeComponentEl);
         this.cubeEl = cubeEl;
+        if(!cubeEl){
+                error(`html is invalid for cubeone-display`);
+            }
 
-        this.frontEl = qs('.cubeone-front > div', cubeEl);
-        this.upEl = qs('.cubeone-up > div', cubeEl);
-        this.rightEl = qs('.cubeone-right > div', cubeEl);
-        this.leftEl = qs('.cubeone-left > div', cubeEl);
-        this.backEl = qs('.cubeone-back > div', cubeEl);
-        this.downEl = qs('.cubeone-down > div', cubeEl);
+        this.frontEl = qs('[data-type=front] > div', cubeEl);
+        this.upEl = qs('[data-type=up] > div', cubeEl);
+        this.rightEl = qs('[data-type=right] > div', cubeEl);
+        this.leftEl = qs('[data-type=left] > div', cubeEl);
+        this.backEl = qs('[data-type=back] > div', cubeEl);
+        this.downEl = qs('[data-type=down] > div', cubeEl);
+
 
         const swipeFront = new Hammer.Swipe();
         swipeFront.set({ direction: Hammer.DIRECTION_ALL });
@@ -483,7 +496,8 @@ class CubeOne {
     }
 
     tapped(element, target) {
-        qs(`.cubeone-${target}.cubeone-face`, element).classList.toggle('tapped');
+        log(element);
+        qs(`[data-type="${target}"]`, element).classList.toggle('tapped');
     }
 
     _actionInvoke(action, ui, config) {
