@@ -143,20 +143,22 @@ class CubeOne {
             touchBackEl = qs('[data-type="cubeone-touch"] >  [data-type=back]', cubeComponentEl),
             touchDownEl = qs('[data-type="cubeone-touch"] >  [data-type=down]', cubeComponentEl);
 
-        const touches = [touchUpEl,touchFrontEl,touchRightEl, touchLeftEl, touchBackEl, touchDownEl];
-        touches.forEach( touch =>{
-            if(!touch){
-                error(`html is invalid: `);
+        const touches = [touchUpEl, touchFrontEl, touchRightEl, touchLeftEl, touchBackEl, touchDownEl];
+        touches.forEach(touch => {
+            if (!touch) {
+                error(`html is invalid for touch elements: `);
                 error(touches);
+                return;
             }
         });
 
 
         const cubeEl = qs('[data-type="cubeone-display"]', cubeComponentEl);
         this.cubeEl = cubeEl;
-        if(!cubeEl){
-                error(`html is invalid for cubeone-display`);
-            }
+        if (!cubeEl) {
+            error(`html is invalid for cubeone-display`);
+            return;
+        }
 
         this.frontEl = qs('[data-type=front] > div', cubeEl);
         this.upEl = qs('[data-type=up] > div', cubeEl);
@@ -164,7 +166,14 @@ class CubeOne {
         this.leftEl = qs('[data-type=left] > div', cubeEl);
         this.backEl = qs('[data-type=back] > div', cubeEl);
         this.downEl = qs('[data-type=down] > div', cubeEl);
-
+        const displays = [this.frontEl, this.upEl, this.rightEl, this.leftEl, this.backEl, this.downEl];
+        displays.forEach(display => {
+            if (!display) {
+                error(`html is invalid for display elements: `);
+                error(displays);
+                return;
+            }
+        });
 
         const swipeFront = new Hammer.Swipe();
         swipeFront.set({ direction: Hammer.DIRECTION_ALL });

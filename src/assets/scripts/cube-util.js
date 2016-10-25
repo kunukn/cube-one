@@ -1,4 +1,4 @@
-import { opposite, left } from './constants';
+import { opposite, left, STATES_ARRAY } from './constants';
 import { log } from './logger';
 
 export function getUp(stateCode) {
@@ -31,39 +31,9 @@ export function cloneObject(obj) {
 
 function NextState() {
 
-    const S = [];
-    S.push('uf');
-    S.push('ur');
-    S.push('ub');
-    S.push('ul');
-
-    S.push('fu');
-    S.push('fl');
-    S.push('fd');
-    S.push('fr');
-
-    S.push('ru');
-    S.push('rf');
-    S.push('rd');
-    S.push('rb');
-
-    S.push('df');
-    S.push('dl');
-    S.push('db');
-    S.push('dr');
-
-    S.push('bu');
-    S.push('br');
-    S.push('bd');
-    S.push('bl');
-
-    S.push('lu');
-    S.push('lb');
-    S.push('ld');
-    S.push('lf');
-
-    this.first = 'uf';
-    this.last = 'lf';
+    const S = STATES_ARRAY;
+    this.first = STATES_ARRAY[0];
+    this.last = STATES_ARRAY[STATES_ARRAY.length-1];
 
     this.stateCount = S.length;
 

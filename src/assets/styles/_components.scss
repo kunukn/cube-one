@@ -46,9 +46,10 @@
     font-size: 1rem;
     &:focus {
         outline: none;
-        [data-type=display] {
+        .cubeone-cube[data-type="cubeone-display"] {
             > div {
                 border: 2px solid $color-focus;
+                //border-color: $color-focus;
             }
         }
     }
@@ -85,7 +86,6 @@
             pointer-events: none;
             position: relative;
             > div {
-                opacity: .5;
                 transition: opacity $rotate-transition-duration;
                 user-select: none;
                 pointer-events: none;
