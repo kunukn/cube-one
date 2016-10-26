@@ -90,10 +90,12 @@ class CubeOne {
 
     _setState(state) {
 
-        const previousStateCode = this._appState.code,
-            currentStateCode = state.code;
+        const copyState = cloneObject(state);
 
-        this._appState = cloneObject(state);
+        const previousStateCode = this._appState.code,
+            currentStateCode = copyState.code;
+
+        this._appState = copyState;
 
         if (previousStateCode !== currentStateCode) {
             this._triggerEvent('statechange', {
