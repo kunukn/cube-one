@@ -36,6 +36,9 @@
     &.back-left-down-side {
         transform: rotateX(20deg) rotateY(180deg + 20deg) rotateZ(0deg);
     }
+    &.spin {
+        animation: spin-animation 20s linear infinite;
+    }
 }
 
 [data-type=cubeone] {
@@ -104,7 +107,6 @@
                 //border-radius: 1px;
                 &.tapped {
                     opacity: .2;
-                    //display: none;
                 }
                 > div {
                     color: $color-theme;
@@ -149,9 +151,12 @@
     }
 }
 
-@keyframes spin {
+@keyframes spin-animation {
+    from {
+        transform: rotateY(0turn) rotateX(0turn);
+    }
     to {
-        transform: rotateY(1turn) rotateX(1turn);
+        transform: rotateY(3turn) rotateX(2turn);
     }
 }
 

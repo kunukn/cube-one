@@ -407,7 +407,7 @@ class CubeOne {
         hammerBack.on('singletap doubletap swipeup swipedown swiperight swipeleft', (ev) => {
             const type = ev.type;
             let element = ev.target;
-            debug(`${type} ${element.dataset.type}`);
+            //debug(`${type} ${element.dataset.type}`);
 
             // Find swipe element if event is invoke on child element
             if (element.dataset.type !== 'cubeone') {
