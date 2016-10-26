@@ -505,7 +505,6 @@ class CubeOne {
     }
 
     tapped(element, target) {
-        log(element);
         qs(`[data-type="${target}"]`, element).classList.toggle('tapped');
     }
 
