@@ -29,7 +29,11 @@ function statechangeCallback(eventName, payload) {
         info.innerHTML = `${payload.currentStateCode}`;
 }
 
-function initCallback(eventName, payload) {}
+function initCallback(eventName, payload) {
+    let info = infos[payload.cube.id];
+    if (info)
+        info.innerHTML = `${payload.state.code}`;
+}
 
 const bodyWrapperEl = qs('.body-wrapper');
 const cubeOneSceneEl = qs('.cubeone-scene');
@@ -107,69 +111,76 @@ cube.init();
 cube.setToRandomState();
 cubeOne.cubes.push(cube);
 cube.addCallbackForEvent('beforerotate', (eventName, payload) => {
-    if (payload.action === 'x')
+    if (payload.action === 'x') {
         cube3.x({ skipTriggerEvent: true });
-    else if (payload.action === '-x')
+    } else if (payload.action === '-x') {
         cube3.X({ skipTriggerEvent: true });
-    else if (payload.action === 'y')
+    } else if (payload.action === 'y') {
         cube2.y({ skipTriggerEvent: true });
-    else if (payload.action === '-y')
+    } else if (payload.action === '-y') {
         cube2.Y({ skipTriggerEvent: true });
+    }
 });
 
 //----------
 cube = cube2;
-cube2.addCallbackForEvent('init', initCallback);
-cube2.addCallbackForEvent('statechange', statechangeCallback);
-cube2.init();
-cube2.setToRandomState();
-cubeOne.cubes.push(cube2);
-cube2.addCallbackForEvent('beforerotate', (eventName, payload) => {
-    if (payload.action === 'x')
+cube.addCallbackForEvent('init', initCallback);
+cube.addCallbackForEvent('statechange', statechangeCallback);
+cube.init();
+cube.setToRandomState();
+cubeOne.cubes.push(cube);
+cube.addCallbackForEvent('beforerotate', (eventName, payload) => {
+    if (payload.action === 'x') {
         cube4.x({ skipTriggerEvent: true });
-    else if (payload.action === '-x')
+    } else if (payload.action === '-x') {
         cube4.X({ skipTriggerEvent: true });
-    else if (payload.action === 'y')
+    } else if (payload.action === 'y') {
         cube1.y({ skipTriggerEvent: true });
-    else if (payload.action === '-y')
+    } else if (payload.action === '-y') {
         cube1.Y({ skipTriggerEvent: true });
+    }
 });
 
 
 //----------
 cube = cube3;
-cube3.addCallbackForEvent('init', initCallback);
-cube3.addCallbackForEvent('statechange', statechangeCallback);
-cube3.init();
-cube3.setToRandomState();
-cubeOne.cubes.push(cube3);
-cube3.addCallbackForEvent('beforerotate', (eventName, payload) => {
-    if (payload.action === 'x')
+cube.addCallbackForEvent('init', initCallback);
+cube.addCallbackForEvent('statechange', statechangeCallback);
+cube.init();
+cube.setToRandomState();
+cubeOne.cubes.push(cube);
+cube.addCallbackForEvent('beforerotate', (eventName, payload) => {
+    if (payload.action === 'x') {
         cube1.x({ skipTriggerEvent: true });
-    else if (payload.action === '-x')
+    } else if (payload.action === '-x') {
         cube1.X({ skipTriggerEvent: true });
-    else if (payload.action === 'y')
+    } else if (payload.action === 'y') {
         cube4.y({ skipTriggerEvent: true });
-    else if (payload.action === '-y')
+    } else if (payload.action === '-y') {
         cube4.Y({ skipTriggerEvent: true });
+    }
 });
 
 //----------
 cube = cube4;
-cube4.addCallbackForEvent('init', initCallback);
-cube4.addCallbackForEvent('statechange', statechangeCallback);
-cube4.init();
-cube4.setToRandomState();
-cubeOne.cubes.push(cube4);
-cube4.addCallbackForEvent('beforerotate', (eventName, payload) => {
-    if (payload.action === 'x')
+cube.addCallbackForEvent('init', initCallback);
+cube.addCallbackForEvent('statechange', statechangeCallback);
+cube.init();
+cube.setToRandomState();
+cubeOne.cubes.push(cube);
+cube.addCallbackForEvent('beforerotate', (eventName, payload) => {
+    if (payload.action === 'x'){
         cube2.x({ skipTriggerEvent: true });
-    else if (payload.action === '-x')
+    }
+    else if (payload.action === '-x'){
         cube2.X({ skipTriggerEvent: true });
-    else if (payload.action === 'y')
+    }
+    else if (payload.action === 'y'){
         cube3.y({ skipTriggerEvent: true });
-    else if (payload.action === '-y')
+    }
+    else if (payload.action === '-y'){
         cube3.Y({ skipTriggerEvent: true });
+    }
 });
 
 //----------

@@ -9,6 +9,8 @@ import dictCubeSkins from './dictionaries/dict-cube-skins';
 import deepFreeze from 'deep-freeze';
 
 import {
+    rAF,
+    nextFrame,
     cloneObject,
     nextState,
     getLeft,
@@ -23,16 +25,6 @@ import dictCube from './dictionaries/dict-cube';
 import dictCubeTransform from './dictionaries/dict-cube-transform';
 
 import { STATES, STATES_ARRAY, KEY, EVENT_NAMES } from './constants';
-
-function rAF(callback) {
-    window.requestAnimationFrame(callback);
-}
-
-function nextFrame(callback) {
-    rAF(() => {
-        rAF(callback);
-    });
-}
 
 class CubeOne {
     constructor(config) {
@@ -101,7 +93,8 @@ class CubeOne {
             this._triggerEvent('statechange', {
                 cube: this.cubeComponentEl,
                 previousStateCode,
-                currentStateCode
+                currentStateCode,
+                state: copyState
             });
         }
     }
@@ -444,7 +437,7 @@ class CubeOne {
         this.cubeComponentEl.addEventListener('keydown', this._handleKeyEvent, false);
         cubeEl.addEventListener('transitionend', this._transitionEnd);
 
-        this._triggerEvent('init', { cube: this.cubeComponentEl });
+        this._triggerEvent('init', { cube: this.cubeComponentEl, state: this.getState() });
     }
 
     _updateUiFaces() {

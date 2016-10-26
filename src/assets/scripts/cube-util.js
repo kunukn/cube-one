@@ -1,6 +1,17 @@
 import { OPPOSITE, LEFT, STATES_ARRAY } from './constants';
 import { log } from './logger';
 
+
+export function rAF(callback) {
+    window.requestAnimationFrame(callback);
+}
+
+export function nextFrame(callback) {
+    window.requestAnimationFrame(_ => {
+        window.requestAnimationFrame(callback);
+    });
+}
+
 export function getUp(stateCode) {
     return stateCode[0];
 }
