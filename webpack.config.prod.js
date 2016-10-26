@@ -71,7 +71,9 @@ module.exports = {
         }, {
             test: /\.scss$/,
             include: getPath('src/assets/styles'),
-            loader: ExtractTextPlugin.extract('style-loader', 'css-loader!autoprefixer-loader?browsers=last 2 versions!sass-loader'),
+            //loader: ExtractTextPlugin.extract('style-loader', 'css-loader!autoprefixer-loader?browsers=last 2 versions!sass-loader'),
+            loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader'),
+
         }, {
             test: /\.css$/,
             include: getPath('node_modules/normalize.css'),
