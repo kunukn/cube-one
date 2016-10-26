@@ -59,44 +59,44 @@ deepFreeze(EVENT_NAMES);
 
 
 
-const opposite = [];
-opposite['u'] = 'd';
-opposite['d'] = 'u';
-opposite['r'] = 'l';
-opposite['l'] = 'r';
-opposite['f'] = 'b';
-opposite['b'] = 'f';
+const OPPOSITE = [];
+OPPOSITE['u'] = 'd';
+OPPOSITE['d'] = 'u';
+OPPOSITE['r'] = 'l';
+OPPOSITE['l'] = 'r';
+OPPOSITE['f'] = 'b';
+OPPOSITE['b'] = 'f';
 
-const left = [];
-left['uf'] = 'l';
-left['ur'] = 'f';
-left['ub'] = 'r';
-left['ul'] = 'b';
+const LEFT = [];
+LEFT['uf'] = 'l';
+LEFT['ur'] = 'f';
+LEFT['ub'] = 'r';
+LEFT['ul'] = 'b';
 
-left['fu'] = 'r';
-left['fl'] = 'u';
-left['fd'] = 'l';
-left['fr'] = 'd';
+LEFT['fu'] = 'r';
+LEFT['fl'] = 'u';
+LEFT['fd'] = 'l';
+LEFT['fr'] = 'd';
 
-left['ru'] = 'b';
-left['rf'] = 'u';
-left['rd'] = 'f';
-left['rb'] = 'd';
+LEFT['ru'] = 'b';
+LEFT['rf'] = 'u';
+LEFT['rd'] = 'f';
+LEFT['rb'] = 'd';
 
-left['df'] = 'r';
-left['dl'] = 'f';
-left['db'] = 'l';
-left['dr'] = 'b';
+LEFT['df'] = 'r';
+LEFT['dl'] = 'f';
+LEFT['db'] = 'l';
+LEFT['dr'] = 'b';
 
-left['bu'] = 'l';
-left['br'] = 'u';
-left['bd'] = 'r';
-left['bl'] = 'd';
+LEFT['bu'] = 'l';
+LEFT['br'] = 'u';
+LEFT['bd'] = 'r';
+LEFT['bl'] = 'd';
 
-left['lu'] = 'f';
-left['lb'] = 'u';
-left['ld'] = 'b';
-left['lf'] = 'd';
+LEFT['lu'] = 'f';
+LEFT['lb'] = 'u';
+LEFT['ld'] = 'b';
+LEFT['lf'] = 'd';
 
 
-export { STATES, STATES_ARRAY, opposite, left, KEY, EVENT_NAMES };
+export { STATES, STATES_ARRAY, OPPOSITE, LEFT, KEY, EVENT_NAMES };

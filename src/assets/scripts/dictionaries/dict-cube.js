@@ -1,4 +1,4 @@
-import { STATES, opposite } from '../constants';
+import { STATES, OPPOSITE } from '../constants';
 import { nextState, getRight, getLeft } from '../cube-util';
 import deepFreeze from 'deep-freeze';
 
@@ -13,8 +13,8 @@ for (index = 0; index < nextState.stateCount; index++) {
     u = state[0];
     f = state[1];
 
-    dictCube[state]['x'] = `${f}${opposite[u]}`;
-    dictCube[state]['-x'] = `${opposite[f]}${u}`;
+    dictCube[state]['x'] = `${f}${OPPOSITE[u]}`;
+    dictCube[state]['-x'] = `${OPPOSITE[f]}${u}`;
     dictCube[state]['y'] = `${u}${getLeft(state)}`;
     dictCube[state]['-y'] = `${u}${getRight(state)}`;
     dictCube[state]['z'] = `${getLeft(state)}${f}`;

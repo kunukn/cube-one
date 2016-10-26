@@ -1,4 +1,4 @@
-import { opposite, left, STATES_ARRAY } from './constants';
+import { OPPOSITE, LEFT, STATES_ARRAY } from './constants';
 import { log } from './logger';
 
 export function getUp(stateCode) {
@@ -10,19 +10,19 @@ export function getFront(stateCode) {
 }
 
 export function getRight(stateCode) {
-    return opposite[getLeft(stateCode)];
+    return OPPOSITE[getLeft(stateCode)];
 }
 
 export function getLeft(stateCode) {
-    return left[stateCode];
+    return LEFT[stateCode];
 }
 
 export function getDown(stateCode) {
-    return opposite[stateCode[0]];
+    return OPPOSITE[stateCode[0]];
 }
 
 export function getBack(stateCode) {
-    return opposite[stateCode[1]];
+    return OPPOSITE[stateCode[1]];
 }
 
 export function cloneObject(obj) {
