@@ -39,6 +39,26 @@
     &.spin {
         animation: spin-animation 20s linear infinite;
     }
+    .cubeone-group {
+        width: 2 * $cube-size;
+        height: 2 * $cube-size;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: space-between;
+        align-content: space-between;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform-style: preserve-3d;
+        &--1 {
+            transform: translateZ($cube-size/2);
+        }
+        &--2 {
+            transform: translateZ(-$cube-size/2);
+        }
+    }
 }
 
 [data-type=cubeone] {

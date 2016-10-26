@@ -18,6 +18,10 @@ const infos = {
     'cubeone-component-2': byId('cubeone-state-info-2'),
     'cubeone-component-3': byId('cubeone-state-info-3'),
     'cubeone-component-4': byId('cubeone-state-info-4'),
+    'cubeone-component-5': byId('cubeone-state-info-5'),
+    'cubeone-component-6': byId('cubeone-state-info-6'),
+    'cubeone-component-7': byId('cubeone-state-info-7'),
+    'cubeone-component-8': byId('cubeone-state-info-8'),
 }
 
 function statechangeCallback(eventName, payload) {
@@ -103,6 +107,18 @@ const cube3 = new CubeOne({
 const cube4 = new CubeOne({
     cubeComponent: byId('cubeone-component-4'),
 });
+const cube5 = new CubeOne({
+    cubeComponent: byId('cubeone-component-5'),
+});
+const cube6 = new CubeOne({
+    cubeComponent: byId('cubeone-component-6'),
+});
+const cube7 = new CubeOne({
+    cubeComponent: byId('cubeone-component-7'),
+});
+const cube8 = new CubeOne({
+    cubeComponent: byId('cubeone-component-8'),
+});
 
 let cube = cube1;
 cube.addCallbackForEvent('init', initCallback);
@@ -183,7 +199,37 @@ cube.addCallbackForEvent('beforerotate', (eventName, payload) => {
     }
 });
 
+
 //----------
+cube = cube5;
+cube.init();
+cube.setToRandomState();
+cubeOne.cubes.push(cube);
+
+
+//----------
+cube = cube6;
+cube.init();
+cube.setToRandomState();
+cubeOne.cubes.push(cube);
+
+
+//----------
+cube = cube7;
+cube.init();
+cube.setToRandomState();
+cubeOne.cubes.push(cube);
+
+
+//----------
+cube = cube8;
+cube.init();
+cube.setToRandomState();
+cubeOne.cubes.push(cube);
+
+
+//----------
+
 
 cubeOne.solve = () => {
     cubeOne.cubes.forEach(cube => cube.gotoState('uf'));
