@@ -1,7 +1,7 @@
 @charset "UTF-8";
 .cubeone-scene {
     transition: transform 400ms;
-    width: 2 * $cube-size;
+    width: 3 * $cube-size;
     height: 2 * $cube-size;
     max-width: 100%;
     // perspective: 800px;
@@ -256,10 +256,11 @@
     }
     .state-info {
         > .state {
+            font-size: .6em;
             display: inline-block;
             font-weight: 400;
             text-transform: uppercase;
-            min-width: 2em;
+            min-width: 1.8em;
         }
     }
 }

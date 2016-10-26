@@ -13,11 +13,17 @@ import dictCubeSkins from './dictionaries/dict-cube-skins';
 //log('App running');
 
 const states = {};
+const appInfoEl = qs('.app-info');
 const infos = {
-    'cubeone-component-1': qs('.js-state-info-1'),
-    'cubeone-component-2': qs('.js-state-info-2'),
-    'cubeone-component-3': qs('.js-state-info-3'),
-    'cubeone-component-4': qs('.js-state-info-4'),
+    'cubeone-component-1': qs('.js-state-info-1', appInfoEl),
+    'cubeone-component-2': qs('.js-state-info-2', appInfoEl),
+    'cubeone-component-3': qs('.js-state-info-3', appInfoEl),
+    'cubeone-component-4': qs('.js-state-info-4', appInfoEl),
+    'cubeone-component-5': qs('.js-state-info-5', appInfoEl),
+    'cubeone-component-6': qs('.js-state-info-6', appInfoEl),
+    'cubeone-component-7': qs('.js-state-info-7', appInfoEl),
+    'cubeone-component-8': qs('.js-state-info-8', appInfoEl),
+    'cubeone-component-9': qs('.js-state-info-9', appInfoEl),
 }
 
 function statechangeCallback(eventName, payload) {
@@ -99,84 +105,251 @@ const cube3 = new CubeOne({
 const cube4 = new CubeOne({
     cubeComponent: byId('cubeone-component-4'),
 });
-
-cube1.addCallbackForEvent('init', initCallback);
-cube1.addCallbackForEvent('statechange', statechangeCallback);
-cube1.init();
-cube1.setToRandomState();
-cubeOne.cubes.push(cube1);
-
-cube1.addCallbackForEvent('beforerotate', (eventName, payload) => {
-    if (payload.action === 'x')
-        cube3.X({ skipTriggerEvent: true });
-    else if (payload.action === '-x')
-        cube3.x({ skipTriggerEvent: true });
-    else if (payload.action === 'y')
-        cube2.Y({ skipTriggerEvent: true });
-    else if (payload.action === '-y')
-        cube2.y({ skipTriggerEvent: true });
+const cube5 = new CubeOne({
+    cubeComponent: byId('cubeone-component-5'),
+});
+const cube6 = new CubeOne({
+    cubeComponent: byId('cubeone-component-6'),
 });
 
-//----------
+const cube7 = new CubeOne({
+    cubeComponent: byId('cubeone-component-7'),
+});
 
-cube2.addCallbackForEvent('init', initCallback);
-cube2.addCallbackForEvent('statechange', statechangeCallback);
-cube2.init();
-cube2.setToRandomState();
-cubeOne.cubes.push(cube2);
+const cube8 = new CubeOne({
+    cubeComponent: byId('cubeone-component-8'),
+});
 
-cube2.addCallbackForEvent('beforerotate', (eventName, payload) => {
-    if (payload.action === 'x')
-        cube4.X({ skipTriggerEvent: true });
-    else if (payload.action === '-x')
+const cube9 = new CubeOne({
+    cubeComponent: byId('cubeone-component-9'),
+});
+
+let cube = cube1;
+cube.addCallbackForEvent('init', initCallback);
+cube.addCallbackForEvent('statechange', statechangeCallback);
+cube.init();
+cube.setToRandomState();
+cubeOne.cubes.push(cube);
+
+cube.addCallbackForEvent('beforerotate', (eventName, payload) => {
+    if (payload.action === 'x') {
         cube4.x({ skipTriggerEvent: true });
-    else if (payload.action === 'y')
-        cube1.Y({ skipTriggerEvent: true });
-    else if (payload.action === '-y')
-        cube1.y({ skipTriggerEvent: true });
-});
-
-
-//----------
-
-cube3.addCallbackForEvent('init', initCallback);
-cube3.addCallbackForEvent('statechange', statechangeCallback);
-cube3.init();
-cube3.setToRandomState();
-cubeOne.cubes.push(cube3);
-
-cube3.addCallbackForEvent('beforerotate', (eventName, payload) => {
-    if (payload.action === 'x')
-        cube1.X({ skipTriggerEvent: true });
-    else if (payload.action === '-x')
-        cube1.x({ skipTriggerEvent: true });
-    else if (payload.action === 'y')
-        cube4.Y({ skipTriggerEvent: true });
-    else if (payload.action === '-y')
-        cube4.y({ skipTriggerEvent: true });
-});
-
-//----------
-
-cube4.addCallbackForEvent('init', initCallback);
-cube4.addCallbackForEvent('statechange', statechangeCallback);
-cube4.init();
-cube4.setToRandomState();
-cubeOne.cubes.push(cube4);
-
-cube4.addCallbackForEvent('beforerotate', (eventName, payload) => {
-    if (payload.action === 'x')
-        cube2.X({ skipTriggerEvent: true });
-    else if (payload.action === '-x')
-        cube2.x({ skipTriggerEvent: true });
-    else if (payload.action === 'y')
-        cube3.Y({ skipTriggerEvent: true });
-    else if (payload.action === '-y')
+        cube7.x({ skipTriggerEvent: true });
+    } else if (payload.action === '-x') {
+        cube4.X({ skipTriggerEvent: true });
+        cube7.X({ skipTriggerEvent: true });
+    } else if (payload.action === 'y') {
+        cube2.y({ skipTriggerEvent: true });
         cube3.y({ skipTriggerEvent: true });
+    } else if (payload.action === '-y') {
+        cube2.Y({ skipTriggerEvent: true });
+        cube3.Y({ skipTriggerEvent: true });
+    }
 });
 
 //----------
 
+cube = cube2;
+cube.addCallbackForEvent('init', initCallback);
+cube.addCallbackForEvent('statechange', statechangeCallback);
+cube.init();
+cube.setToRandomState();
+cubeOne.cubes.push(cube);
+
+cube.addCallbackForEvent('beforerotate', (eventName, payload) => {
+    if (payload.action === 'x') {
+        cube5.x({ skipTriggerEvent: true });
+        cube8.x({ skipTriggerEvent: true });
+    } else if (payload.action === '-x') {
+        cube5.X({ skipTriggerEvent: true });
+        cube8.X({ skipTriggerEvent: true });
+    } else if (payload.action === 'y') {
+        cube1.y({ skipTriggerEvent: true });
+        cube3.y({ skipTriggerEvent: true });
+    } else if (payload.action === '-y') {
+        cube1.Y({ skipTriggerEvent: true });
+        cube3.Y({ skipTriggerEvent: true });
+    }
+});
+
+
+//----------
+
+cube = cube3;
+cube.addCallbackForEvent('init', initCallback);
+cube.addCallbackForEvent('statechange', statechangeCallback);
+cube.init();
+cube.setToRandomState();
+cubeOne.cubes.push(cube);
+
+cube.addCallbackForEvent('beforerotate', (eventName, payload) => {
+    if (payload.action === 'x') {
+        cube6.x({ skipTriggerEvent: true });
+        cube9.x({ skipTriggerEvent: true });
+    } else if (payload.action === '-x') {
+        cube6.X({ skipTriggerEvent: true });
+        cube9.X({ skipTriggerEvent: true });
+    } else if (payload.action === 'y') {
+        cube1.y({ skipTriggerEvent: true });
+        cube2.y({ skipTriggerEvent: true });
+    } else if (payload.action === '-y') {
+        cube1.Y({ skipTriggerEvent: true });
+        cube2.Y({ skipTriggerEvent: true });
+    }
+});
+
+//----------
+
+cube = cube4;
+cube.addCallbackForEvent('init', initCallback);
+cube.addCallbackForEvent('statechange', statechangeCallback);
+cube.init();
+cube.setToRandomState();
+cubeOne.cubes.push(cube);
+
+cube.addCallbackForEvent('beforerotate', (eventName, payload) => {
+    if (payload.action === 'x') {
+        cube1.x({ skipTriggerEvent: true });
+        cube7.x({ skipTriggerEvent: true });
+    } else if (payload.action === '-x') {
+        cube1.X({ skipTriggerEvent: true });
+        cube7.X({ skipTriggerEvent: true });
+    } else if (payload.action === 'y') {
+        cube5.y({ skipTriggerEvent: true });
+        cube6.y({ skipTriggerEvent: true });
+    } else if (payload.action === '-y') {
+        cube5.Y({ skipTriggerEvent: true });
+        cube6.Y({ skipTriggerEvent: true });
+    }
+});
+
+//----------
+
+
+cube = cube5;
+cube.addCallbackForEvent('init', initCallback);
+cube.addCallbackForEvent('statechange', statechangeCallback);
+cube.init();
+cube.setToRandomState();
+cubeOne.cubes.push(cube);
+
+cube.addCallbackForEvent('beforerotate', (eventName, payload) => {
+    if (payload.action === 'x') {
+        cube2.x({ skipTriggerEvent: true });
+        cube8.x({ skipTriggerEvent: true });
+    } else if (payload.action === '-x') {
+        cube2.X({ skipTriggerEvent: true });
+        cube8.X({ skipTriggerEvent: true });
+    } else if (payload.action === 'y') {
+        cube4.y({ skipTriggerEvent: true });
+        cube6.y({ skipTriggerEvent: true });
+    } else if (payload.action === '-y') {
+        cube4.Y({ skipTriggerEvent: true });
+        cube6.Y({ skipTriggerEvent: true });
+    }
+});
+//----------
+
+cube = cube6;
+cube.addCallbackForEvent('init', initCallback);
+cube.addCallbackForEvent('statechange', statechangeCallback);
+cube.init();
+cube.setToRandomState();
+cubeOne.cubes.push(cube);
+
+cube.addCallbackForEvent('beforerotate', (eventName, payload) => {
+    if (payload.action === 'x') {
+        cube3.x({ skipTriggerEvent: true });
+        cube9.x({ skipTriggerEvent: true });
+    } else if (payload.action === '-x') {
+        cube3.X({ skipTriggerEvent: true });
+        cube9.X({ skipTriggerEvent: true });
+    } else if (payload.action === 'y') {
+        cube4.y({ skipTriggerEvent: true });
+        cube5.y({ skipTriggerEvent: true });
+    } else if (payload.action === '-y') {
+        cube4.Y({ skipTriggerEvent: true });
+        cube5.Y({ skipTriggerEvent: true });
+    }
+});
+
+//----------
+
+cube = cube7;
+cube.addCallbackForEvent('init', initCallback);
+cube.addCallbackForEvent('statechange', statechangeCallback);
+cube.init();
+cube.setToRandomState();
+cubeOne.cubes.push(cube);
+
+cube.addCallbackForEvent('beforerotate', (eventName, payload) => {
+    if (payload.action === 'x') {
+        cube1.x({ skipTriggerEvent: true });
+        cube4.x({ skipTriggerEvent: true });
+    } else if (payload.action === '-x') {
+        cube1.X({ skipTriggerEvent: true });
+        cube4.X({ skipTriggerEvent: true });
+    } else if (payload.action === 'y') {
+        cube8.y({ skipTriggerEvent: true });
+        cube9.y({ skipTriggerEvent: true });
+    } else if (payload.action === '-y') {
+        cube8.Y({ skipTriggerEvent: true });
+        cube9.Y({ skipTriggerEvent: true });
+    }
+});
+
+
+//----------
+
+cube = cube8;
+cube.addCallbackForEvent('init', initCallback);
+cube.addCallbackForEvent('statechange', statechangeCallback);
+cube.init();
+cube.setToRandomState();
+cubeOne.cubes.push(cube);
+
+cube.addCallbackForEvent('beforerotate', (eventName, payload) => {
+    if (payload.action === 'x') {
+        cube2.x({ skipTriggerEvent: true });
+        cube5.x({ skipTriggerEvent: true });
+    } else if (payload.action === '-x') {
+        cube2.X({ skipTriggerEvent: true });
+        cube5.X({ skipTriggerEvent: true });
+    } else if (payload.action === 'y') {
+        cube7.y({ skipTriggerEvent: true });
+        cube9.y({ skipTriggerEvent: true });
+    } else if (payload.action === '-y') {
+        cube7.Y({ skipTriggerEvent: true });
+        cube9.Y({ skipTriggerEvent: true });
+    }
+});
+
+//----------
+
+cube = cube9;
+cube.addCallbackForEvent('init', initCallback);
+cube.addCallbackForEvent('statechange', statechangeCallback);
+cube.init();
+cube.setToRandomState();
+cubeOne.cubes.push(cube);
+
+cube.addCallbackForEvent('beforerotate', (eventName, payload) => {
+    if (payload.action === 'x') {
+        cube3.x({ skipTriggerEvent: true });
+        cube6.x({ skipTriggerEvent: true });
+    } else if (payload.action === '-x') {
+        cube3.X({ skipTriggerEvent: true });
+        cube6.X({ skipTriggerEvent: true });
+    } else if (payload.action === 'y') {
+        cube7.y({ skipTriggerEvent: true });
+        cube8.y({ skipTriggerEvent: true });
+    } else if (payload.action === '-y') {
+        cube7.Y({ skipTriggerEvent: true });
+        cube8.Y({ skipTriggerEvent: true });
+    }
+});
+
+//----------
 cubeOne.solve = () => {
     cubeOne.cubes.forEach(cube => cube.gotoState('uf'));
 };
