@@ -160,7 +160,7 @@
     }
 }
 
-.app-info {
+.cubeone-app-info {
     position: fixed;
     display: flex;
     justify-content: center;
@@ -195,7 +195,7 @@
             box-shadow: 2px 2px 1em $color-focus;
         }
     }
-    .row {
+    .cubeone-row {
         margin: 0 auto;
         max-width: 40rem;
         display: flex;
@@ -240,12 +240,12 @@
             }
         }
     }
-    .button-group {
+    .cubeone-button-group {
         font-weight: 700;
         display: flex;
         flex-flow: row wrap;
     }
-    .state-group {
+    .cubeone-state-group {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -257,13 +257,11 @@
             font-weight: 300;
         }
     }
-    .state-infos {
+    .cubeone-state-infos {
         display: flex;
         justify-content: space-between;
         align-items: center;
-    }
-    .state-info {
-        > .state {
+        > div {
             display: inline-block;
             font-weight: 400;
             text-transform: uppercase;
