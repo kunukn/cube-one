@@ -114,7 +114,7 @@ class CubeOne {
                 this._setState(state);
                 this._triggerEvent('afterrotate', {
                     cube: this.cubeComponentEl,
-                    stateCode: state.code,
+                    state: state,
                 });
             });
         });
@@ -551,6 +551,7 @@ class CubeOne {
             this._triggerEvent('beforerotate', {
                 cube: this.cubeComponentEl,
                 action: 'x',
+                state: this.getState(),
             });
         }
         this._actionInvoke('x', this._uix, config);
@@ -561,6 +562,7 @@ class CubeOne {
             this._triggerEvent('beforerotate', {
                 cube: this.cubeComponentEl,
                 action: '-x',
+                state: this.getState(),
             });
         }
         this._actionInvoke('-x', this._uiX, config);
@@ -571,6 +573,7 @@ class CubeOne {
             this._triggerEvent('beforerotate', {
                 cube: this.cubeComponentEl,
                 action: 'y',
+                state: this.getState(),
             });
         }
         this._actionInvoke('y', this._uiy, config);
@@ -581,6 +584,7 @@ class CubeOne {
             this._triggerEvent('beforerotate', {
                 cube: this.cubeComponentEl,
                 action: '-y',
+                state: this.getState(),
             });
         }
         this._actionInvoke('-y', this._uiY, config);
@@ -591,6 +595,7 @@ class CubeOne {
             this._triggerEvent('beforerotate', {
                 cube: this.cubeComponentEl,
                 action: 'z',
+                state: this.getState(),
             });
         }
         this._actionInvoke('z', this._uiz, config);
@@ -601,6 +606,7 @@ class CubeOne {
             this._triggerEvent('beforerotate', {
                 cube: this.cubeComponentEl,
                 action: '-z',
+                state: this.getState(),
             });
         }
         this._actionInvoke('-z', this._uiZ, config);
