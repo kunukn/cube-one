@@ -50,8 +50,7 @@
             > div {
                 border-color: $color-focus;
                 > div {
-                    // box-shadow: 0 0 0 2px white inset;
-                    color: white;
+                    //color: $color-focus; //box-shadow color
                 }
             }
         }
@@ -83,7 +82,6 @@
             transform-origin: center left;
         }
         &[data-type="cubeone-display"] {
-            //display: none;
             transition: transform $rotate-transition-duration;
             user-select: none;
             pointer-events: none;
@@ -99,7 +97,7 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                border: 2px solid black;
+                border: 2px solid $color-theme;
                 font-size: 0;
                 color: transparent;
                 //backface-visibility: hidden;
@@ -109,7 +107,7 @@
                     //display: none;
                 }
                 > div {
-                    color: #111;
+                    color: $color-theme;
                     //box-shadow: inset 0 0 0 1px, 0 0 0 1px;
                     position: absolute;
                     width: 100%;

@@ -12,7 +12,7 @@ body {
     font-family: Helvetica, sans-serif;
     color: white;
     margin: 0;
-    background-color: #111;
+    background-color: $color-theme;
 }
 
 .body-wrapper {
@@ -22,7 +22,6 @@ body {
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
-    //transition: 1000ms;
     background-blend-mode: multiply;
     &.with-background-image {
         background: rgba(white, .5) url($cube-background-image-url) 0% 0% no-repeat;
