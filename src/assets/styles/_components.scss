@@ -236,6 +236,10 @@
         font-weight: 700;
         display: flex;
         flex-flow: row wrap;
+        flex: 1;
+        @include device(small-only) {
+            min-width: 80%;
+        }
     }
     .state-group {
         display: flex;
@@ -251,16 +255,21 @@
     }
     .state-infos {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
+        flex-flow: row wrap;
     }
     .state-info {
         > .state {
-            font-size: .6em;
+            font-size: .4em;
+            min-width: 1.8em;
+            @include device(medium) {
+                font-size: .6em;
+                min-width: 1.8em;
+            }
             display: inline-block;
             font-weight: 400;
             text-transform: uppercase;
-            min-width: 1.8em;
         }
     }
 }
