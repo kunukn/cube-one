@@ -14,10 +14,10 @@ import dictCubeSkins from './dictionaries/dict-cube-skins';
 
 const states = {};
 const infos = {
-    'cubeone-component-1': qs('.js-state-info-1'),
-    'cubeone-component-2': qs('.js-state-info-2'),
-    'cubeone-component-3': qs('.js-state-info-3'),
-    'cubeone-component-4': qs('.js-state-info-4'),
+    'cubeone-component-1': byId('cubeone-state-info-1'),
+    'cubeone-component-2': byId('cubeone-state-info-2'),
+    'cubeone-component-3': byId('cubeone-state-info-3'),
+    'cubeone-component-4': byId('cubeone-state-info-4'),
 }
 
 function statechangeCallback(eventName, payload) {

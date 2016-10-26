@@ -213,30 +213,26 @@
             }
         }
     }
-    .mouse {
+    .cubeone-device-info {
         text-align: center;
     }
-    .touch {
-        text-align: center;
-    }
-    .keyboard {
-        text-align: center;
-        .groups {
+    .cubeone-device-info--keyboard {
+        .cubeone-device-info-groups {
             display: flex;
         }
-        .group {
+        .cubeone-device-info-group {
             display: flex;
             flex-direction: column;
             >div {
                 display: flex;
                 flex-direction: row;
-            }
-            span,
-            i {
-                font-size: inherit;
-                display: inline-block;
-                position: relative;
-                min-width: 1.4em;
+                span,
+                i {
+                    font-size: inherit;
+                    display: inline-block;
+                    position: relative;
+                    min-width: 1.4em;
+                }
             }
         }
     }
