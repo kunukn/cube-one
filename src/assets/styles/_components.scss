@@ -40,6 +40,7 @@
         animation: spin-animation 20s linear infinite;
     }
     .cubeone-cube-group {
+        transition: transform 300ms;
         width: 2 * $cube-size;
         height: 2 * $cube-size;
         display: flex;
