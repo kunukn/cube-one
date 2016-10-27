@@ -239,7 +239,7 @@ cubeOne.random = () => {
 
 window.cubeOne = cubeOne;
 
-const btnCubeOneRotate = byId('btn-cube-one-rotate');
+const btnCubeOneRotate = byId('btn-cube-one-rotate-view');
 btnCubeOneRotate.addEventListener('click', (ev) => {
     if (cubeOneSceneEl.classList.contains('left-side')) {
         cubeOneSceneEl.classList.remove('left-side');
@@ -265,11 +265,11 @@ btnCubeOneRandom.addEventListener('click', (ev) => {
     cubeOne.random();
 });
 
-const cubeoneScene = qs('.cubeone-scene');
-byId('btn-cube-one-temp').addEventListener('click', (ev) => {
-    cubeoneScene.classList.toggle('left-setup');
-    cubeoneScene.classList.toggle('x2-left');
-});
+// const cubeoneScene = qs('.cubeone-scene');
+// byId('btn-cube-one-temp').addEventListener('click', (ev) => {
+//     cubeoneScene.classList.toggle('left-setup');
+//     cubeoneScene.classList.toggle('x2-left');
+// });
 
 
 
