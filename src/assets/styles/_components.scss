@@ -322,6 +322,7 @@
             transform-origin: center left;
         }
         &[data-type="cubeone-display"] {
+            // display: none;
             transition: transform $rotate-transition-duration;
             user-select: none;
             pointer-events: none;
@@ -366,6 +367,7 @@
             top: 0;
             left: 0;
             >div {
+                border: 2px solid;
                 position: absolute;
                 top: 0;
                 left: 0;
