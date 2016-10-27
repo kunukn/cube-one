@@ -39,42 +39,77 @@
     &.spin {
         animation: spin-animation 20s linear infinite;
     }
-    &.x-left {
+    &.left-setup {
         [id="cubeone-component-1"] [data-type="cubeone-display"] {
             transform-origin: 0 100% #{$cube-size * -.5};
-            transform: rotateX(90deg);
         }
         [id="cubeone-component-5"] [data-type="cubeone-display"] {
             transform-origin: 0 100% #{$cube-size * .5};
-            transform: rotateX(90deg);
         }
         [id="cubeone-component-7"] [data-type="cubeone-display"] {
             transform-origin: 0 0 #{$cube-size * .5};
-            transform: rotateX(90deg);
         }
         [id="cubeone-component-3"] [data-type="cubeone-display"] {
             transform-origin: 0 0 #{$cube-size * -.5};
+        }
+    }
+    &.x-left {
+        [id="cubeone-component-1"] [data-type="cubeone-display"] {
             transform: rotateX(90deg);
+        }
+        [id="cubeone-component-5"] [data-type="cubeone-display"] {
+            transform: rotateX(90deg);
+        }
+        [id="cubeone-component-7"] [data-type="cubeone-display"] {
+            transform: rotateX(90deg);
+        }
+        [id="cubeone-component-3"] [data-type="cubeone-display"] {
+            transform: rotateX(90deg);
+        }
+    }
+    &.x2-left {
+        [id="cubeone-component-1"] [data-type="cubeone-display"] {
+            transform: rotateX(180deg);
+        }
+        [id="cubeone-component-5"] [data-type="cubeone-display"] {
+            transform: rotateX(180deg);
+        }
+        [id="cubeone-component-7"] [data-type="cubeone-display"] {
+            transform: rotateX(180deg);
+        }
+        [id="cubeone-component-3"] [data-type="cubeone-display"] {
+            transform: rotateX(180deg);
         }
     }
     &.X-left {
         [id="cubeone-component-1"] [data-type="cubeone-display"] {
-            transform-origin: 0 100% #{$cube-size * -.5};
             transform: rotateX(-90deg);
         }
         [id="cubeone-component-5"] [data-type="cubeone-display"] {
-            transform-origin: 0 100% #{$cube-size * .5};
             transform: rotateX(-90deg);
         }
         [id="cubeone-component-7"] [data-type="cubeone-display"] {
-            transform-origin: 0 0 #{$cube-size * .5};
             transform: rotateX(-90deg);
         }
         [id="cubeone-component-3"] [data-type="cubeone-display"] {
-            transform-origin: 0 0 #{$cube-size * -.5};
             transform: rotateX(-90deg);
         }
     }
+    &.X2-left {
+        [id="cubeone-component-1"] [data-type="cubeone-display"] {
+            transform: rotateX(-180deg);
+        }
+        [id="cubeone-component-5"] [data-type="cubeone-display"] {
+            transform: rotateX(-180deg);
+        }
+        [id="cubeone-component-7"] [data-type="cubeone-display"] {
+            transform: rotateX(-180deg);
+        }
+        [id="cubeone-component-3"] [data-type="cubeone-display"] {
+            transform: rotateX(-180deg);
+        }
+    }
+   
     &.x-right {
         [id="cubeone-component-2"] [data-type="cubeone-display"] {
             transform-origin: 0 100% #{$cube-size * -.5};
