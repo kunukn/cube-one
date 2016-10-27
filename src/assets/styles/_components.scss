@@ -50,9 +50,9 @@
     &:focus {
         outline: none;
         .cubeone-cube[data-type="cubeone-display"] {
-            > div {
+            >div {
                 border-color: $color-focus;
-                > div {
+                >div {
                     //color: $color-focus; //box-shadow color
                 }
             }
@@ -89,7 +89,7 @@
             user-select: none;
             pointer-events: none;
             position: relative;
-            > div {
+            >div {
                 transition: opacity $rotate-transition-duration;
                 user-select: none;
                 pointer-events: none;
@@ -108,7 +108,7 @@
                 &.tapped {
                     opacity: .2;
                 }
-                > div {
+                >div {
                     color: $color-theme;
                     //box-shadow: inset 0 0 0 1px, 0 0 0 1px;
                     position: absolute;
@@ -128,7 +128,8 @@
             position: absolute;
             top: 0;
             left: 0;
-            > div {
+            >div {
+                transition: border-color 100ms;
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -143,9 +144,13 @@
                 color: transparent;
                 cursor: pointer;
                 background: transparent;
+                border: 2px solid transparent;
                 //background: rgba(red, .5);
                 //display: none;
                 // font-size: 0;
+                &:hover {
+                    border-color: rgba( white, .3);
+                }
             }
         }
     }
@@ -246,7 +251,7 @@
         justify-content: space-between;
         align-items: center;
         flex-direction: column;
-        > h3 {
+        >h3 {
             margin: 0;
             padding: 0;
             font-size: .8em;
@@ -257,7 +262,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        > div {
+        >div {
             display: inline-block;
             font-weight: 400;
             text-transform: uppercase;
