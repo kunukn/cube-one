@@ -75,154 +75,154 @@ const cubeOne = {
 
 
 
-const cube1 = new CubeOne({
-    cubeComponent: byId('cubeone-component-1'),
-    // faceSkins: {
-    //     u: {
-    //         bgColor: 'red'
-    //     },
-    //     f: {
-    //         bgColor: 'pink'
-    //     },
-    //     r: {
-    //         bgColor: 'yellow'
-    //     },
-    //     l: {
-    //         bgColor: 'green'
-    //     },
-    //     b: {
-    //         bgColor: 'dodgerblue'
-    //     },
-    //     d: {
-    //         bgColor: 'teal'
-    //     },
-    // },
-});
-const cube2 = new CubeOne({
-    cubeComponent: byId('cubeone-component-2'),
-});
-const cube3 = new CubeOne({
-    cubeComponent: byId('cubeone-component-3'),
-});
-const cube4 = new CubeOne({
-    cubeComponent: byId('cubeone-component-4'),
-});
-const cube5 = new CubeOne({
-    cubeComponent: byId('cubeone-component-5'),
-});
-const cube6 = new CubeOne({
-    cubeComponent: byId('cubeone-component-6'),
-});
-const cube7 = new CubeOne({
-    cubeComponent: byId('cubeone-component-7'),
-});
-const cube8 = new CubeOne({
-    cubeComponent: byId('cubeone-component-8'),
-});
+// const cube1 = new CubeOne({
+//     cubeComponent: byId('cubeone-component-1'),
+//     // faceSkins: {
+//     //     u: {
+//     //         bgColor: 'red'
+//     //     },
+//     //     f: {
+//     //         bgColor: 'pink'
+//     //     },
+//     //     r: {
+//     //         bgColor: 'yellow'
+//     //     },
+//     //     l: {
+//     //         bgColor: 'green'
+//     //     },
+//     //     b: {
+//     //         bgColor: 'dodgerblue'
+//     //     },
+//     //     d: {
+//     //         bgColor: 'teal'
+//     //     },
+//     // },
+// });
+// const cube2 = new CubeOne({
+//     cubeComponent: byId('cubeone-component-2'),
+// });
+// const cube3 = new CubeOne({
+//     cubeComponent: byId('cubeone-component-3'),
+// });
+// const cube4 = new CubeOne({
+//     cubeComponent: byId('cubeone-component-4'),
+// });
+// const cube5 = new CubeOne({
+//     cubeComponent: byId('cubeone-component-5'),
+// });
+// const cube6 = new CubeOne({
+//     cubeComponent: byId('cubeone-component-6'),
+// });
+// const cube7 = new CubeOne({
+//     cubeComponent: byId('cubeone-component-7'),
+// });
+// const cube8 = new CubeOne({
+//     cubeComponent: byId('cubeone-component-8'),
+// });
 
-let cube = cube1;
-cube.addCallbackForEvent('init', initCallback);
-cube.addCallbackForEvent('statechange', statechangeCallback);
-cube.init();
-cube.setToRandomState();
-cubeOne.cubes.push(cube);
-cube.addCallbackForEvent('beforerotate', (eventName, payload) => {
-    if (payload.action === 'x') {
-        cube3.x({ skipTriggerEvent: true });
-    } else if (payload.action === '-x') {
-        cube3.X({ skipTriggerEvent: true });
-    } else if (payload.action === 'y') {
-        cube2.y({ skipTriggerEvent: true });
-    } else if (payload.action === '-y') {
-        cube2.Y({ skipTriggerEvent: true });
-    }
-});
+// let cube = cube1;
+// cube.addCallbackForEvent('init', initCallback);
+// cube.addCallbackForEvent('statechange', statechangeCallback);
+// cube.init();
+// cube.setToRandomState();
+// cubeOne.cubes.push(cube);
+// cube.addCallbackForEvent('beforerotate', (eventName, payload) => {
+//     if (payload.action === 'x') {
+//         cube3.x({ skipTriggerEvent: true });
+//     } else if (payload.action === '-x') {
+//         cube3.X({ skipTriggerEvent: true });
+//     } else if (payload.action === 'y') {
+//         cube2.y({ skipTriggerEvent: true });
+//     } else if (payload.action === '-y') {
+//         cube2.Y({ skipTriggerEvent: true });
+//     }
+// });
 
-//----------
-cube = cube2;
-cube.addCallbackForEvent('init', initCallback);
-cube.addCallbackForEvent('statechange', statechangeCallback);
-cube.init();
-cube.setToRandomState();
-cubeOne.cubes.push(cube);
-cube.addCallbackForEvent('beforerotate', (eventName, payload) => {
-    if (payload.action === 'x') {
-        cube4.x({ skipTriggerEvent: true });
-    } else if (payload.action === '-x') {
-        cube4.X({ skipTriggerEvent: true });
-    } else if (payload.action === 'y') {
-        cube1.y({ skipTriggerEvent: true });
-    } else if (payload.action === '-y') {
-        cube1.Y({ skipTriggerEvent: true });
-    }
-});
-
-
-//----------
-cube = cube3;
-cube.addCallbackForEvent('init', initCallback);
-cube.addCallbackForEvent('statechange', statechangeCallback);
-cube.init();
-cube.setToRandomState();
-cubeOne.cubes.push(cube);
-cube.addCallbackForEvent('beforerotate', (eventName, payload) => {
-    if (payload.action === 'x') {
-        cube1.x({ skipTriggerEvent: true });
-    } else if (payload.action === '-x') {
-        cube1.X({ skipTriggerEvent: true });
-    } else if (payload.action === 'y') {
-        cube4.y({ skipTriggerEvent: true });
-    } else if (payload.action === '-y') {
-        cube4.Y({ skipTriggerEvent: true });
-    }
-});
-
-//----------
-cube = cube4;
-cube.addCallbackForEvent('init', initCallback);
-cube.addCallbackForEvent('statechange', statechangeCallback);
-cube.init();
-cube.setToRandomState();
-cubeOne.cubes.push(cube);
-cube.addCallbackForEvent('beforerotate', (eventName, payload) => {
-    if (payload.action === 'x') {
-        cube2.x({ skipTriggerEvent: true });
-    } else if (payload.action === '-x') {
-        cube2.X({ skipTriggerEvent: true });
-    } else if (payload.action === 'y') {
-        cube3.y({ skipTriggerEvent: true });
-    } else if (payload.action === '-y') {
-        cube3.Y({ skipTriggerEvent: true });
-    }
-});
+// //----------
+// cube = cube2;
+// cube.addCallbackForEvent('init', initCallback);
+// cube.addCallbackForEvent('statechange', statechangeCallback);
+// cube.init();
+// cube.setToRandomState();
+// cubeOne.cubes.push(cube);
+// cube.addCallbackForEvent('beforerotate', (eventName, payload) => {
+//     if (payload.action === 'x') {
+//         cube4.x({ skipTriggerEvent: true });
+//     } else if (payload.action === '-x') {
+//         cube4.X({ skipTriggerEvent: true });
+//     } else if (payload.action === 'y') {
+//         cube1.y({ skipTriggerEvent: true });
+//     } else if (payload.action === '-y') {
+//         cube1.Y({ skipTriggerEvent: true });
+//     }
+// });
 
 
-//----------
-cube = cube5;
-cube.init();
-cube.setToRandomState();
-cubeOne.cubes.push(cube);
+// //----------
+// cube = cube3;
+// cube.addCallbackForEvent('init', initCallback);
+// cube.addCallbackForEvent('statechange', statechangeCallback);
+// cube.init();
+// cube.setToRandomState();
+// cubeOne.cubes.push(cube);
+// cube.addCallbackForEvent('beforerotate', (eventName, payload) => {
+//     if (payload.action === 'x') {
+//         cube1.x({ skipTriggerEvent: true });
+//     } else if (payload.action === '-x') {
+//         cube1.X({ skipTriggerEvent: true });
+//     } else if (payload.action === 'y') {
+//         cube4.y({ skipTriggerEvent: true });
+//     } else if (payload.action === '-y') {
+//         cube4.Y({ skipTriggerEvent: true });
+//     }
+// });
+
+// //----------
+// cube = cube4;
+// cube.addCallbackForEvent('init', initCallback);
+// cube.addCallbackForEvent('statechange', statechangeCallback);
+// cube.init();
+// cube.setToRandomState();
+// cubeOne.cubes.push(cube);
+// cube.addCallbackForEvent('beforerotate', (eventName, payload) => {
+//     if (payload.action === 'x') {
+//         cube2.x({ skipTriggerEvent: true });
+//     } else if (payload.action === '-x') {
+//         cube2.X({ skipTriggerEvent: true });
+//     } else if (payload.action === 'y') {
+//         cube3.y({ skipTriggerEvent: true });
+//     } else if (payload.action === '-y') {
+//         cube3.Y({ skipTriggerEvent: true });
+//     }
+// });
 
 
-//----------
-cube = cube6;
-cube.init();
-cube.setToRandomState();
-cubeOne.cubes.push(cube);
+// //----------
+// cube = cube5;
+// cube.init();
+// cube.setToRandomState();
+// cubeOne.cubes.push(cube);
 
 
-//----------
-cube = cube7;
-cube.init();
-cube.setToRandomState();
-cubeOne.cubes.push(cube);
+// //----------
+// cube = cube6;
+// cube.init();
+// cube.setToRandomState();
+// cubeOne.cubes.push(cube);
 
 
-//----------
-cube = cube8;
-cube.init();
-cube.setToRandomState();
-cubeOne.cubes.push(cube);
+// //----------
+// cube = cube7;
+// cube.init();
+// cube.setToRandomState();
+// cubeOne.cubes.push(cube);
+
+
+// //----------
+// cube = cube8;
+// cube.init();
+// cube.setToRandomState();
+// cubeOne.cubes.push(cube);
 
 
 //----------
@@ -270,6 +270,13 @@ const btnCubeOneRandom = byId('btn-cube-one-random');
 btnCubeOneRandom.addEventListener('click', (ev) => {
     cubeOne.random();
 });
+
+const cubeoneScene = qs('.cubeone-scene');
+byId('btn-cube-one-temp').addEventListener('click', (ev) => {
+    cubeoneScene.classList.toggle('xl');
+});
+
+
 
 
 //----------

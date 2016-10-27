@@ -39,6 +39,35 @@
     &.spin {
         animation: spin-animation 20s linear infinite;
     }
+    &.xl {
+        [id="cubeone-component-1"] [data-type="cubeone-display"] {
+             transform-origin: 0 100% #{$cube-size * -.5};            
+             transform: rotateX(90deg);
+        }
+        [id="cubeone-component-5"] [data-type="cubeone-display"] {
+            transform-origin: 0 100% #{$cube-size * .5};
+            transform: rotateX(90deg);
+        }
+        [id="cubeone-component-7"] [data-type="cubeone-display"] {
+            transform-origin: 0 0 #{$cube-size * .5};
+            transform: rotateX(90deg);
+        }
+        [id="cubeone-component-3"] [data-type="cubeone-display"] {
+            transform-origin: 0 0 #{$cube-size * -.5};
+            transform: rotateX(90deg);
+        }
+    }
+    &.Xl {}
+    &.xr {}
+    &.Xr {}
+    &.yu {}
+    &.yd {}
+    &.yU {}
+    &.yD {}
+    &.zf {}
+    &.zb {}
+    &.Zf {}
+    &.Zb {}
     .cubeone-cube-group {
         transition: transform 300ms;
         width: 2 * $cube-size;
@@ -71,9 +100,9 @@
     &:focus {
         outline: none;
         .cubeone-cube[data-type="cubeone-display"] {
-            > div {
+            >div {
                 border-color: $color-focus;
-                > div {
+                >div {
                     //color: $color-focus; //box-shadow color
                 }
             }
@@ -110,7 +139,7 @@
             user-select: none;
             pointer-events: none;
             position: relative;
-            > div {
+            >div {
                 transition: opacity $rotate-transition-duration;
                 user-select: none;
                 pointer-events: none;
@@ -129,7 +158,7 @@
                 &.tapped {
                     opacity: .2;
                 }
-                > div {
+                >div {
                     color: $color-theme;
                     //box-shadow: inset 0 0 0 1px, 0 0 0 1px;
                     position: absolute;
@@ -149,7 +178,7 @@
             position: absolute;
             top: 0;
             left: 0;
-            > div {
+            >div {
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -267,7 +296,7 @@
         justify-content: space-between;
         align-items: center;
         flex-direction: column;
-        > h3 {
+        >h3 {
             margin: 0;
             padding: 0;
             font-size: .8em;
@@ -278,11 +307,17 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        > div {
+        >div {
             display: inline-block;
             font-weight: 400;
             text-transform: uppercase;
             min-width: 2em;
         }
+    }
+}
+
+[data-type="cubeone"]:not([id="cubeone-component-3"]) {
+    [data-type="cubeone-display"]>div>div {
+        background: rgba(red, .5) !important;
     }
 }
