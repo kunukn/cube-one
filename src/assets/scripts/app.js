@@ -112,13 +112,13 @@ cube.setToRandomState();
 cubeOne.cubes.push(cube);
 cube.addCallbackForEvent('beforerotate', (eventName, payload) => {
     if (payload.action === 'x') {
-        cube3.x({ skipTriggerEvent: true });
-    } else if (payload.action === '-x') {
         cube3.X({ skipTriggerEvent: true });
+    } else if (payload.action === '-x') {
+        cube3.x({ skipTriggerEvent: true });
     } else if (payload.action === 'y') {
-        cube2.y({ skipTriggerEvent: true });
-    } else if (payload.action === '-y') {
         cube2.Y({ skipTriggerEvent: true });
+    } else if (payload.action === '-y') {
+        cube2.y({ skipTriggerEvent: true });
     }
 });
 
@@ -131,13 +131,13 @@ cube.setToRandomState();
 cubeOne.cubes.push(cube);
 cube.addCallbackForEvent('beforerotate', (eventName, payload) => {
     if (payload.action === 'x') {
-        cube4.x({ skipTriggerEvent: true });
-    } else if (payload.action === '-x') {
         cube4.X({ skipTriggerEvent: true });
+    } else if (payload.action === '-x') {
+        cube4.x({ skipTriggerEvent: true });
     } else if (payload.action === 'y') {
-        cube1.y({ skipTriggerEvent: true });
-    } else if (payload.action === '-y') {
         cube1.Y({ skipTriggerEvent: true });
+    } else if (payload.action === '-y') {
+        cube1.y({ skipTriggerEvent: true });
     }
 });
 
@@ -151,13 +151,13 @@ cube.setToRandomState();
 cubeOne.cubes.push(cube);
 cube.addCallbackForEvent('beforerotate', (eventName, payload) => {
     if (payload.action === 'x') {
-        cube1.x({ skipTriggerEvent: true });
-    } else if (payload.action === '-x') {
         cube1.X({ skipTriggerEvent: true });
+    } else if (payload.action === '-x') {
+        cube1.x({ skipTriggerEvent: true });
     } else if (payload.action === 'y') {
-        cube4.y({ skipTriggerEvent: true });
-    } else if (payload.action === '-y') {
         cube4.Y({ skipTriggerEvent: true });
+    } else if (payload.action === '-y') {
+        cube4.y({ skipTriggerEvent: true });
     }
 });
 
@@ -170,16 +170,16 @@ cube.setToRandomState();
 cubeOne.cubes.push(cube);
 cube.addCallbackForEvent('beforerotate', (eventName, payload) => {
     if (payload.action === 'x'){
-        cube2.x({ skipTriggerEvent: true });
-    }
-    else if (payload.action === '-x'){
         cube2.X({ skipTriggerEvent: true });
     }
+    else if (payload.action === '-x'){
+        cube2.x({ skipTriggerEvent: true });
+    }
     else if (payload.action === 'y'){
-        cube3.y({ skipTriggerEvent: true });
+        cube3.Y({ skipTriggerEvent: true });
     }
     else if (payload.action === '-y'){
-        cube3.Y({ skipTriggerEvent: true });
+        cube3.y({ skipTriggerEvent: true });
     }
 });
 
