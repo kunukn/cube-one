@@ -273,7 +273,7 @@ btnCubeOneRandom.addEventListener('click', (ev) => {
 
 const cubeoneScene = qs('.cubeone-scene');
 byId('btn-cube-one-temp').addEventListener('click', (ev) => {
-    cubeoneScene.classList.toggle('xl');
+    cubeoneScene.classList.toggle('z-back');
 });
 
 
