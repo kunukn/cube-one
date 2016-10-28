@@ -127,8 +127,6 @@ class CubeOne {
 
     init() {
 
-        this._handleKeyEvent.bind(this);
-
         const cubeComponentEl = this.cubeComponentEl;
 
         const touchUpEl = qs('[data-type="cubeone-touch"] > [data-type=up]', cubeComponentEl),
