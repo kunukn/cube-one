@@ -1,10 +1,10 @@
 'use strict';
 
-import { debug, log, error } from './logger';
+import { debug, log, error } from '../logger';
 
-import { qs, qsa, byId } from './query';
+import { qs, qsa, byId } from '../query';
 
-import dictCubeSkins from './dictionaries/dict-cube-skins';
+import dictCubeSkins from '../dictionaries/dict-cube-skins';
 
 import deepFreeze from 'deep-freeze';
 
@@ -19,12 +19,12 @@ import {
     getBack,
     getUp,
     getFront
-} from './cube-util';
+} from '../cube-util';
 
-import dictCube from './dictionaries/dict-cube';
-import dictCubeTransform from './dictionaries/dict-cube-transform';
+import dictCube from '../dictionaries/dict-cube';
+import dictCubeTransform from '../dictionaries/dict-cube-transform';
 
-import { STATES, STATES_ARRAY, KEY, EVENT_NAMES } from './constants';
+import { STATES, STATES_ARRAY, KEY, EVENT_NAMES } from '../constants';
 
 class CubeOne {
     constructor(config) {
@@ -113,7 +113,7 @@ class CubeOne {
                 state.rotateEnabled = true;
                 this._setState(state);
                 this._triggerEvent('afterrotate', {
-                    cube: this.cubeComponentEl,
+                    id: this.cubeComponentEl.id,
                     state: state,
                 });
             });
@@ -501,7 +501,7 @@ class CubeOne {
         qs(`[data-type="${target}"]`, element).classList.toggle('tapped');
     }
 
-    _actionInvoke(action, ui, config) {
+    _actionInvoke({ action, ui, config }) {
         let state = this.getState(),
             stateCode = state.code;
 
@@ -544,70 +544,50 @@ class CubeOne {
         this._updateUiFaces();
     }
 
-    x(config) {
+    _beforeRotateTriggerHelper({ id, action, config }) {
         if (!config || !config.skipTriggerEvent) {
             this._triggerEvent('beforerotate', {
-                cube: this.cubeComponentEl,
-                action: 'x',
+                id,
+                action,
                 state: this.getState(),
             });
         }
-        this._actionInvoke('x', this._uix, config);
+    }
+
+    x(config) {
+        const action = 'x';
+        this._beforeRotateTriggerHelper({ id: this.cubeComponentEl.id, action, config });
+        this._actionInvoke({ action, ui: this._uix, config });
     }
 
     X(config) {
-        if (!config || !config.skipTriggerEvent) {
-            this._triggerEvent('beforerotate', {
-                cube: this.cubeComponentEl,
-                action: '-x',
-                state: this.getState(),
-            });
-        }
-        this._actionInvoke('-x', this._uiX, config);
+        const action = '-x';
+        this._beforeRotateTriggerHelper({ id: this.cubeComponentEl.id, action, config });
+        this._actionInvoke({ action, ui: this._uiX, config });
     }
 
     y(config) {
-        if (!config || !config.skipTriggerEvent) {
-            this._triggerEvent('beforerotate', {
-                cube: this.cubeComponentEl,
-                action: 'y',
-                state: this.getState(),
-            });
-        }
-        this._actionInvoke('y', this._uiy, config);
+        const action = 'y';
+        this._beforeRotateTriggerHelper({ id: this.cubeComponentEl.id, action, config });
+        this._actionInvoke({ action, ui: this._uiy, config });
     }
 
     Y(config) {
-        if (!config || !config.skipTriggerEvent) {
-            this._triggerEvent('beforerotate', {
-                cube: this.cubeComponentEl,
-                action: '-y',
-                state: this.getState(),
-            });
-        }
-        this._actionInvoke('-y', this._uiY, config);
+        const action = '-y';
+        this._beforeRotateTriggerHelper({ id: this.cubeComponentEl.id, action, config });
+        this._actionInvoke({ action, ui: this._uiY, config });
     }
 
     z(config) {
-        if (!config || !config.skipTriggerEvent) {
-            this._triggerEvent('beforerotate', {
-                cube: this.cubeComponentEl,
-                action: 'z',
-                state: this.getState(),
-            });
-        }
-        this._actionInvoke('z', this._uiz, config);
+        const action = 'z';
+        this._beforeRotateTriggerHelper({ id: this.cubeComponentEl.id, action, config });
+        this._actionInvoke({ action, ui: this._uiz, config });
     }
 
     Z(config) {
-        if (!config || !config.skipTriggerEvent) {
-            this._triggerEvent('beforerotate', {
-                cube: this.cubeComponentEl,
-                action: '-z',
-                state: this.getState(),
-            });
-        }
-        this._actionInvoke('-z', this._uiZ, config);
+        const action = '-z';
+        this._beforeRotateTriggerHelper({ id: this.cubeComponentEl.id, action, config });
+        this._actionInvoke({ action, ui: this._uiZ, config });
     }
 
     _uix() {
@@ -670,4 +650,4 @@ class CubeOne {
     }
 }
 
-export default CubeOne;
+export { CubeOne };

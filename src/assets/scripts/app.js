@@ -6,7 +6,7 @@ import { log } from './logger';
 
 import { qs, qsa, byId } from './query';
 
-import CubeOne from './cube-one';
+import { CubeOne } from './cube-one';
 
 import dictCubeSkins from './dictionaries/dict-cube-skins';
 
@@ -33,6 +33,16 @@ function initCallback(eventName, payload) {
     let info = infos[payload.cube.id];
     if (info)
         info.innerHTML = `${payload.state.code}`;
+}
+
+function beforerotateCallback(eventName, payload) {
+    log(eventName);
+    log(payload);
+}
+
+function afterrotateCallback(eventName, payload) {
+    log(eventName);
+    log(payload);
 }
 
 const bodyWrapperEl = qs('.body-wrapper');
@@ -107,6 +117,8 @@ const cube4 = new CubeOne({
 let cube = cube1;
 cube.addCallbackForEvent('init', initCallback);
 cube.addCallbackForEvent('statechange', statechangeCallback);
+// cube.addCallbackForEvent('beforerotate', beforerotateCallback);
+// cube.addCallbackForEvent('afterrotate', afterrotateCallback);
 cube.init();
 cube.setToRandomState();
 cubeOne.cubes.push(cube);
@@ -169,16 +181,13 @@ cube.init();
 cube.setToRandomState();
 cubeOne.cubes.push(cube);
 cube.addCallbackForEvent('beforerotate', (eventName, payload) => {
-    if (payload.action === 'x'){
+    if (payload.action === 'x') {
         cube2.x({ skipTriggerEvent: true });
-    }
-    else if (payload.action === '-x'){
+    } else if (payload.action === '-x') {
         cube2.X({ skipTriggerEvent: true });
-    }
-    else if (payload.action === 'y'){
+    } else if (payload.action === 'y') {
         cube3.y({ skipTriggerEvent: true });
-    }
-    else if (payload.action === '-y'){
+    } else if (payload.action === '-y') {
         cube3.Y({ skipTriggerEvent: true });
     }
 });
@@ -194,7 +203,7 @@ cubeOne.random = () => {
 };
 
 
-window.cubeOne = cubeOne;
+window.cubeone = cubeOne;
 
 const btnCubeOneRotate = byId('btn-cube-one-rotate');
 btnCubeOneRotate.addEventListener('click', (ev) => {
@@ -230,4 +239,4 @@ btnCubeOneRandom.addEventListener('click', (ev) => {
 
 
 //----------
-log('cubeOne is available in console');
+log('cubeone is available in console');
